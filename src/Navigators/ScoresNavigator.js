@@ -1,5 +1,6 @@
 import React from 'react'
 import ScoresContainer from '../Screen/Scores/ScoresContainer';
+import LeagueDetails from '../Screen/Scores/LeagueDetails/LeagueDetails';
 import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
@@ -12,12 +13,13 @@ const ScoresNavigator = () => {
             options={{
                headerShown: false
             }} />
-         {/* <Stack.Screen
-            name=""
-            component={ }
+         <Stack.Screen
+            name="LeagueDetails"
+            component={LeagueDetails}
             options={{
                headerShown: false
-            }} /> */}
+            }}
+         />
       </Stack.Navigator>
    )
 }

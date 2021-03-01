@@ -1,8 +1,12 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+// import PropTypes from 'prop-types';
+import {
+   View,
+   TouchableOpacity,
+} from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { MText } from '../Shared/StyledComponents/MText';
-
+import { BG_COLOR, WHITE, pgHorizontal } from './Theme';
 
 const Header = ({ title }) => {
 
@@ -11,25 +15,29 @@ const Header = ({ title }) => {
          flexDirection: 'row',
          justifyContent: 'space-between',
          alignItems: 'center',
-         padding: 10
+         padding: pgHorizontal,
+         backgroundColor: BG_COLOR
       }}>
          <TouchableOpacity>
-            <FontAwesome name="cog" size={24} color="black" />
+            <FontAwesome name="cog" size={24} color={WHITE} />
          </TouchableOpacity>
 
          <View style={{
             justifyContent: 'center',
             alignItems: 'center'
          }}>
-            <MText bold medium underline>{title}</MText>
+            <MText title bold medium underline>{title}</MText>
          </View>
 
          <TouchableOpacity>
-            <FontAwesome name="search" size={24} color="black" />
+            <FontAwesome name="search" size={24} color={WHITE} />
          </TouchableOpacity>
 
       </View>
    )
 }
+// Header.propTypes = {
+//    title: PropTypes.string.isRequired
+// };
 
-export default Header
+export default Header;
