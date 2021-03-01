@@ -1,11 +1,20 @@
 import styled, { css } from "styled-components/native";
 
+//  font-family: 'Kanit_400Regular';
+
 export const MText = styled.Text`
-   color: black;
+   color: #aaaaaa;
+   font-size: 14px;
+  
 
    ${(props) =>
-      props.white && css`
-         color: white;
+      props.title && css`
+         color: #fcfcfc;
+      `}
+
+   ${(props) =>
+      props.black && css`
+         color: black;
       `}
 
    ${(props) =>
@@ -13,19 +22,15 @@ export const MText = styled.Text`
          font-weight: bold;
       `}
 
-
    ${(props) =>
       props.large && css`
-         font-size: 26px
-      `}
-   ${(props) =>
-      props.medium && css`
          font-size: 20px
       `}
    ${(props) =>
-      props.normal && css`
+      props.medium && css`
          font-size: 16px
       `}
+
    ${(props) =>
       props.small && css`
          font-size: 12px
@@ -36,4 +41,9 @@ export const MText = styled.Text`
          text-decoration: underline;
       `}
 
+   ${(props) =>
+      props.center && css`
+         text-align: center;
+      `}
+   
 `;
