@@ -3,10 +3,9 @@ import { FontAwesome, AntDesign, FontAwesome5 } from '@expo/vector-icons';
 // import TabItem from './TabItem';
 
 import ScoresNavigator from './ScoresNavigator';
-
+import LikeNavigator from './LikeNavigator';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Tab = createBottomTabNavigator();
-
 
 const Main = () => {
    return (
@@ -33,14 +32,13 @@ const Main = () => {
          />
 
          <Tab.Screen
-            name="Favourites"
-            component={ScoresNavigator}
+            name="Likes"
+            component={LikeNavigator}
             options={{
                tabBarIcon: ({ color }) => (
                   // <TabItem screen="Favourites">
                   <AntDesign name="staro" size={30} color={color} />
                   // </TabItem>
-
                ),
             }}
          />
