@@ -8,7 +8,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { MText } from '../Shared/StyledComponents/MText';
 import { BG_COLOR, WHITE, pgHorizontal } from './Theme';
 
-const Header = ({ title }) => {
+const Header = ({ title, navigation }) => {
 
    return (
       <View style={{
@@ -18,7 +18,11 @@ const Header = ({ title }) => {
          padding: pgHorizontal,
          backgroundColor: BG_COLOR
       }}>
-         <TouchableOpacity>
+         <TouchableOpacity
+            onPress={() => {
+               navigation.openDrawer();
+            }}
+         >
             <FontAwesome name="cog" size={24} color={WHITE} />
          </TouchableOpacity>
 
