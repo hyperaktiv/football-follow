@@ -1,16 +1,15 @@
 import React from 'react'
-import { View, StyleSheet, Dimensions, ScrollView } from 'react-native'
+import { View, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import Header from '../../Shared/Header';
 import { FontAwesome } from '@expo/vector-icons';
 
 import { BG_COLOR, WHITE, pgHorizontal, DIVIDE_COLOR } from '../../Shared/Theme';
-import { MText } from '../../Shared/StyledComponents/MText';
 import CalendarStrip from 'react-native-calendar-strip';
 
 import LeagueContainer from './LeagueContainer';
 import GameContainer from './GameContainer';
 
-var { width, height } = Dimensions.get('window');
+// var { width, height } = Dimensions.get('window');
 
 const data = [
    { "code": "PL", "name": "Premier League", "country": "England" },
@@ -84,6 +83,6 @@ const styles = StyleSheet.create({
       borderBottomWidth: 1,
       borderColor: DIVIDE_COLOR
    }
-})
+});
 
 export default ScoresContainer
