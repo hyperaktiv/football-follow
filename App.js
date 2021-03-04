@@ -3,14 +3,17 @@ import { LogBox } from 'react-native';
 
 // Navigation
 import { NavigationContainer } from '@react-navigation/native';
-import Main from './src/Navigators/Main';
 
+import DrawerNavigator from './src/Navigators/DrawerContainer';
 // import LikeNavigator from './src/Navigators/LikeNavigator';
 
 export default function App() {
   return (
+    // <SafeAreaView style={{ flex: 1 }} forceInset={{ top: 'always', horizontal: 'never' }}>
+
+
     <NavigationContainer>
-      <Main />
+      <DrawerNavigator />
       {/* <LikeNavigator /> */}
     </NavigationContainer>
 
