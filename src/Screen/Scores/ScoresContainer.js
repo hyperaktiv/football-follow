@@ -25,7 +25,7 @@ const ScoresContainer = ({ navigation }) => {
 
    return (
       <>
-         <Header title='Scores' />
+         <Header title='Scores' navigation={navigation} />
 
          <View style={styles.container} >
 

@@ -16,6 +16,10 @@ export const MText = styled.Text`
       props.black && css`
          color: black;
       `}
+   ${(props) =>
+      props.white && css`
+         color: #fcfcfc;
+      `}
 
    ${(props) =>
       props.bold && css`
