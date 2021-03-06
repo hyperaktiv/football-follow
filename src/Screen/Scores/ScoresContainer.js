@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import Header from '../../Shared/Header';
+
 import { FontAwesome } from '@expo/vector-icons';
 
 import { BG_COLOR, WHITE, pgHorizontal, DIVIDE_COLOR } from '../../Shared/Theme';

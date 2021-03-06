@@ -1,5 +1,5 @@
 import React from 'react';
-import { LogBox } from 'react-native';
+import { LogBox, StatusBar } from 'react-native';
 
 // Navigation
 import { NavigationContainer } from '@react-navigation/native';
@@ -9,10 +9,13 @@ import DrawerNavigator from './src/Navigators/DrawerContainer';
 
 export default function App() {
   return (
-    // <SafeAreaView style={{ flex: 1 }} forceInset={{ top: 'always', horizontal: 'never' }}>
-
-
     <NavigationContainer>
+      {/* <StatusBar
+        animated={true}
+        backgroundColor="#61dafb"
+        barStyle={'white'}
+        showHideTransition={'slide'}
+        hidden={false} /> */}
       <DrawerNavigator />
       {/* <LikeNavigator /> */}
     </NavigationContainer>
