@@ -4,6 +4,8 @@ import { FontAwesome, AntDesign, FontAwesome5 } from '@expo/vector-icons';
 
 import ScoresNavigator from './ScoresNavigator';
 import LikeNavigator from './LikeNavigator';
+import NewsScreen from '../Screen/News/NewsScreen';
+
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Tab = createBottomTabNavigator();
 
@@ -45,7 +47,7 @@ const Main = () => {
 
          <Tab.Screen
             name="News"
-            component={ScoresNavigator}
+            component={NewsScreen}
             options={{
                tabBarIcon: ({ color }) => (
                   // <TabItem screen="News">
