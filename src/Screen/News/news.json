@@ -1,0 +1,362 @@
+{
+   "rss": {
+      "$": {"version": "2.0", "xmlns:atom": "http://www.w3.org/2005/Atom"},
+      "channel": [
+         {
+            "title": ["Eyefootball: Football News"],
+            "atom:link":[
+               {
+                  "href":"https://www.eyefootball.com/football_news.xml",
+                  "rel":"self",
+                  "type":"application/rss+xml"}
+            ],
+            "description":[
+               "The main news section retrieves the latest 20 articles from our database and outputs them in RSS."
+            ],
+            "link": ["https://www.eyefootball.com/"],
+            "item": [
+               {
+                  "title":[
+                     "Manchester United will have to pay 4.2m, if Bruno Fernandes wins PFA award"
+                  ],
+                  "pubDate":[
+                     "Sat, 06 Mar 2021 02:33:14 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47036"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47036/Manchester-United-pay-42m-Bruno-Fernandes-wins-PFA-award.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47036/Manchester-United-pay-42m-Bruno-Fernandes-wins-PFA-award.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbBruno_Fernandes_2020.jpg'></A><BR>Manchester United will need to pay an additional 4.2m to Sporting Lisbon, should Bruno Fernandes win the PFA Player of the Year award.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Juventus looking to sign Chelsea midfielder"
+                  ],
+                  "pubDate":[
+                     "Sat, 06 Mar 2021 02:05:28 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47035"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47035/Juventus-looking-Chelsea-midfielder.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47035/Juventus-looking-Chelsea-midfielder.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbJorginho_2020.jpg'></A><BR>Juventus will explore the possibility of landing Jorginho from Chelsea during this summer's transfer window.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Raphinha reacts amid Liverpool and Manchester United speculation"
+                  ],
+                  "pubDate":[
+                     "Sat, 06 Mar 2021 01:54:28 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47034"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47034/Raphinha-reacts-Liverpool-Manchester-United-speculation.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47034/Raphinha-reacts-Liverpool-Manchester-United-speculation.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbRaphinha.jpg'></A><BR>Leeds United winger Raphinha has expressed his satisfaction at the west Yorkshire outfit amid the speculation linking him with Liverpool and Manchester United.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Chelsea board believe they can sign 100m striker"
+                  ],
+                  "pubDate":[
+                     "Sat, 06 Mar 2021 01:37:27 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47033"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47033/Chelsea-board--100m-striker.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47033/Chelsea-board--100m-striker.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbErling_Braut_Haaland_2021.jpg'></A><BR>Chelsea's hierarchy believe they can secure the services of Erling Haaland from Borussia Dortmund during the summer transfer window.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Leicester City favourites to sign Arsenal target"
+                  ],
+                  "pubDate":[
+                     "Sat, 06 Mar 2021 01:23:36 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47032"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47032/Leicester-City-favourites-Arsenal.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47032/Leicester-City-favourites-Arsenal.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbOdsonne_Edouard.jpg'></A><BR>Leicester City are reportedly on the cusp of signing Odsonne Edouard from Celtic.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Arsenal ready to sell midfielder for 25m"
+                  ],
+                  "pubDate":[
+                     "Sat, 06 Mar 2021 01:09:16 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47031"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47031/Arsenal-sell-midfielder-25m.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47031/Arsenal-sell-midfielder-25m.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbMatteo_Guendouzi_2020.jpg'></A><BR>Arsenal are ready to part ways with midfielder Matteo Guendouzi following his season-long loan stint at Hertha Berlin.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Arsenal receive big injury boost ahead of Burnley clash"
+                  ],
+                  "pubDate":[
+                     "Sat, 06 Mar 2021 00:54:38 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47030"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47030/Arsenal-receive-big-injury-boost-ahead-Burnley-clash.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47030/Arsenal-receive-big-injury-boost-ahead-Burnley-clash.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbEmile_Smith_Rowe.jpg'></A><BR>Arsenal have provided a big injury boost ahead of the Premier League clash against Burnley on Saturday afternoon.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Manchester United's David de Gea to miss six games"
+                  ],
+                  "pubDate":[
+                     "Fri, 05 Mar 2021 02:37:51 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47029"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47029/Manchester-Uniteds-David-de-Gea-six-games.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47029/Manchester-Uniteds-David-de-Gea-six-games.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbDavidDeGea2019.jpg'></A><BR>Manchester United goalkeeper David de Gea won't be available for the rest of the month due to personal reasons, Manchester Evening News reports.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Manchester City want to sign Atalanta defender"
+                  ],
+                  "pubDate":[
+                     "Fri, 05 Mar 2021 02:27:08 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47028"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47028/Manchester-City-Atalanta-defender.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47028/Manchester-City-Atalanta-defender.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbRobin_Gosens_2021.jpg'></A><BR>Manchester City will make an approach for Atalanta BC defender Robin Gosens when the transfer window reopens this summer.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Atletico Madrid want to sign Chelsea winger"
+                  ],
+                  "pubDate":[
+                     "Fri, 05 Mar 2021 01:48:30 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47027"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47027/Atletico-Madrid-Chelsea-winger.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47027/Atletico-Madrid-Chelsea-winger.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbHakim_Ziyech.jpg'></A><BR>Atletico Madrid are reportedly interested in landing the signature of Hakim Ziyech from Chelsea during this summer's transfer window.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Gary Neville says Manchester United should sign 27-goal striker"
+                  ],
+                  "pubDate":[
+                     "Fri, 05 Mar 2021 01:34:18 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47026"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47026/Gary-Neville-Manchester-United-27-goal-striker.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47026/Gary-Neville-Manchester-United-27-goal-striker.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbGary_Neville_2018.jpg'></A><BR>Gary Neville believes Manchester United should move for Borussia Dortmund striker Erling Haaland this summer.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Chelsea have tabled offer for Bayern Munich defender"
+                  ],
+                  "pubDate":[
+                     "Fri, 05 Mar 2021 01:19:05 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47025"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47025/Chelsea-tabled-offer-Bayern-Munich-defender.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47025/Chelsea-tabled-offer-Bayern-Munich-defender.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbNiklas_Sule_2019.jpg'></A><BR>Chelsea have made an offer to sign Bayern Munich defender Niklas Sule, a report from German outletandnbsp;Abendzeitung claims.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Mikel Arteta wants to sign RB Leipzig defender"
+                  ],
+                  "pubDate":[
+                     "Fri, 05 Mar 2021 01:09:53 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47024"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47024/Mikel-Arteta-RB-Leipzig-defender.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47024/Mikel-Arteta-RB-Leipzig-defender.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbMikelArteta_pensive.jpg'></A><BR>Arsenal manager Mikel Arteta is reportedly keen on landing the signature of Ibrahima Konate from RB Leipzig this summer.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Predicted Chelsea lineup (3-4-1-2) vs Liverpool, Giroud and James start"
+                  ],
+                  "pubDate":[
+                     "Fri, 05 Mar 2021 00:14:22 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47023"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47023/Predicted-Chelsea-lineup-%283-4-1-2%29-vs-Liverpool-Giroud-James.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47023/Predicted-Chelsea-lineup-%283-4-1-2%29-vs-Liverpool-Giroud-James.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbReece_James_2019.jpg'></A><BR>Chelsea make the trip to Anfield for tonight's Premier League clash against Liverpool.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Mikel Arteta updates on Smith Rowe's injury"
+                  ],
+                  "pubDate":[
+                     "Thu, 04 Mar 2021 02:37:29 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47022"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47022/Mikel-Arteta-updates-Smith-Rowes-injury.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47022/Mikel-Arteta-updates-Smith-Rowes-injury.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbMikelArteta_pensive.jpg'></A><BR>Arsenal manager Mikel Arteta has provided an update on Emile Smith Rowe's injury ahead of the Premier League clash against Burnley.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Leeds United make transfer decision on Raphinha"
+                  ],
+                  "pubDate":[
+                     "Thu, 04 Mar 2021 02:30:16 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47021"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47021/Leeds-United-transfer-decision-Raphinha.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47021/Leeds-United-transfer-decision-Raphinha.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbRaphinha.jpg'></A><BR>Leeds United won't entertain the prospect of selling Raphinha amid the transfer interest from Manchester United and Liverpool.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Erling Haaland makes Chelsea transfer decision"
+                  ],
+                  "pubDate":[
+                     "Thu, 04 Mar 2021 02:15:01 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47020"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47020/Erling-Haaland-Chelsea-transfer-decision.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47020/Erling-Haaland-Chelsea-transfer-decision.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbErling_Braut_Haaland_2021.jpg'></A><BR>Borussia Dortmund striker Erling Braut Haaland has no desire to join Chelsea during the summer transfer window.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Fabrizio Romano reveals Arsenal are monitoring Premier League right-back"
+                  ],
+                  "pubDate":[
+                     "Thu, 04 Mar 2021 01:23:35 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47019"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47019/Fabrizio-Romano-reveals-Arsenal-monitoring-Premier-League.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47019/Fabrizio-Romano-reveals-Arsenal-monitoring-Premier-League.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbTariqLamptey.jpg'></A><BR>Reputed Italian journalist Fabrizio Romano has revealed that Arsenal are keeping tabs on Brighton and Hove Albion defender Tariq Lamptey.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Juventus plan exchange deal for Arsenal defender"
+                  ],
+                  "pubDate":[
+                     "Thu, 04 Mar 2021 01:11:25 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47018"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47018/Juventus-exchange-deal-Arsenal-defender.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47018/Juventus-exchange-deal-Arsenal-defender.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbHector_Bellerin_2021.jpg'></A><BR>Juventus are prepared to propose an exchange deal for Arsenal defender Hector Bellerin this summer.</p>"
+                  ]
+               },
+               {
+                  "title":[
+                     "Thomas Tuchel provides injury update on Thiago Silva"
+                  ],
+                  "pubDate":[
+                     "Thu, 04 Mar 2021 00:59:35 GMT"
+                  ],
+                  "guid":[
+                     "https://www.eyefootball.com/news/47017"
+                  ],
+                  "link":[
+                     "https://www.eyefootball.com/news/47017/Thomas-Tuchel-provides-injury-update-Thiago-Silva.html"
+                  ],
+                  "description":[
+                     "<p><A HREF='https://www.eyefootball.com/news/47017/Thomas-Tuchel-provides-injury-update-Thiago-Silva.html'><img border='0' src='https://www.eyefootball.com/imghold/thumbThiago_Silva_Chelsea.jpg'></A><BR>Chelsea manager Thomas Tuchel has provided an injury update on Thiago Silva ahead of the Premier League clash against Liverpool on Thursday.</p>"
+                  ]
+               }
+            ]
+         }
+      ]
+   }
+}

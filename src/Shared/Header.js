@@ -16,7 +16,7 @@ const Header = ({ title, navigation }) => {
          justifyContent: 'space-between',
          alignItems: 'center',
          padding: pgHorizontal,
-         backgroundColor: BG_COLOR
+         backgroundColor: BG_COLOR,
       }}>
          <TouchableOpacity
             onPress={() => {
@@ -36,7 +36,6 @@ const Header = ({ title, navigation }) => {
          <TouchableOpacity>
             <FontAwesome name="search" size={24} color={WHITE} />
          </TouchableOpacity>
-
       </View>
    )
 }
