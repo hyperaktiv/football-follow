@@ -1,13 +1,11 @@
-import React from 'react'
+import React from 'react';
 import { View, TouchableOpacity, Image, Text } from 'react-native';
-import { Entypo } from '@expo/vector-icons';
 import { GAME_COLOR, WHITE, DIVIDE_COLOR } from '../../Shared/Theme';
 import { MText } from '../../Shared/StyledComponents/MText';
 
-const NewsItem = ({ title, time, link, description }) => {
+import { Entypo } from '@expo/vector-icons';
 
-   let newsImg = description.match(/https?:\/\/[^/\s]+\/\S+\.(jpg|png|gif)/g)[0];
-
+const HighlightItem = ({ title, date, link, thumbnail, leagueName }) => {
    return (
       <TouchableOpacity
          style={{
@@ -21,33 +19,36 @@ const NewsItem = ({ title, time, link, description }) => {
          }}>
 
          <View style={{
-            flex: 1,
+            flex: 2,
             justifyContent: 'center',
             alignItems: 'center',
-            // padding: 5
          }}>
-            {newsImg !== '' ? (
+            {thumbnail !== '' ? (
                <Image style={{
                   width: '100%',
                   height: '100%',
                   resizeMode: "contain",
                }}
-                  source={{ uri: newsImg, }}
+                  source={{ uri: thumbnail, }}
                />
             ) : (
-               <Text style={{ color: WHITE, textAlign: 'center' }}>No Image</Text>
+               <Text style={{ color: WHITE, textAlign: 'center' }}>No Video</Text>
             )}
          </View>
 
          <View style={{
-            flex: 2,
+            flex: 3,
             justifyContent: 'space-between',
             paddingHorizontal: 10,
          }}>
-            <MText white bold>{title}</MText>
+            <View style={{ height: '50%', justifyContent: 'space-between' }}>
+               <MText white bold>{title}</MText>
+               <MText small>{leagueName}</MText>
+            </View>
+
             <View style={{ flexDirection: 'row' }}>
                <Entypo name="clock" size={14} color={WHITE} style={{ marginRight: 10 }} />
-               <MText small>{time}</MText>
+               <MText small>{new Date(date).toDateString()}</MText>
             </View>
          </View>
 
@@ -55,4 +56,4 @@ const NewsItem = ({ title, time, link, description }) => {
    )
 }
 
-export default NewsItem
+export default HighlightItem
