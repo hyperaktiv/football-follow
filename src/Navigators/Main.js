@@ -1,9 +1,10 @@
 import React from 'react';
-import { FontAwesome, AntDesign, FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome, AntDesign, FontAwesome5, Entypo } from '@expo/vector-icons';
 // import TabItem from './TabItem';
 
 import ScoresNavigator from './ScoresNavigator';
 import LikeNavigator from './LikeNavigator';
+import HightlightScreen from '../Screen/Highlight/HiglightScreen';
 import NewsScreen from '../Screen/News/NewsScreen';
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -40,6 +41,18 @@ const Main = () => {
                tabBarIcon: ({ color }) => (
                   // <TabItem screen="Favourites">
                   <AntDesign name="staro" size={30} color={color} />
+                  // </TabItem>
+               ),
+            }}
+         />
+
+         <Tab.Screen
+            name="Hightlights"
+            component={HightlightScreen}
+            options={{
+               tabBarIcon: ({ color }) => (
+                  // <TabItem screen="News">
+                  <Entypo name="folder-video" size={30} color={color} />
                   // </TabItem>
                ),
             }}
