@@ -3,10 +3,11 @@ import { View, FlatList } from 'react-native';
 import Header from '../../Shared/Header';
 
 import NewsItem from './NewsItem';
-import { BG_COLOR, WHITE, pgHorizontal, DIVIDE_COLOR } from '../../Shared/Theme';
-import axios from 'axios';
+import { BG_COLOR, DIVIDE_COLOR } from '../../Shared/Theme';
+// import axios from 'axios';
 // import { parseString } from 'xml2js';
 
+// https://www.eyefootball.com/rss
 const xml_url = 'https://www.eyefootball.com/football_news.xml';
 const newsData = require('./news.json');
 
