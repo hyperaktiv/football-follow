@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, FlatList } from 'react-native';
 import { BG_COLOR } from '../../../../Shared/Theme';
 
@@ -9,6 +9,17 @@ import TableRow from './TableRow';
 const scoresTable = require('./scoresTable.json');
 
 const ScoresStandings = ({ leagueCode, name, country }) => {
+
+   const [scoresData, setScoresData] = useState([]);
+
+   useEffect(() => {
+      setScoresData(scoresTable.scorers);
+
+      return () => {
+         setScoresData([]);
+      }
+   }, [scoresData]);
+
    return (
       <View style={{
          flex: 1,
@@ -16,7 +27,7 @@ const ScoresStandings = ({ leagueCode, name, country }) => {
       }}>
          <TableHeader />
          <FlatList
-            data={scoresTable.scorers}
+            data={scoresData}
             renderItem={({ item, index }) => (
                <TableRow
                   leagueCode={leagueCode}

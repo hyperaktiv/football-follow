@@ -3,20 +3,20 @@ import { LogBox } from 'react-native';
 
 // Navigation
 import { NavigationContainer } from '@react-navigation/native';
-
 import DrawerNavigator from './src/Navigators/DrawerContainer';
 
-// import LikeNavigator from './src/Navigators/LikeNavigator'
+import HighlightNavigator from './src/Navigators/HighlightNavigator'
 
+
+// LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+// ogBox.ignoreAllLogs();//Ignore all log notifications
 
 export default function App() {
   return (
 
-    // <HightlightScreen />
-
     <NavigationContainer>
       <DrawerNavigator />
-      {/* <LikeNavigator /> */}
+      {/* <HighlightNavigator /> */}
     </NavigationContainer>
 
   );
