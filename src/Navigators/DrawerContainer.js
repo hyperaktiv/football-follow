@@ -14,6 +14,7 @@ const Drawer = createDrawerNavigator();
 const DrawerContainer = () => {
    return (
       <Drawer.Navigator
+         // openByDefault
          drawerType="slide"
          drawerContent={(props) => <CustomDrawerContent {...props} />}
          drawerStyle={{

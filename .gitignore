@@ -9,5 +9,7 @@ npm-debug.*
 *.orig.*
 web-build/
 
+API_key.js
+
 # macOS
 .DS_Store

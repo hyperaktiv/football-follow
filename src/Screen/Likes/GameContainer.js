@@ -1,7 +1,10 @@
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { MText } from '../../Shared/StyledComponents/MText';
-import { GAME_COLOR, DIVIDE_COLOR } from '../../Shared/Theme';
+import { MAIN_COLOR, GAME_COLOR, DIVIDE_COLOR, GRAY } from '../../Shared/Theme';
+
+import { AntDesign } from '@expo/vector-icons';
+
 
 const ClubItem = ({ teamName, img, goal }) => {
    return (
@@ -12,7 +15,7 @@ const ClubItem = ({ teamName, img, goal }) => {
             />
          )}
          <View style={styles.details}>
-            <MText style={{ color: 'white', fontSize: 14 }}>{teamName}</MText>
+            <MText white>{teamName}</MText>
             <MText title bold medium>{goal}</MText>
          </View>
       </View>
@@ -28,13 +31,13 @@ const GameContainer = ({ teamA, goalA, imgA, teamB, goalB, imgB, status }) => {
                <View style={{
                   width: 5,
                   height: 50,
-                  backgroundColor: 'red',
+                  backgroundColor: MAIN_COLOR,
                   borderBottomEndRadius: 10,
                   borderTopRightRadius: 10,
                   borderColor: DIVIDE_COLOR,
                   marginRight: 10
                }} />
-               <MText medium>{`1'`}</MText>
+               <MText medium style={{ color: MAIN_COLOR }}>{`1'`}</MText>
             </View>
             <View style={{ flex: 5, }}>
                <ClubItem teamName={'Team A'} goal={0} />
@@ -46,7 +49,8 @@ const GameContainer = ({ teamA, goalA, imgA, teamB, goalB, imgB, status }) => {
                <ClubItem teamName={'Team B'} goal={0} />
             </View>
             <View style={styles.likeBtn}>
-               <MText>LIKE</MText>
+               {/* <AntDesign name="staro" size={20} color={GRAY} /> */}
+               <AntDesign name="star" size={20} color={MAIN_COLOR} />
             </View>
          </View>
       )
@@ -66,7 +70,8 @@ const GameContainer = ({ teamA, goalA, imgA, teamB, goalB, imgB, status }) => {
                <ClubItem teamName={teamB} goal={goalB} img={imgB} />
             </View>
             <View style={styles.likeBtn}>
-               <MText>LIKE</MText>
+               {/* <AntDesign name="staro" size={20} color={GRAY} /> */}
+               <AntDesign name="star" size={20} color={MAIN_COLOR} />
             </View>
          </View>
       )

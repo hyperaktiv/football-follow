@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Image, StyleSheet, Text } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 import { MText } from '../../Shared/StyledComponents/MText';
 import { GAME_COLOR, DIVIDE_COLOR } from '../../Shared/Theme';
 
+import { AntDesign } from '@expo/vector-icons';
 
 
 const ClubItem = ({ teamName, img, goal }) => {
@@ -40,9 +41,11 @@ const GameContainer = ({ teamA, goalA, imgA, teamB, goalB, imgB, status }) => {
             <ClubItem teamName={teamB} goal={goalB} img={'https://assets.stickpng.com/images/580b57fcd9996e24bc43c4e7.png'} />
 
          </View>
-         <View style={styles.likeBtn}>
-            <MText>LIKE</MText>
-         </View>
+         <TouchableOpacity style={styles.likeBtn}>
+            <AntDesign name="staro" size={20} color={GRAY} />
+            {/* <AntDesign name="star" size={20} color={GRAY} /> */}
+         </TouchableOpacity>
+
       </View>
    )
 }

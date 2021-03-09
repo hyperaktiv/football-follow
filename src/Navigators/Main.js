@@ -1,10 +1,11 @@
 import React from 'react';
 import { FontAwesome, AntDesign, FontAwesome5, Entypo } from '@expo/vector-icons';
 // import TabItem from './TabItem';
+import { MAIN_COLOR } from '../Shared/Theme';
 
 import ScoresNavigator from './ScoresNavigator';
 import LikeNavigator from './LikeNavigator';
-import HightlightScreen from '../Screen/Highlight/HiglightScreen';
+import HighlightNavigator from './HighlightNavigator';
 import NewsScreen from '../Screen/News/NewsScreen';
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -17,7 +18,7 @@ const Main = () => {
          tabBarOptions={{
             keyboardHidesTabBar: true,
             showLabel: true,
-            activeTintColor: "#e91e63",
+            activeTintColor: MAIN_COLOR,
             animationEnabled: true,
          }}
       >
@@ -40,7 +41,7 @@ const Main = () => {
             options={{
                tabBarIcon: ({ color }) => (
                   // <TabItem screen="Favourites">
-                  <AntDesign name="staro" size={30} color={color} />
+                  <AntDesign name="star" size={30} color={color} />
                   // </TabItem>
                ),
             }}
@@ -48,7 +49,7 @@ const Main = () => {
 
          <Tab.Screen
             name="Hightlights"
-            component={HightlightScreen}
+            component={HighlightNavigator}
             options={{
                tabBarIcon: ({ color }) => (
                   // <TabItem screen="News">
