@@ -4,7 +4,11 @@ import { Entypo } from '@expo/vector-icons';
 import { GAME_COLOR, WHITE, DIVIDE_COLOR } from '../../Shared/Theme';
 import { MText } from '../../Shared/StyledComponents/MText';
 
-const NewsItem = ({ title, time, link, description }) => {
+// navigation
+// import { useNavigation } from '@react-navigation/native';
+import * as WebBrowser from 'expo-web-browser';
+
+const NewsItem = ({ description, item }) => {
 
    let newsImg = description.match(/https?:\/\/[^/\s]+\/\S+\.(jpg|png|gif)/g)[0];
 
@@ -18,7 +22,12 @@ const NewsItem = ({ title, time, link, description }) => {
             paddingVertical: 10,
             borderBottomWidth: 1,
             borderColor: DIVIDE_COLOR
-         }}>
+         }}
+
+         onPress={async () => {
+            await WebBrowser.openBrowserAsync(item.link[0])
+         }}
+      >
 
          <View style={{
             flex: 1,
@@ -44,10 +53,10 @@ const NewsItem = ({ title, time, link, description }) => {
             justifyContent: 'space-between',
             paddingHorizontal: 10,
          }}>
-            <MText white bold>{title}</MText>
+            <MText white bold>{item.title}</MText>
             <View style={{ flexDirection: 'row' }}>
                <Entypo name="clock" size={14} color={WHITE} style={{ marginRight: 10 }} />
-               <MText small>{time}</MText>
+               <MText small>{item.pubDate}</MText>
             </View>
          </View>
 

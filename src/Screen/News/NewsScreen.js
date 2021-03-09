@@ -55,10 +55,9 @@ const NewsScreen = ({ navigation }) => {
             <FlatList
                data={newsData.rss.channel[0].item}
                renderItem={({ item }) => <NewsItem
-                  title={item.title}
-                  time={item.pubDate}
-                  link={item.link}
-                  description={item.description[0]} />}
+                  description={item.description[0]}
+                  item={item}
+               />}
                keyExtractor={item => item.guid[0]}
             />
 

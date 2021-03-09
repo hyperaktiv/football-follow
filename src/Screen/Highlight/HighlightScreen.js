@@ -8,7 +8,7 @@ import HighlightItem from './HighlightItem';
 // https://www.scorebat.com/video-api/
 const highlights = require('./data.json');
 
-const HiglightScreen = ({ navigation }) => {
+const HighlightScreen = ({ navigation }) => {
    return (
       <>
          <Header title='Highlights' navigation={navigation} />
@@ -21,12 +21,7 @@ const HiglightScreen = ({ navigation }) => {
          }}>
             <FlatList
                data={highlights}
-               renderItem={({ item }) => <HighlightItem
-                  title={item.title}
-                  date={item.date}
-                  link={item.url}
-                  thumbnail={item.thumbnail}
-                  leagueName={item.competition.name} />}
+               renderItem={({ item }) => <HighlightItem item={item} />}
                keyExtractor={item => item.title}
             />
          </View>
@@ -34,4 +29,4 @@ const HiglightScreen = ({ navigation }) => {
    )
 }
 
-export default HiglightScreen
+export default HighlightScreen

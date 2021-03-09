@@ -6,6 +6,7 @@ import {
    StatusBar,
    Platform
 } from 'react-native';
+import Constants from 'expo-constants';
 import { FontAwesome } from '@expo/vector-icons';
 import { MText } from '../Shared/StyledComponents/MText';
 import { BG_COLOR, WHITE, pgHorizontal, DIVIDE_COLOR } from './Theme';
@@ -17,7 +18,7 @@ const Header = ({ title, navigation }) => {
 
          <View style={{
             backgroundColor: BG_COLOR,
-            height: Platform.OS === 'ios' ? 25 : StatusBar.currentHeight,
+            height: Platform.OS === 'ios' ? Constants.statusBarHeight : StatusBar.currentHeight,
             // borderBottomWidth: 1,
             // borderColor: DIVIDE_COLOR
          }}>

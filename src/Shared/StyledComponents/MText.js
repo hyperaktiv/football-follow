@@ -1,11 +1,12 @@
 import styled, { css } from "styled-components/native";
 
-//  font-family: 'Kanit_400Regular';
+// font-family: 'Kanit_400Regular';
+
 
 export const MText = styled.Text`
    color: #aaaaaa;
    font-size: 14px;
-  
+
 
    ${(props) =>
       props.title && css`

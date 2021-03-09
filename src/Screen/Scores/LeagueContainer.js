@@ -1,28 +1,40 @@
 import React from 'react';
-import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Image, TouchableOpacity, StyleSheet, Platform } from 'react-native';
 import { MText } from '../../Shared/StyledComponents/MText';
-import { DIVIDE_COLOR } from "../../Shared/Theme";
+import { DIVIDE_COLOR, GRAY } from "../../Shared/Theme";
+
+import { AntDesign } from '@expo/vector-icons';
+
+import { SvgUri } from 'react-native-svg';
 
 const LeagueContainer = ({
-   name, country, leagueCode, turnIn = true, navigation
+   name, country, leagueCode, flagImg, turnIn = true, navigation
 }) => {
-   // console.log(leagueCode, name, leagueCode, turnIn)
+
+   let flag = '';
+   if (Platform.OS === 'ios' || Platform.OS === 'android') {
+      flag = <SvgUri width={30} height={20} uri={flagImg} />
+   } else {
+      flag = <Image style={{ width: 30, height: 20, }} source={{ uri: flagImg, }} />
+   }
+
+   // display on the ScoresScreen with the right arrow
    if (turnIn == true) {
       return (
          <TouchableOpacity
             style={styles.leagueContainer}
             onPress={() => {
                navigation.navigate('LeagueDetails', {
-                  leagueCode: leagueCode,
                   name: name,
-                  country: country
+                  country: country,
+                  leagueCode: leagueCode,
+                  flagImg: flagImg
                });
             }}
          >
             <View style={styles.flagContainer}>
-               <Image style={{ width: 30, height: 20, }}
-                  source={{ uri: 'https://www.kindpng.com/picc/m/244-2449377_england-flag-hd-png-download.png', }}
-               />
+               {/**render flag */}
+               {flag}
             </View>
             <View style={{ flex: 5 }}>
                <MText title medium>{name}</MText>
@@ -39,6 +51,8 @@ const LeagueContainer = ({
          </TouchableOpacity>
       );
    }
+
+   // display on the TableScreen with the LIKE icon
    else {
       return (
          <View style={styles.leagueContainer}>
@@ -49,24 +63,26 @@ const LeagueContainer = ({
                }}
                onPress={() => {
                   navigation.goBack();
-               }} >
-               <Image
-                  style={{ width: 10, height: 10, }}
+               }}
+            >
+               <Image style={{ width: 10, height: 10, }}
                   source={require('./left-arrow-white.png')}
                />
             </TouchableOpacity>
             <View style={styles.flagContainer}>
-               <Image style={{ width: 30, height: 20, }}
-                  source={{ uri: 'https://www.kindpng.com/picc/m/244-2449377_england-flag-hd-png-download.png', }}
-               />
+
+               {/**render flag */}
+               {flag}
+
             </View>
             <View style={{ flex: 5 }}>
                <MText title medium>{name}</MText>
                <MText>{country}</MText>
             </View>
-            <View style={styles.flagContainer}>
-               <MText>LIKE</MText>
-            </View>
+            <TouchableOpacity style={styles.flagContainer}>
+               <AntDesign name="staro" size={20} color={GRAY} />
+               {/* <AntDesign name="star" size={20} color={GRAY} /> */}
+            </TouchableOpacity>
          </View>
       )
    }
@@ -83,6 +99,8 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
+      width: 30,
+      height: 20
    },
 })
 
