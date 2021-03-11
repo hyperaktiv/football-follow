@@ -7,6 +7,10 @@ export const MText = styled.Text`
    color: #aaaaaa;
    font-size: 14px;
 
+   ${(props) =>
+      props.color && css`
+         color: #FFA000;
+      `}
 
    ${(props) =>
       props.title && css`

@@ -12,14 +12,14 @@ const TableHeader = () => {
          marginTop: 10,
          paddingVertical: 10
       }}>
-         <MText center style={{ flex: 1 }}>#</MText>
-         <MText center style={{ flex: 5 }}>Team</MText>
-         <MText center style={{ flex: 1 }}>P</MText>
-         <MText center style={{ flex: 1 }}>W</MText>
-         <MText center style={{ flex: 1 }}>D</MText>
-         <MText center style={{ flex: 1 }}>L</MText>
-         <MText center style={{ flex: 1 }}>Pts</MText>
-         <MText center style={{ flex: 3 }}>Form</MText>
+         <MText center bold color style={{ flex: 1 }}>#</MText>
+         <MText center bold color style={{ flex: 5 }}>Team</MText>
+         <MText center bold color style={{ flex: 1 }}>P</MText>
+         <MText center bold color style={{ flex: 1 }}>W</MText>
+         <MText center bold color style={{ flex: 1 }}>D</MText>
+         <MText center bold color style={{ flex: 1 }}>L</MText>
+         <MText center bold color style={{ flex: 1 }}>Pts</MText>
+         <MText center bold color style={{ flex: 3 }}>Form</MText>
 
       </View>
    )

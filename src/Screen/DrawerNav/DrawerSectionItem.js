@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import { MText } from '../../Shared/StyledComponents/MText';
-import { DIVIDE_COLOR, pgHorizontal } from '../../Shared/Theme';
+import { DIVIDE_COLOR } from '../../Shared/Theme';
 
 
 const DrawerSectionItem = ({ title, children }) => {

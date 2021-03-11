@@ -17,7 +17,7 @@ const HighlightPage = () => {
 
    return (
       <>
-         <Header title='Highlight' navigation={navigation} />
+         <Header title='Highlight' backAction={true} />
 
          <View style={{
             flex: 1,
@@ -31,7 +31,7 @@ const HighlightPage = () => {
                   html: route.params.item.videos[0].embed,
                }}
             />
-            <View style={{ flex: 1.8, }}>
+            <View style={{ flex: 1.6, }}>
                <View
                   style={{
                      height: 50,
