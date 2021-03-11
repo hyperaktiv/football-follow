@@ -4,8 +4,8 @@ import { MText } from '../../Shared/StyledComponents/MText';
 import { DIVIDE_COLOR, GRAY } from "../../Shared/Theme";
 
 import { AntDesign } from '@expo/vector-icons';
-
 import { SvgUri } from 'react-native-svg';
+
 
 const LeagueContainer = ({
    name, country, leagueCode, flagImg, turnIn = true, navigation
@@ -13,9 +13,9 @@ const LeagueContainer = ({
 
    let flag = '';
    if (Platform.OS === 'ios' || Platform.OS === 'android') {
-      flag = <SvgUri width={30} height={20} uri={flagImg} />
+      flag = <SvgUri width={'100%'} height={'80%'} uri={flagImg} />
    } else {
-      flag = <Image style={{ width: 30, height: 20, }} source={{ uri: flagImg, }} />
+      flag = <Image style={{ width: '100%', height: '80%', }} source={{ uri: flagImg, }} />
    }
 
    // display on the ScoresScreen with the right arrow
@@ -36,7 +36,7 @@ const LeagueContainer = ({
                {/**render flag */}
                {flag}
             </View>
-            <View style={{ flex: 5 }}>
+            <View style={{ flex: 5, marginLeft: 15 }}>
                <MText title medium>{name}</MText>
                <MText>{country}</MText>
             </View>
@@ -56,33 +56,20 @@ const LeagueContainer = ({
    else {
       return (
          <View style={styles.leagueContainer}>
-            <TouchableOpacity
-               style={{
-                  justifyContent: 'center',
-                  width: 20
-               }}
-               onPress={() => {
-                  navigation.goBack();
-               }}
-            >
-               <Image style={{ width: 10, height: 10, }}
-                  source={require('./left-arrow-white.png')}
-               />
-            </TouchableOpacity>
             <View style={styles.flagContainer}>
 
                {/**render flag */}
                {flag}
 
             </View>
-            <View style={{ flex: 5 }}>
+            <View style={{ flex: 5, marginLeft: 15 }}>
                <MText title medium>{name}</MText>
                <MText>{country}</MText>
             </View>
-            <TouchableOpacity style={styles.flagContainer}>
+            {/* <TouchableOpacity style={styles.flagContainer}>
                <AntDesign name="staro" size={20} color={GRAY} />
-               {/* <AntDesign name="star" size={20} color={GRAY} /> */}
-            </TouchableOpacity>
+               //<AntDesign name="star" size={20} color={GRAY} />
+            </TouchableOpacity> */}
          </View>
       )
    }
@@ -99,8 +86,8 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      width: 30,
-      height: 20
+      // width: 30,
+      // height: 20
    },
 })
 

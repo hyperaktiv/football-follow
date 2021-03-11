@@ -5,7 +5,12 @@ import { LogBox } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import DrawerNavigator from './src/Navigators/DrawerContainer';
 
-import HighlightNavigator from './src/Navigators/HighlightNavigator'
+import HighlightNavigator from './src/Navigators/HighlightNavigator';
+
+
+// REDUX
+import { Provider as StateProvider } from 'react-redux';
+import store from './src/Redux/store';
 
 
 // LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
@@ -13,11 +18,11 @@ import HighlightNavigator from './src/Navigators/HighlightNavigator'
 
 export default function App() {
   return (
-
-    <NavigationContainer>
-      <DrawerNavigator />
-      {/* <HighlightNavigator /> */}
-    </NavigationContainer>
-
+    <StateProvider store={store}>
+      <NavigationContainer>
+        <DrawerNavigator />
+        {/* <HighlightNavigator /> */}
+      </NavigationContainer>
+    </StateProvider>
   );
 }

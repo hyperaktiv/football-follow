@@ -15,7 +15,7 @@ const LeagueDetails = ({ navigation, route }) => {
 
    return (
       <>
-         <Header title='Scores' navigation={navigation} />
+         <Header title='Scores' navigation={navigation} backAction={true} />
 
          <View style={{
             flex: 1,

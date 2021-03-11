@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
    View,
    Text,
-   TouchableOpacity,
-   ImageBackground
+   Switch,
+   TouchableOpacity
 } from 'react-native';
 import { Ionicons, Foundation, MaterialCommunityIcons, MaterialIcons, Entypo } from '@expo/vector-icons';
-
-import { GRAY, BG_COLOR, pgHorizontal, DIVIDE_COLOR } from '../../Shared/Theme';
 import { MText } from '../../Shared/StyledComponents/MText';
 
+import { GRAY, MAIN_COLOR, pgHorizontal, DIVIDE_COLOR } from '../../Shared/Theme';
+
+import DrawerUser from './DrawerUser';
 import DrawerSectionTitle from './DrawerSectionTitle';
 import DrawerSectionItem from './DrawerSectionItem';
 
@@ -19,6 +20,10 @@ import {
 
 
 const CustomDrawerContent = (props) => {
+
+   const [isEnabled, setIsEnabled] = useState(false);
+   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
    return (
       <DrawerContentScrollView {...props}>
          <Text style={{
@@ -34,61 +39,7 @@ const CustomDrawerContent = (props) => {
          }} />
 
          {/**USER/LOGIN section */}
-         <TouchableOpacity style={{
-            height: 70,
-            backgroundColor: BG_COLOR,
-            borderWidth: 1,
-            borderColor: DIVIDE_COLOR,
-
-         }}>
-            <ImageBackground
-               style={{
-                  width: '100%',
-                  height: '100%',
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  paddingHorizontal: pgHorizontal,
-               }}
-               source={require('./pexels-emiliano-arano.jpg')}
-               imageStyle={{ opacity: 0.3 }}
-            >
-
-               <View style={{
-                  width: 50,
-                  height: 50,
-                  borderRadius: 25,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: BG_COLOR,
-                  borderWidth: 1,
-                  borderColor: DIVIDE_COLOR,
-               }}>
-                  <MaterialIcons name="person" size={26} color={GRAY} />
-               </View>
-
-               <View style={{
-                  flex: 1,
-                  justifyContent: 'center',
-                  marginLeft: 15,
-               }}>
-                  <MText large bold white>Đăng Nhập</MText>
-               </View>
-
-               <View style={{
-                  width: 40,
-                  height: 40,
-                  borderRadius: 20,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: BG_COLOR,
-               }}>
-                  <Entypo name="chevron-thin-right" size={20} color={GRAY} />
-               </View>
-
-            </ImageBackground>
-
-         </TouchableOpacity>
+         <DrawerUser />
 
          <View style={{
             height: 5,
@@ -98,6 +49,40 @@ const CustomDrawerContent = (props) => {
          {/**SETTINGS section */}
          <DrawerSectionTitle title={'settings'} />
 
+         {/** Dark/Light Theme */}
+         <View
+            style={{
+               flexDirection: 'row',
+               alignItems: 'center',
+               borderBottomWidth: 1,
+               borderColor: DIVIDE_COLOR,
+               paddingHorizontal: 20,
+               paddingVertical: 5,
+               marginTop: 5,
+            }}>
+            <View style={{ width: 30, justifyContent: 'center', alignItems: 'center' }}>
+               <MaterialCommunityIcons name="theme-light-dark" size={24} color={GRAY} />
+            </View>
+            <View style={{
+               flex: 1,
+               flexDirection: 'row',
+               alignItems: "center",
+               justifyContent: "space-between",
+               paddingHorizontal: 5,
+               paddingLeft: 5,
+            }}>
+               <MText bold white>Dark/Light Theme</MText>
+               <Switch
+                  trackColor={{ false: "#767577", true: "#81b0ff" }}
+                  thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                  ios_backgroundColor="#3e3e3e"
+                  onValueChange={toggleSwitch}
+                  value={isEnabled}
+               />
+            </View>
+         </View>
+         {/**Dark-light theme ends */}
+
          <DrawerSectionItem title={'Automatic Refresh'}>
             <Ionicons name="refresh-circle-outline" size={24} color={GRAY} />
          </DrawerSectionItem>
@@ -106,9 +91,31 @@ const CustomDrawerContent = (props) => {
             <Foundation name="prohibited" size={24} color={GRAY} />
          </DrawerSectionItem>
 
-         <DrawerSectionItem title={'Sport Display   -   Football'} >
-            <Ionicons name="football-outline" size={24} color={GRAY} />
-         </DrawerSectionItem>
+         <View
+            style={{
+               flexDirection: 'row',
+               alignItems: 'center',
+               borderBottomWidth: 1,
+               borderColor: DIVIDE_COLOR,
+               paddingHorizontal: 20,
+               paddingVertical: 5,
+               marginTop: 5,
+            }}>
+            <View style={{ width: 30, justifyContent: 'center', alignItems: 'center' }}>
+               <Ionicons name="football-outline" size={24} color={GRAY} />
+            </View>
+            <View style={{
+               flex: 1,
+               flexDirection: 'row',
+               alignItems: "center",
+               justifyContent: "space-between",
+               paddingHorizontal: 5,
+               paddingLeft: 5,
+            }}>
+               <MText bold white>Sport Display</MText>
+               <MText bold white>Football</MText>
+            </View>
+         </View>
 
          <DrawerSectionItem title={'Notifications'}>
             <Ionicons name="ios-notifications-circle-outline" size={24} color={GRAY} />

@@ -1,0 +1,109 @@
+{
+   "head2head": {
+       "numberOfMatches": 10,
+       "totalGoals": 20,
+       "homeTeam": {
+           "id": 74,
+           "name": "West Bromwich Albion FC",
+           "wins": 3,
+           "draws": 3,
+           "losses": 4
+       },
+       "awayTeam": {
+           "id": 67,
+           "name": "Newcastle United FC",
+           "wins": 4,
+           "draws": 3,
+           "losses": 3
+       }
+   },
+   "match": {
+       "id": 304022,
+       "competition": {
+           "id": 2021,
+           "name": "Premier League",
+           "area": {
+               "name": "England",
+               "code": "ENG",
+               "ensignUrl": "https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
+           }
+       },
+       "season": {
+           "id": 619,
+           "startDate": "2020-09-12",
+           "endDate": "2021-05-23",
+           "currentMatchday": 33,
+           "winner": null
+       },
+       "utcDate": "2021-03-07T12:00:00Z",
+       "status": "FINISHED",
+       "venue": "The Hawthorns",
+       "matchday": 27,
+       "stage": "REGULAR_SEASON",
+       "group": "Regular Season",
+       "lastUpdated": "2021-03-07T23:59:29Z",
+       "odds": {
+           "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+       },
+       "score": {
+           "winner": "DRAW",
+           "duration": "REGULAR",
+           "fullTime": {
+               "homeTeam": 0,
+               "awayTeam": 0
+           },
+           "halfTime": {
+               "homeTeam": 0,
+               "awayTeam": 0
+           },
+           "extraTime": {
+               "homeTeam": null,
+               "awayTeam": null
+           },
+           "penalties": {
+               "homeTeam": null,
+               "awayTeam": null
+           }
+       },
+       "homeTeam": {
+           "id": 74,
+           "name": "West Bromwich Albion FC"
+       },
+       "awayTeam": {
+           "id": 67,
+           "name": "Newcastle United FC"
+       },
+       "referees": [
+           {
+               "id": 11551,
+               "name": "Martin Atkinson",
+               "role": "MAIN_REFEREE",
+               "nationality": "England"
+           },
+           {
+               "id": 11530,
+               "name": "Lee Betts",
+               "role": "ASSISTANT_N1",
+               "nationality": "England"
+           },
+           {
+               "id": 11425,
+               "name": "Nicholas Hopton",
+               "role": "ASSISTANT_N2",
+               "nationality": "England"
+           },
+           {
+               "id": 11446,
+               "name": "Robert Jones",
+               "role": "FOURTH_OFFICIAL",
+               "nationality": "England"
+           },
+           {
+               "id": 11309,
+               "name": "Peter Bankes",
+               "role": "VIDEO_ASSISTANT_REFEREE",
+               "nationality": "England"
+           }
+       ]
+   }
+}

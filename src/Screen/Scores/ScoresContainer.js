@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native';
 import Header from '../../Shared/Header';
 
-import { FontAwesome } from '@expo/vector-icons';
-
 import { BG_COLOR, WHITE, pgHorizontal, DIVIDE_COLOR, MAIN_COLOR, GRAY } from '../../Shared/Theme';
 import CalendarStrip from 'react-native-calendar-strip';
 
 import LeagueContainer from './LeagueContainer';
 import GameContainer from './GameContainer';
+import axios from 'axios';
 
 const data = [
    {
@@ -31,7 +30,8 @@ const data = [
          "winner": null
       },
       "numberOfAvailableSeasons": 28,
-      "lastUpdated": "2021-03-07T08:36:09Z"
+      "lastUpdated": "2021-03-07T08:36:09Z",
+
    },
    {
       "id": 2019,
@@ -53,7 +53,7 @@ const data = [
          "winner": null
       },
       "numberOfAvailableSeasons": 17,
-      "lastUpdated": "2021-03-07T08:36:12Z"
+      "lastUpdated": "2021-03-07T08:36:12Z",
    },
    {
       "id": 2002,
@@ -75,73 +75,121 @@ const data = [
          "winner": null
       },
       "numberOfAvailableSeasons": 25,
-      "lastUpdated": "2021-03-07T01:50:15Z"
+      "lastUpdated": "2021-03-07T01:50:15Z",
+
+
+      "league_slug": "bundesliga",
+      "name": "Bundesliga",
+      "nation": "Germany",
    },
-   {
-      "id": 2015,
-      "area": {
-         "id": 2081,
-         "name": "France",
-         "countryCode": "FRA",
-         "ensignUrl": "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg"
-      },
-      "name": "Ligue 1",
-      "code": "FL1",
-      "emblemUrl": null,
-      "plan": "TIER_ONE",
-      "currentSeason": {
-         "id": 596,
-         "startDate": "2020-08-22",
-         "endDate": "2021-05-23",
-         "currentMatchday": 28,
-         "winner": null
-      },
-      "numberOfAvailableSeasons": 11,
-      "lastUpdated": "2021-03-04T02:50:03Z"
-   },
-   {
-      "id": 2014,
-      "area": {
-         "id": 2224,
-         "name": "Spain",
-         "countryCode": "ESP",
-         "ensignUrl": "https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
-      },
-      "name": "Primera Division",
-      "code": "PD",
-      "emblemUrl": null,
-      "plan": "TIER_ONE",
-      "currentSeason": {
-         "id": 635,
-         "startDate": "2020-09-13",
-         "endDate": "2021-05-23",
-         "currentMatchday": 26,
-         "winner": null
-      },
-      "numberOfAvailableSeasons": 28,
-      "lastUpdated": "2021-03-07T08:36:17Z"
-   },
+   // {
+   //    "id": 2015,
+   //    "area": {
+   //       "id": 2081,
+   //       "name": "France",
+   //       "countryCode": "FRA",
+   //       "ensignUrl": "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg"
+   //    },
+   //    "name": "Ligue 1",
+   //    "code": "FL1",
+   //    "emblemUrl": null,
+   //    "plan": "TIER_ONE",
+   //    "currentSeason": {
+   //       "id": 596,
+   //       "startDate": "2020-08-22",
+   //       "endDate": "2021-05-23",
+   //       "currentMatchday": 28,
+   //       "winner": null
+   //    },
+   //    "numberOfAvailableSeasons": 11,
+   //    "lastUpdated": "2021-03-04T02:50:03Z"
+   // },
+   // {
+   //    "id": 2014,
+   //    "area": {
+   //       "id": 2224,
+   //       "name": "Spain",
+   //       "countryCode": "ESP",
+   //       "ensignUrl": "https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
+   //    },
+   //    "name": "Primera Division",
+   //    "code": "PD",
+   //    "emblemUrl": null,
+   //    "plan": "TIER_ONE",
+   //    "currentSeason": {
+   //       "id": 635,
+   //       "startDate": "2020-09-13",
+   //       "endDate": "2021-05-23",
+   //       "currentMatchday": 26,
+   //       "winner": null
+   //    },
+   //    "numberOfAvailableSeasons": 28,
+   //    "lastUpdated": "2021-03-07T08:36:17Z"
+   // },
 ];
+
 
 const ScoresContainer = ({ navigation }) => {
 
-   const [date, setDate] = useState(new Date());
+   const [selectedDate, setSelectedDate] = useState(new Date());
    const [minDate, setMinDate] = useState();
    const [maxDate, setMaxDate] = useState();
+
+   const [pl, setPremier] = useState([]);
+   const [sa, setSeriaA] = useState([]);
+   const [bl1, setBunlesliga] = useState([]);
+
+   var currDate = new Date();
 
    useEffect(() => {
       let minDate1 = new Date();
       let maxDate1 = new Date();
-      minDate1.setDate(date.getDate() - 5);
-      maxDate1.setDate(date.getDate() + 5);
+      minDate1.setDate(currDate.getDate() - 3);
+      maxDate1.setDate(currDate.getDate() + 3);
       setMinDate(minDate1.toDateString());
       setMaxDate(maxDate1.toDateString());
+
+      // let _pl = axios.get(`https://api.football-data.org/v2/competitions/PL/matches?dateFrom=${selectedDate.toISOString().substr(0, 10)}&dateTo=${selectedDate.toISOString().substr(0, 10)}`, {
+      //    headers: {
+      //       'X-Auth-Token': 'dd5520b8f53f46b583801947683773f0',
+      //       "content-type": "application/json"
+      //    }
+      // });
+      // let _sa = axios.get(`https://api.football-data.org/v2/competitions/SA/matches?dateFrom=${selectedDate.toISOString().substr(0, 10)}&dateTo=${selectedDate.toISOString().substr(0, 10)}`, {
+      //    headers: {
+      //       'X-Auth-Token': 'dd5520b8f53f46b583801947683773f0',
+      //       "content-type": "application/json"
+      //    }
+      // });
+      // let _bl1 = axios.get(`https://api.football-data.org/v2/competitions/BL1/matches?dateFrom=${selectedDate.toISOString().substr(0, 10)}&dateTo=${selectedDate.toISOString().substr(0, 10)}`, {
+      //    headers: {
+      //       'X-Auth-Token': 'dd5520b8f53f46b583801947683773f0',
+      //       "content-type": "application/json"
+      //    }
+      // });
+
+      // axios.all([_pl, _sa, _bl1])
+      //    .then(axios.spread((...response) => {
+      //       setPremier(response[0].data.matches);
+      //       setSeriaA(response[1].data.matches);
+      //       setBunlesliga(response[2].data.matches);
+      //       console.log("pl: ", response[0]);
+      //       console.log("sa:", response[1]);
+      //       console.log("bl1:", response[2]);
+      //    }))
+      //    .catch(err => {
+      //       console.log(err);
+      //    })
+
 
       return () => {
          setMinDate();
          setMaxDate();
+         setPremier([]);
+         setSeriaA([]);
+         setBunlesliga([]);
       }
-   }, [])
+   }, [selectedDate]);
 
    return (
       <>
@@ -150,7 +198,6 @@ const ScoresContainer = ({ navigation }) => {
          <View style={styles.container} >
 
             <View style={styles.timeContainer}>
-               {/* <MText>TODAY BUTTON</MText> */}
 
                <CalendarStrip
                   scrollable
@@ -158,8 +205,10 @@ const ScoresContainer = ({ navigation }) => {
                      height: 80,
                      marginTop: 10,
                   }}
-                  selectedDate={date.toDateString()}
-                  // onDateSelected={this.onDateSelected}
+                  selectedDate={selectedDate}
+                  onDateSelected={(date) => {
+                     setSelectedDate(date);
+                  }}
                   minDate={minDate}
                   maxDate={maxDate}
                   calendarColor={BG_COLOR}
@@ -169,13 +218,14 @@ const ScoresContainer = ({ navigation }) => {
                   calendarAnimation={{ type: 'sequence', duration: 30 }}
                   daySelectionAnimation={{
                      type: 'border',  // background
-                     duration: 300,
-                     highlightColor: '#E0E0E0'
+                     borderWidth: 1,
+                     borderHighlightColor: '#E0E0E0',
+                     duration: 200,
+                     highlightColor: '#E0E0E0',   //'#E0E0E0'
                   }}
                   highlightDateNumberStyle={{ color: MAIN_COLOR }}
                   highlightDateNameStyle={{ color: MAIN_COLOR }}
                   highlightDateContainerStyle={{}}
-
                   iconContainer={{ flex: 0.1 }}
                   iconRight={require('./right-arrow-white.png')}
                   iconLeft={require('./left-arrow-white.png')}
@@ -185,17 +235,33 @@ const ScoresContainer = ({ navigation }) => {
             <ScrollView>
 
                {data && data.map(record => (
-                  <LeagueContainer
-                     name={record.name}
-                     country={record.area.name}
-                     leagueCode={record.code}
-                     flagImg={record.area.ensignUrl}
-                     navigation={navigation}
+                  <View
                      key={record.name}
-                  />
+                  >
+                     <LeagueContainer
+                        name={record.name}
+                        country={record.area.name}
+                        leagueCode={record.code}
+                        flagImg={record.area.ensignUrl}
+                        navigation={navigation}
+                     />
+
+
+                     {record.code === 'PL' && (
+                        <GameContainer listMatch={pl} />
+                     )}
+
+                     {record.code === 'SA' && (
+                        <GameContainer listMatch={sa} />
+                     )}
+
+                     {record.code === 'BL1' && (
+                        <GameContainer listMatch={bl1} />
+                     )}
+
+                  </View>
                ))}
 
-               {/* <GameContainer teamA="Manchester United" goalA="0" imgA="" teamB="Manchester City" goalB="1" imgB="" status="FT" /> */}
 
             </ScrollView>
          </View>

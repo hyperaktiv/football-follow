@@ -11,11 +11,15 @@ import { FontAwesome } from '@expo/vector-icons';
 import { MText } from '../Shared/StyledComponents/MText';
 import { BG_COLOR, WHITE, pgHorizontal, DIVIDE_COLOR } from './Theme';
 
-const Header = ({ title, navigation }) => {
+import { Ionicons } from '@expo/vector-icons';
+
+import { useNavigation } from '@react-navigation/native';
+
+const Header = ({ title, backAction = false, search = true }) => {
+   const navigation = useNavigation();
 
    return (
       <>
-
          <View style={{
             backgroundColor: BG_COLOR,
             height: Platform.OS === 'ios' ? Constants.statusBarHeight : StatusBar.currentHeight,
@@ -45,13 +49,23 @@ const Header = ({ title, navigation }) => {
             borderWidth: 1,
             borderColor: DIVIDE_COLOR
          }}>
-            <TouchableOpacity
-               onPress={() => {
-                  navigation.openDrawer();
-               }}
-            >
-               <FontAwesome name="cog" size={24} color={WHITE} />
-            </TouchableOpacity>
+            {backAction === false ? (
+               <TouchableOpacity
+                  onPress={() => {
+                     navigation.openDrawer();
+                  }}
+               >
+                  <FontAwesome name="cog" size={24} color={WHITE} />
+               </TouchableOpacity>
+            ) : (
+               <TouchableOpacity
+                  onPress={() => {
+                     navigation.goBack();
+                  }}
+               >
+                  <Ionicons name="chevron-back" size={24} color={WHITE} />
+               </TouchableOpacity>
+            )}
 
             <View style={{
                justifyContent: 'center',
@@ -60,9 +74,13 @@ const Header = ({ title, navigation }) => {
                <MText title bold medium underline>{title}</MText>
             </View>
 
-            <TouchableOpacity>
-               <FontAwesome name="search" size={24} color={WHITE} />
-            </TouchableOpacity>
+            {search === true && (
+               <TouchableOpacity>
+                  <FontAwesome name="search" size={24} color={WHITE} />
+               </TouchableOpacity>)
+            }
+
+
          </View>
       </>
    )
