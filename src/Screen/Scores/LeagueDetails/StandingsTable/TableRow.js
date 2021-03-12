@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, Dimensions } from 'react-native';
+import CustomText from '../../../../Shared/CustomText';
 import { MText } from '../../../../Shared/StyledComponents/MText';
 import { DIVIDE_COLOR } from '../../../../Shared/Theme';
 
@@ -76,21 +77,21 @@ const TableRow = ({ leagueCode, teamID, position, image, teamName, p, w, d, l, p
                }}
                source={{ uri: image }}
             />
-            <MText small style={{ marginLeft: 0.015 * width, }}>{teamName.substr(0, teamName.length - 3)}</MText>
+            <CustomText small style={{ marginLeft: 0.015 * width, }}>{teamName.substr(0, teamName.length - 3)}</CustomText>
          </View>
 
-         <MText center style={{ flex: 1, textAlign: 'center' }}>{p}</MText>
-         <MText center style={{ flex: 1 }}>{w}</MText>
-         <MText center style={{ flex: 1 }}>{d}</MText>
-         <MText center style={{ flex: 1 }}>{l}</MText>
-         <MText center style={{ flex: 1 }}>{pts}</MText>
+         <CustomText center style={{ flex: 1, textAlign: 'center' }}>{p}</CustomText>
+         <CustomText center style={{ flex: 1 }}>{w}</CustomText>
+         <CustomText center style={{ flex: 1 }}>{d}</CustomText>
+         <CustomText center style={{ flex: 1 }}>{l}</CustomText>
+         <CustomText center style={{ flex: 1 }}>{pts}</CustomText>
          <View style={{
             flex: 3,
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center'
          }}>
-            <MText>{form}</MText>
+            <CustomText>{form}</CustomText>
          </View>
       </View>
    )

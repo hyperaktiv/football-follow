@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import CustomText from '../../../../Shared/CustomText';
 import { MText } from '../../../../Shared/StyledComponents/MText';
 
 const note_data = [
@@ -33,7 +34,7 @@ const TableFooter = () => {
                   key={index}
                >
                   <View style={[styles.cicle, { backgroundColor: item.COLOR }]} />
-                  <MText>{item.name}</MText>
+                  <CustomText>{item.name}</CustomText>
                </View>
             )
          })}

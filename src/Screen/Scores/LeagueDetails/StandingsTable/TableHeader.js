@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { DIVIDE_COLOR } from '../../../../Shared/Theme';
 import { MText } from '../../../../Shared/StyledComponents/MText';
+import CustomText from '../../../../Shared/CustomText';
 
 const TableHeader = () => {
    return (
@@ -12,14 +13,14 @@ const TableHeader = () => {
          marginTop: 10,
          paddingVertical: 10
       }}>
-         <MText center bold color style={{ flex: 1 }}>#</MText>
-         <MText center bold color style={{ flex: 5 }}>Team</MText>
-         <MText center bold color style={{ flex: 1 }}>P</MText>
-         <MText center bold color style={{ flex: 1 }}>W</MText>
-         <MText center bold color style={{ flex: 1 }}>D</MText>
-         <MText center bold color style={{ flex: 1 }}>L</MText>
-         <MText center bold color style={{ flex: 1 }}>Pts</MText>
-         <MText center bold color style={{ flex: 3 }}>Form</MText>
+         <CustomText center bold color style={{ flex: 1 }}>#</CustomText>
+         <CustomText center bold color style={{ flex: 5 }}>Team</CustomText>
+         <CustomText center bold color style={{ flex: 1 }}>P</CustomText>
+         <CustomText center bold color style={{ flex: 1 }}>W</CustomText>
+         <CustomText center bold color style={{ flex: 1 }}>D</CustomText>
+         <CustomText center bold color style={{ flex: 1 }}>L</CustomText>
+         <CustomText center bold color style={{ flex: 1 }}>Pts</CustomText>
+         <CustomText center bold color style={{ flex: 3 }}>Form</CustomText>
 
       </View>
    )

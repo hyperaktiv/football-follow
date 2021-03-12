@@ -1,20 +1,25 @@
 import React from 'react';
-import { View, FlatList, Text } from 'react-native';
-import { BG_COLOR, DIVIDE_COLOR } from '../../Shared/Theme';
+import { View, FlatList } from 'react-native';
+import { DIVIDE_COLOR } from '../../Shared/Theme';
 
 import Header from '../../Shared/Header';
 import HighlightItem from './HighlightItem';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../../Redux/Reducers/theme';
 
 // https://www.scorebat.com/video-api/
 const highlights = require('./data.json');
 
 const HighlightScreen = ({ navigation }) => {
+   const theme = useSelector(state => state.theme);
+   const bg_color = THEMES[theme].bg_color;
+
    return (
       <>
          <Header title='Highlights' navigation={navigation} />
          <View style={{
             flex: 1,
-            backgroundColor: BG_COLOR,
+            backgroundColor: bg_color,
             paddingHorizontal: 5,
             borderTopWidth: 1,
             borderTopColor: DIVIDE_COLOR,

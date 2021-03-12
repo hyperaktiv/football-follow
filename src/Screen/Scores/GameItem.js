@@ -5,14 +5,14 @@ import {
    StyleSheet,
    TouchableOpacity
 } from 'react-native';
-import { MText } from '../../Shared/StyledComponents/MText';
 import { GAME_COLOR, DIVIDE_COLOR, GRAY } from '../../Shared/Theme';
-
+import CustomText from '../../Shared/CustomText';
 import { AntDesign } from '@expo/vector-icons';
 
 // redux
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToLike } from '../../Redux/Actions/likeActions';
+import { THEMES } from '../../Redux/Reducers/theme';
 
 
 const ClubItem = ({ teamName, img, goal }) => {
@@ -31,8 +31,8 @@ const ClubItem = ({ teamName, img, goal }) => {
             }} />
          )}
          <View style={styles.details}>
-            <MText white >{teamName}</MText>
-            <MText title bold medium>{goal}</MText>
+            <CustomText white >{teamName}</CustomText>
+            <CustomText title bold medium>{goal}</CustomText>
          </View>
       </View>
    )
@@ -41,12 +41,16 @@ const ClubItem = ({ teamName, img, goal }) => {
 const GameItem = ({ matchItem }) => {
    // redux action
    const dispatch = useDispatch();
-
+   const theme = useSelector(state => state.theme);
+   const iconColor = THEMES[theme].iconColor;
+   const gameColor = THEMES[theme].gameColorp;
 
    return (
-      <View style={styles.container}>
+      <View style={[styles.container, {
+         backgroundColor: gameColor,
+      }]}>
          <View style={styles.gameStatus}>
-            <MText small bold style={{ textAlign: 'center' }}>{matchItem.status}</MText>
+            <CustomText small bold style={{ textAlign: 'center' }}>{matchItem.status}</CustomText>
          </View>
          <View style={{ flex: 5, }}>
 
@@ -73,7 +77,7 @@ const GameItem = ({ matchItem }) => {
                dispatch(addToLike(matchItem));
             }}
          >
-            <AntDesign name="staro" size={20} color={GRAY} />
+            <AntDesign name="staro" size={20} color={iconColor} />
             {/* <AntDesign name="star" size={20} color={GRAY} /> */}
          </TouchableOpacity>
 
@@ -83,11 +87,12 @@ const GameItem = ({ matchItem }) => {
 
 const styles = StyleSheet.create({
    container: {
-      backgroundColor: GAME_COLOR,
       flexDirection: 'row',
       borderRadius: 10,
       paddingVertical: 5,
-      marginBottom: 5
+      marginBottom: 5,
+      borderWidth: 1,
+      borderColor: GAME_COLOR,
    },
    gameStatus: {
       flex: 1.5,

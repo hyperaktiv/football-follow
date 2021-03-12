@@ -4,6 +4,8 @@ import Header from '../../Shared/Header';
 
 import NewsItem from './NewsItem';
 import { BG_COLOR, DIVIDE_COLOR } from '../../Shared/Theme';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../../Redux/Reducers/theme';
 // import axios from 'axios';
 // import { parseString } from 'xml2js';
 
@@ -12,6 +14,9 @@ const xml_url = 'https://www.eyefootball.com/football_news.xml';
 const newsData = require('./news.json');
 
 const NewsScreen = ({ navigation }) => {
+
+   const theme = useSelector(state => state.theme);
+   const bg_color = THEMES[theme].bg_color;
 
    // let [newsData, setNewsData] = useState([]);
 
@@ -46,7 +51,7 @@ const NewsScreen = ({ navigation }) => {
          <Header title='News' navigation={navigation} />
          <View style={{
             flex: 1,
-            backgroundColor: BG_COLOR,
+            backgroundColor: bg_color,
             paddingHorizontal: 5,
             borderTopWidth: 1,
             borderTopColor: DIVIDE_COLOR,

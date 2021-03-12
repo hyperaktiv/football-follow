@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { MText } from '../../Shared/StyledComponents/MText';
+import CustomText from '../../Shared/CustomText';
 import { DIVIDE_COLOR, pgHorizontal } from '../../Shared/Theme';
 
 
@@ -16,7 +16,7 @@ const DrawerSectionTitle = ({ title }) => {
             borderBottomWidth: 1,
             marginTop: 15
          }}>
-         <MText bold small>{title.toUpperCase()}</MText>
+         <CustomText bold small>{title.toUpperCase()}</CustomText>
       </View>
    );
 }

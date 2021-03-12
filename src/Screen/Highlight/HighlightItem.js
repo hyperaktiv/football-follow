@@ -13,16 +13,22 @@ import { GAME_COLOR, WHITE, DIVIDE_COLOR, GRAY } from '../../Shared/Theme';
 import { MText } from '../../Shared/StyledComponents/MText';
 
 import { Entypo } from '@expo/vector-icons';
+import CustomText from '../../Shared/CustomText';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../../Redux/Reducers/theme';
 
 const HighlightItem = ({ item }) => {
    const navigation = useNavigation();
+   const theme = useSelector(state => state.theme);
+   const gameColor = THEMES[theme].gameColor;
+   const txtColor = THEMES[theme].txtColor;
 
    return (
       <TouchableOpacity
          style={{
             height: 100,
             flexDirection: 'row',
-            backgroundColor: GAME_COLOR,
+            backgroundColor: gameColor,
             paddingHorizontal: 5,
             paddingVertical: 10,
             borderBottomWidth: 1,
@@ -48,10 +54,10 @@ const HighlightItem = ({ item }) => {
                }}
                   source={{ uri: item.thumbnail, }}
                >
-                  <Entypo name="controller-play" size={35} color={WHITE} />
+                  <Entypo name="controller-play" size={35} color={txtColor} />
                </ImageBackground>
             ) : (
-               <Text style={{ color: WHITE, textAlign: 'center' }}>No Video</Text>
+               <CustomText style={{ textAlign: 'center' }}>No Video</CustomText>
             )}
          </View>
 
@@ -61,13 +67,13 @@ const HighlightItem = ({ item }) => {
             paddingHorizontal: 10,
          }}>
             <View style={{ height: '50%', justifyContent: 'space-between' }}>
-               <MText white bold>{item.title}</MText>
-               <MText small>{item.competition.name}</MText>
+               <CustomText white bold>{item.title}</CustomText>
+               <CustomText small>{item.competition.name}</CustomText>
             </View>
 
             <View style={{ flexDirection: 'row' }}>
-               <Entypo name="clock" size={14} color={WHITE} style={{ marginRight: 10 }} />
-               <MText small>{new Date(item.date).toDateString()}</MText>
+               <Entypo name="clock" size={14} color={txtColor} style={{ marginRight: 10 }} />
+               <CustomText small>{new Date(item.date).toDateString()}</CustomText>
             </View>
          </View>
 
