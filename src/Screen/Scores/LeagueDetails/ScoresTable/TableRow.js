@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
+import CustomText from '../../../../Shared/CustomText';
 import { MText } from '../../../../Shared/StyledComponents/MText';
 import { DIVIDE_COLOR } from '../../../../Shared/Theme';
 
@@ -10,30 +11,30 @@ const TableRow = ({ leagueCode, playerID, position, playerName, teamName, nation
 
    return (
       <View style={styles.rowContainer}>
-         <MText center style={{
+         <CustomText center style={{
             flex: 1,
             textAlign: 'center',
-         }}>{position}</MText>
+         }}>{position}</CustomText>
          {/* <View style={{
             flex: 3,
             flexDirection: 'row',
             alignItems: 'center'
          }}> */}
-         <MText small style={{
+         <CustomText small style={{
             flex: 3,
             marginLeft: 0.015 * width,
-         }}>{playerName}</MText>
-         <MText small style={{
+         }}>{playerName}</CustomText>
+         <CustomText small style={{
             flex: 3,
-         }}>{teamName.substr(0, teamName.length - 3)}</MText>
-         <MText style={{
+         }}>{teamName.substr(0, teamName.length - 3)}</CustomText>
+         <CustomText style={{
             flex: 2,
             textAlign: 'center'
-         }}>{nationality}</MText>
-         <MText style={{
+         }}>{nationality}</CustomText>
+         <CustomText style={{
             flex: 1,
             textAlign: 'center'
-         }}>{goals}</MText>
+         }}>{goals}</CustomText>
       </View>
    )
 }

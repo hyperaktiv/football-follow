@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
-import { MText } from '../../Shared/StyledComponents/MText';
+import CustomText from '../../Shared/CustomText';
 import { DIVIDE_COLOR } from '../../Shared/Theme';
 
 
@@ -19,9 +19,7 @@ const DrawerSectionItem = ({ title, children }) => {
          <View style={{ width: 30, justifyContent: 'center', alignItems: 'center' }}>
             {children}
          </View>
-
-         <MText bold white style={{ marginLeft: 10 }}>{title}</MText>
-
+         <CustomText bold style={{ marginLeft: 10 }}>{title}</CustomText>
       </TouchableOpacity>
    );
 }

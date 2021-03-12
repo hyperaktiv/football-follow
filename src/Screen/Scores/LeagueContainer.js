@@ -1,15 +1,22 @@
 import React from 'react';
-import { View, Image, TouchableOpacity, StyleSheet, Platform } from 'react-native';
-import { MText } from '../../Shared/StyledComponents/MText';
+import {
+   View, Image,
+   TouchableOpacity,
+   StyleSheet,
+   Platform
+} from 'react-native';
 import { DIVIDE_COLOR, GRAY } from "../../Shared/Theme";
-
 import { AntDesign } from '@expo/vector-icons';
 import { SvgUri } from 'react-native-svg';
-
+import CustomText from '../../Shared/CustomText';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../../Redux/Reducers/theme';
 
 const LeagueContainer = ({
    name, country, leagueCode, flagImg, turnIn = true, navigation
 }) => {
+   const theme = useSelector(state => state.theme);
+   const txtColor = THEMES[theme].txtColor;
 
    let flag = '';
    if (Platform.OS === 'ios' || Platform.OS === 'android') {
@@ -37,15 +44,16 @@ const LeagueContainer = ({
                {flag}
             </View>
             <View style={{ flex: 5, marginLeft: 15 }}>
-               <MText title medium>{name}</MText>
-               <MText>{country}</MText>
+               <CustomText title medium>{name}</CustomText>
+               <CustomText>{country}</CustomText>
             </View>
             {turnIn && (
                <View style={styles.flagContainer}>
-                  <Image
+                  {/* <Image
                      style={{ width: 10, height: 10, }}
                      source={require('./right-arrow-white.png')}
-                  />
+                  /> */}
+                  <AntDesign name="right" size={24} color={txtColor} />
                </View>
             )}
          </TouchableOpacity>
@@ -57,19 +65,13 @@ const LeagueContainer = ({
       return (
          <View style={styles.leagueContainer}>
             <View style={styles.flagContainer}>
-
                {/**render flag */}
                {flag}
-
             </View>
             <View style={{ flex: 5, marginLeft: 15 }}>
-               <MText title medium>{name}</MText>
-               <MText>{country}</MText>
+               <CustomText title medium>{name}</CustomText>
+               <CustomText>{country}</CustomText>
             </View>
-            {/* <TouchableOpacity style={styles.flagContainer}>
-               <AntDesign name="staro" size={20} color={GRAY} />
-               //<AntDesign name="star" size={20} color={GRAY} />
-            </TouchableOpacity> */}
          </View>
       )
    }
@@ -86,8 +88,6 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      // width: 30,
-      // height: 20
    },
 })
 

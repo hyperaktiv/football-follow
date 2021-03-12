@@ -1,16 +1,11 @@
-import React, { useState } from 'react'
-import {
-   View,
-   Text,
-   Switch,
-   TouchableOpacity
-} from 'react-native';
+import React from 'react'
+import { View, } from 'react-native';
 import { Ionicons, Foundation, MaterialCommunityIcons, MaterialIcons, Entypo } from '@expo/vector-icons';
-import { MText } from '../../Shared/StyledComponents/MText';
 
-import { GRAY, MAIN_COLOR, pgHorizontal, DIVIDE_COLOR } from '../../Shared/Theme';
+import { DIVIDE_COLOR } from '../../Shared/Theme';
 
 import DrawerUser from './DrawerUser';
+import ThemeSetting from './ThemeSetting';
 import DrawerSectionTitle from './DrawerSectionTitle';
 import DrawerSectionItem from './DrawerSectionItem';
 
@@ -18,20 +13,25 @@ import {
    DrawerContentScrollView,
 } from '@react-navigation/drawer';
 
+import CustomText from '../../Shared/CustomText';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../../Redux/Reducers/theme';
+
 
 const CustomDrawerContent = (props) => {
 
-   const [isEnabled, setIsEnabled] = useState(false);
-   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+   const theme = useSelector(state => state.theme);
+   const txtColor = THEMES[theme].txtColor;
+   const iconColor = THEMES[theme].iconColor;
 
    return (
       <DrawerContentScrollView {...props}>
-         <Text style={{
+         <CustomText style={{
             paddingLeft: 20,
             paddingVertical: 15,
             fontSize: 26,
-            color: 'white'
-         }}>Football_Follow</Text>
+            color: txtColor
+         }}>Football_Follow</CustomText>
 
          <View style={{
             height: 5,
@@ -50,45 +50,14 @@ const CustomDrawerContent = (props) => {
          <DrawerSectionTitle title={'settings'} />
 
          {/** Dark/Light Theme */}
-         <View
-            style={{
-               flexDirection: 'row',
-               alignItems: 'center',
-               borderBottomWidth: 1,
-               borderColor: DIVIDE_COLOR,
-               paddingHorizontal: 20,
-               paddingVertical: 5,
-               marginTop: 5,
-            }}>
-            <View style={{ width: 30, justifyContent: 'center', alignItems: 'center' }}>
-               <MaterialCommunityIcons name="theme-light-dark" size={24} color={GRAY} />
-            </View>
-            <View style={{
-               flex: 1,
-               flexDirection: 'row',
-               alignItems: "center",
-               justifyContent: "space-between",
-               paddingHorizontal: 5,
-               paddingLeft: 5,
-            }}>
-               <MText bold white>Dark/Light Theme</MText>
-               <Switch
-                  trackColor={{ false: "#767577", true: "#81b0ff" }}
-                  thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-                  ios_backgroundColor="#3e3e3e"
-                  onValueChange={toggleSwitch}
-                  value={isEnabled}
-               />
-            </View>
-         </View>
-         {/**Dark-light theme ends */}
+         <ThemeSetting />
 
          <DrawerSectionItem title={'Automatic Refresh'}>
-            <Ionicons name="refresh-circle-outline" size={24} color={GRAY} />
+            <Ionicons name="refresh-circle-outline" size={24} color={iconColor} />
          </DrawerSectionItem>
 
          <DrawerSectionItem title={'Clear Cache'}>
-            <Foundation name="prohibited" size={24} color={GRAY} />
+            <Foundation name="prohibited" size={24} color={iconColor} />
          </DrawerSectionItem>
 
          <View
@@ -102,7 +71,7 @@ const CustomDrawerContent = (props) => {
                marginTop: 5,
             }}>
             <View style={{ width: 30, justifyContent: 'center', alignItems: 'center' }}>
-               <Ionicons name="football-outline" size={24} color={GRAY} />
+               <Ionicons name="football-outline" size={24} color={iconColor} />
             </View>
             <View style={{
                flex: 1,
@@ -110,15 +79,15 @@ const CustomDrawerContent = (props) => {
                alignItems: "center",
                justifyContent: "space-between",
                paddingHorizontal: 5,
-               paddingLeft: 5,
+               paddingLeft: 10,
             }}>
-               <MText bold white>Sport Display</MText>
-               <MText bold white>Football</MText>
+               <CustomText bold>Sport Display</CustomText>
+               <CustomText bold>Football</CustomText>
             </View>
          </View>
 
          <DrawerSectionItem title={'Notifications'}>
-            <Ionicons name="ios-notifications-circle-outline" size={24} color={GRAY} />
+            <Ionicons name="ios-notifications-circle-outline" size={24} color={iconColor} />
          </DrawerSectionItem>
 
          <View style={{
@@ -130,27 +99,27 @@ const CustomDrawerContent = (props) => {
          <DrawerSectionTitle title={'info'} />
 
          <DrawerSectionItem title={'Asked Questions'}>
-            <MaterialCommunityIcons name="frequently-asked-questions" size={24} color={GRAY} />
+            <MaterialCommunityIcons name="frequently-asked-questions" size={24} color={iconColor} />
          </DrawerSectionItem>
 
          <DrawerSectionItem title={'Privacy And Cookies'}>
-            <MaterialIcons name="privacy-tip" size={24} color={GRAY} />
+            <MaterialIcons name="privacy-tip" size={24} color={iconColor} />
          </DrawerSectionItem>
 
          <DrawerSectionItem title={'Consent Preferences'}>
-            <MaterialCommunityIcons name="cookie" size={24} color={GRAY} />
+            <MaterialCommunityIcons name="cookie" size={24} color={iconColor} />
          </DrawerSectionItem>
 
          <DrawerSectionItem title={'Tell a Friend'}>
-            <MaterialIcons name="supervised-user-circle" size={24} color={GRAY} />
+            <MaterialIcons name="supervised-user-circle" size={24} color={iconColor} />
          </DrawerSectionItem>
 
          <DrawerSectionItem title={'Contact Us'}>
-            <MaterialIcons name="contact-mail" size={24} color={GRAY} />
+            <MaterialIcons name="contact-mail" size={24} color={iconColor} />
          </DrawerSectionItem>
 
          <DrawerSectionItem title={'About Us'}>
-            <Entypo name="info-with-circle" size={24} color={GRAY} />
+            <Entypo name="info-with-circle" size={24} color={iconColor} />
          </DrawerSectionItem>
 
       </DrawerContentScrollView>

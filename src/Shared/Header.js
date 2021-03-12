@@ -8,31 +8,34 @@ import {
 } from 'react-native';
 import Constants from 'expo-constants';
 import { FontAwesome } from '@expo/vector-icons';
-import { MText } from '../Shared/StyledComponents/MText';
-import { BG_COLOR, WHITE, pgHorizontal, DIVIDE_COLOR } from './Theme';
+import { pgHorizontal, DIVIDE_COLOR } from './Theme';
 
 import { Ionicons } from '@expo/vector-icons';
 
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../Redux/Reducers/theme';
+import CustomText from './CustomText';
 
 const Header = ({ title, backAction = false, search = true }) => {
    const navigation = useNavigation();
 
+   const theme = useSelector(state => state.theme);
+   const bg_color = THEMES[theme].bg_color;
+   const txtColor = THEMES[theme].txtColor;
+
    return (
       <>
          <View style={{
-            backgroundColor: BG_COLOR,
+            backgroundColor: bg_color,
             height: Platform.OS === 'ios' ? Constants.statusBarHeight : StatusBar.currentHeight,
             // borderBottomWidth: 1,
             // borderColor: DIVIDE_COLOR
          }}>
             <StatusBar
                barStyle="light-content"
-               // dark-content, light-content and default
                hidden={false}
-               //To hide statusBar
                backgroundColor="#ff4081"
-               //Background color of statusBar
                translucent={false}
             //allowing light, but not detailed shapes
             // networkActivityIndicatorVisible={true}
@@ -45,7 +48,7 @@ const Header = ({ title, backAction = false, search = true }) => {
             justifyContent: 'space-between',
             alignItems: 'center',
             padding: pgHorizontal,
-            backgroundColor: BG_COLOR,
+            backgroundColor: bg_color,
             borderWidth: 1,
             borderColor: DIVIDE_COLOR
          }}>
@@ -55,7 +58,7 @@ const Header = ({ title, backAction = false, search = true }) => {
                      navigation.openDrawer();
                   }}
                >
-                  <FontAwesome name="cog" size={24} color={WHITE} />
+                  <FontAwesome name="cog" size={24} color={txtColor} />
                </TouchableOpacity>
             ) : (
                <TouchableOpacity
@@ -63,7 +66,7 @@ const Header = ({ title, backAction = false, search = true }) => {
                      navigation.goBack();
                   }}
                >
-                  <Ionicons name="chevron-back" size={24} color={WHITE} />
+                  <Ionicons name="chevron-back" size={24} color={txtColor} />
                </TouchableOpacity>
             )}
 
@@ -71,12 +74,12 @@ const Header = ({ title, backAction = false, search = true }) => {
                justifyContent: 'center',
                alignItems: 'center'
             }}>
-               <MText title bold medium underline>{title}</MText>
+               <CustomText title bold medium underline>{title}</CustomText>
             </View>
 
             {search === true && (
                <TouchableOpacity>
-                  <FontAwesome name="search" size={24} color={WHITE} />
+                  <FontAwesome name="search" size={24} color={txtColor} />
                </TouchableOpacity>)
             }
 

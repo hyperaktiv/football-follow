@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Button } from 'react-native';
 import Header from '../../Shared/Header';
-import { GAME_COLOR, BG_COLOR, WHITE, DIVIDE_COLOR, GRAY, pgHorizontal } from '../../Shared/Theme';
+import { GAME_COLOR, DIVIDE_COLOR, GRAY, pgHorizontal } from '../../Shared/Theme';
 
 import { MText } from '../../Shared/StyledComponents/MText';
 
@@ -9,10 +9,17 @@ import { WebView } from 'react-native-webview';
 import * as WebBrowser from 'expo-web-browser';
 
 // navigation
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../../Redux/Reducers/theme';
+import CustomText from '../../Shared/CustomText';
 
 const HighlightPage = () => {
-   const navigation = useNavigation();
+
+   const theme = useSelector(state => state.theme);
+   const bg_color = THEMES[theme].bg_color;
+   const gameColor = THEMES[theme].gameColor;
+
    const route = useRoute();
 
    return (
@@ -21,7 +28,7 @@ const HighlightPage = () => {
 
          <View style={{
             flex: 1,
-            backgroundColor: BG_COLOR,
+            backgroundColor: bg_color,
             justifyContent: 'center',
             alignContent: 'center',
          }}>
@@ -36,7 +43,7 @@ const HighlightPage = () => {
                   style={{
                      height: 50,
                      marginTop: 20,
-                     backgroundColor: GAME_COLOR,
+                     backgroundColor: gameColor,
                      flexDirection: 'row',
                      marginHorizontal: pgHorizontal,
                      borderWidth: 1,
@@ -46,9 +53,9 @@ const HighlightPage = () => {
                      alignItems: 'center'
                   }}
                >
-                  <MText large white>{route.params.item.side1.name}</MText>
-                  <MText>-</MText>
-                  <MText large white>{route.params.item.side2.name}</MText>
+                  <CustomText large white>{route.params.item.side1.name}</CustomText>
+                  <CustomText>-</CustomText>
+                  <CustomText large white>{route.params.item.side2.name}</CustomText>
                </View>
                <View style={{
                   marginTop: 2,
@@ -73,7 +80,7 @@ const HighlightPage = () => {
 
                <View style={{
                   marginTop: 30,
-                  backgroundColor: GAME_COLOR,
+                  backgroundColor: gameColor,
                   marginHorizontal: pgHorizontal,
                   borderWidth: 1,
                   borderColor: DIVIDE_COLOR,

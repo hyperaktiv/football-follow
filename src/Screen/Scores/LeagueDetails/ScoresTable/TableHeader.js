@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { DIVIDE_COLOR } from '../../../../Shared/Theme';
 import { MText } from '../../../../Shared/StyledComponents/MText';
+import CustomText from '../../../../Shared/CustomText';
 
 const TableHeader = () => {
    return (
@@ -12,11 +13,11 @@ const TableHeader = () => {
          marginTop: 10,
          paddingVertical: 10
       }}>
-         <MText center bold color style={{ flex: 1 }}>#</MText>
-         <MText center bold color style={{ flex: 3 }}>Player</MText>
-         <MText center bold color style={{ flex: 3 }}>Team</MText>
-         <MText center bold color style={{ flex: 2 }}>Nationality</MText>
-         <MText center bold color style={{ flex: 1 }}>Goals</MText>
+         <CustomText center bold color style={{ flex: 1 }}>#</CustomText>
+         <CustomText center bold color style={{ flex: 3 }}>Player</CustomText>
+         <CustomText center bold color style={{ flex: 3 }}>Team</CustomText>
+         <CustomText center bold color style={{ flex: 2 }}>Nationality</CustomText>
+         <CustomText center bold color style={{ flex: 1 }}>Goals</CustomText>
       </View>
    )
 }

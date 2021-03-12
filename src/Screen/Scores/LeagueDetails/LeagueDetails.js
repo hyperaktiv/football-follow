@@ -7,9 +7,13 @@ import Standings from './StandingsTable/Standings';
 import ScoresStanding from './ScoresTable/ScoresStandings';
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../../../Redux/Reducers/theme';
 const TopTab = createMaterialTopTabNavigator();
 
 const LeagueDetails = ({ navigation, route }) => {
+   const theme = useSelector(state => state.theme);
+   const bg_color = THEMES[theme].bg_color;
 
    const { leagueCode, name, country, flagImg } = route.params;
 
@@ -19,7 +23,7 @@ const LeagueDetails = ({ navigation, route }) => {
 
          <View style={{
             flex: 1,
-            backgroundColor: BG_COLOR,
+            backgroundColor: bg_color,
             paddingHorizontal: pgHorizontal
          }}>
             <LeagueContainer
@@ -34,7 +38,7 @@ const LeagueDetails = ({ navigation, route }) => {
             <TopTab.Navigator
                tabBarOptions={{
                   labelStyle: { fontSize: 12, color: GRAY },
-                  style: { backgroundColor: BG_COLOR },
+                  style: { backgroundColor: bg_color },
                }}>
                <TopTab.Screen name="Table">
                   {() => <Standings leagueCode={leagueCode} name={name} country={country} />}

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, FlatList } from 'react-native';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../../../../Redux/Reducers/theme';
 import { BG_COLOR } from '../../../../Shared/Theme';
 
 import TableHeader from './TableHeader';
@@ -9,6 +11,9 @@ import TableRow from './TableRow';
 const scoresTable = require('./scoresTable.json');
 
 const ScoresStandings = ({ leagueCode, name, country }) => {
+
+   const theme = useSelector(state => state.theme);
+   const bg_color = THEMES[theme].bg_color;
 
    const [scoresData, setScoresData] = useState([]);
 
@@ -23,7 +28,7 @@ const ScoresStandings = ({ leagueCode, name, country }) => {
    return (
       <View style={{
          flex: 1,
-         backgroundColor: BG_COLOR
+         backgroundColor: bg_color
       }}>
          <TableHeader />
          <FlatList

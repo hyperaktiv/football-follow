@@ -3,22 +3,27 @@ import React from 'react';
 import CustomDrawerContent from '../Screen/DrawerNav/CustomDrawerContent';
 import Main from './Main';
 
-import { BG_COLOR } from '../Shared/Theme';
-
 import {
    createDrawerNavigator,
 } from '@react-navigation/drawer';
 
+import { useSelector } from 'react-redux';
+import { THEMES } from '../Redux/Reducers/theme';
+
 const Drawer = createDrawerNavigator();
 
 const DrawerContainer = () => {
+
+   const theme = useSelector(state => state.theme);
+   const bg_color = THEMES[theme].bg_color;
+
    return (
       <Drawer.Navigator
          // openByDefault
          drawerType="slide"
          drawerContent={(props) => <CustomDrawerContent {...props} />}
          drawerStyle={{
-            backgroundColor: BG_COLOR,
+            backgroundColor: bg_color,
             width: 340,
          }}
       >

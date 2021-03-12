@@ -4,17 +4,23 @@ import {
    TouchableOpacity,
    ImageBackground,
 } from 'react-native';
-import { MText } from '../../Shared/StyledComponents/MText';
 
-import { GRAY, BG_COLOR, pgHorizontal, DIVIDE_COLOR } from '../../Shared/Theme';
+import { pgHorizontal, DIVIDE_COLOR } from '../../Shared/Theme';
 import { MaterialIcons, Entypo } from '@expo/vector-icons';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../../Redux/Reducers/theme';
+import CustomText from '../../Shared/CustomText';
 
 
 const DrawerUser = () => {
+   const theme = useSelector(state => state.theme);
+   const bg_color = THEMES[theme].bg_color;
+   const iconColor = THEMES[theme].iconColor;
+
    return (
       <TouchableOpacity style={{
          height: 70,
-         backgroundColor: BG_COLOR,
+         backgroundColor: bg_color,
          borderWidth: 1,
          borderColor: DIVIDE_COLOR,
 
@@ -38,11 +44,11 @@ const DrawerUser = () => {
                borderRadius: 25,
                alignItems: 'center',
                justifyContent: 'center',
-               backgroundColor: BG_COLOR,
+               backgroundColor: bg_color,
                borderWidth: 1,
                borderColor: DIVIDE_COLOR,
             }}>
-               <MaterialIcons name="person" size={26} color={GRAY} />
+               <MaterialIcons name="person" size={26} color={iconColor} />
             </View>
 
             <View style={{
@@ -50,7 +56,7 @@ const DrawerUser = () => {
                justifyContent: 'center',
                marginLeft: 15,
             }}>
-               <MText large bold white>Đăng Nhập</MText>
+               <CustomText large bold white>Đăng Nhập</CustomText>
             </View>
 
             <View style={{
@@ -59,9 +65,9 @@ const DrawerUser = () => {
                borderRadius: 20,
                alignItems: 'center',
                justifyContent: 'center',
-               backgroundColor: BG_COLOR,
+               backgroundColor: bg_color,
             }}>
-               <Entypo name="chevron-thin-right" size={20} color={GRAY} />
+               <Entypo name="chevron-thin-right" size={20} color={iconColor} />
             </View>
 
          </ImageBackground>
