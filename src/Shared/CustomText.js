@@ -1,10 +1,15 @@
 import React from 'react'
 import { Text } from 'react-native'
+import { useSelector } from 'react-redux';
+import { THEMES } from '../Redux/Reducers/theme';
 
-const CusomText = ({ color, size, bold, center, underline, children }) => {
+const CustomText = (props) => {
+   const { color, size, bold, center, underline, children } = props;
 
+   const theme = useSelector(state => state.theme);
+   const textColor = THEMES[theme].txtColor;
 
-   let textColor = '#aaaaaa';
+   // let textColor = '#aaaaaa';
    let fontSize = 14;
    let textAlign = '';
    let boldText = '';
@@ -40,8 +45,9 @@ const CusomText = ({ color, size, bold, center, underline, children }) => {
          textDecorationLine: txtDecorationLine,
          textDecorationStyle: txtDecorationStyle,
          textDecorationColor: txtDecorationColor,
+         ...props.style
       }}>{children}</Text>
    )
 }
 
-export default CusomText
+export default CustomText

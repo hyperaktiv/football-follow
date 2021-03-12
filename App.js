@@ -5,7 +5,7 @@ import { LogBox } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import DrawerNavigator from './src/Navigators/DrawerContainer';
 
-import HighlightNavigator from './src/Navigators/HighlightNavigator';
+import SearchScreen from './src/Screen/Search/SearchScreen';
 
 
 // REDUX
@@ -24,5 +24,6 @@ export default function App() {
         {/* <HighlightNavigator /> */}
       </NavigationContainer>
     </StateProvider>
+    // <SearchScreen />
   );
 }

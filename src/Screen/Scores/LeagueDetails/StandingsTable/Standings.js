@@ -1,19 +1,25 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { BG_COLOR } from '../../../../Shared/Theme';
 
 import TableHeader from './TableHeader';
 import TableRow from './TableRow';
 import TableFooter from './TableFooter';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../../../../Redux/Reducers/theme';
 
 const standings_data = require('./standings.json');
 
 const Standings = ({ leagueCode, name, country }) => {
+
+   const theme = useSelector(state => state.theme);
+   const bg_color = THEMES[theme].bg_color;
+
    const tables = standings_data.standings[0].table;
    return (
       <View style={{
          flex: 1,
-         backgroundColor: BG_COLOR
+         backgroundColor: bg_color
       }}>
          <TableHeader />
 

@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native';
 import Header from '../../Shared/Header';
 
-import { BG_COLOR, WHITE, pgHorizontal, DIVIDE_COLOR, MAIN_COLOR, GRAY } from '../../Shared/Theme';
+import { WHITE, pgHorizontal, DIVIDE_COLOR, MAIN_COLOR, GRAY } from '../../Shared/Theme';
 import CalendarStrip from 'react-native-calendar-strip';
 
 import LeagueContainer from './LeagueContainer';
 import GameContainer from './GameContainer';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../../Redux/Reducers/theme';
 
 const data = [
    {
@@ -131,6 +133,10 @@ const data = [
 
 const ScoresContainer = ({ navigation }) => {
 
+   const theme = useSelector(state => state.theme);
+   const bg_color = THEMES[theme].bg_color;
+   const txtColor = THEMES[theme].txtColor;
+
    const [selectedDate, setSelectedDate] = useState(new Date());
    const [minDate, setMinDate] = useState();
    const [maxDate, setMaxDate] = useState();
@@ -195,7 +201,9 @@ const ScoresContainer = ({ navigation }) => {
       <>
          <Header title='Scores' navigation={navigation} />
 
-         <View style={styles.container} >
+         <View style={[styles.container, {
+            backgroundColor: bg_color,
+         }]} >
 
             <View style={styles.timeContainer}>
 
@@ -211,10 +219,10 @@ const ScoresContainer = ({ navigation }) => {
                   }}
                   minDate={minDate}
                   maxDate={maxDate}
-                  calendarColor={BG_COLOR}
-                  calendarHeaderStyle={{ color: WHITE }}
-                  dateNumberStyle={{ color: WHITE }}
-                  dateNameStyle={{ color: WHITE }}
+                  calendarColor={bg_color}
+                  calendarHeaderStyle={{ color: txtColor }}
+                  dateNumberStyle={{ color: txtColor }}
+                  dateNameStyle={{ color: txtColor }}
                   calendarAnimation={{ type: 'sequence', duration: 30 }}
                   daySelectionAnimation={{
                      type: 'border',  // background
@@ -271,7 +279,6 @@ const ScoresContainer = ({ navigation }) => {
 const styles = StyleSheet.create({
    container: {
       flex: 1,
-      backgroundColor: BG_COLOR,
       paddingHorizontal: pgHorizontal,
       borderTopWidth: 1,
       borderTopColor: DIVIDE_COLOR

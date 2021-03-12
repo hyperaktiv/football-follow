@@ -5,8 +5,10 @@ import { MAIN_COLOR, GAME_COLOR, DIVIDE_COLOR, GRAY } from '../../Shared/Theme';
 
 import { AntDesign } from '@expo/vector-icons';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { removeFromLike } from '../../Redux/Actions/likeActions';
+import CustomText from '../../Shared/CustomText';
+import { THEMES } from '../../Redux/Reducers/theme';
 
 const ClubItem = ({ teamName, img, goal }) => {
    return (
@@ -17,8 +19,8 @@ const ClubItem = ({ teamName, img, goal }) => {
             />
          )}
          <View style={styles.details}>
-            <MText white >{teamName}</MText>
-            <MText title bold medium>{goal}</MText>
+            <CustomText white >{teamName}</CustomText>
+            <CustomText title bold medium>{goal}</CustomText>
          </View>
       </View>
    )
@@ -27,10 +29,15 @@ const ClubItem = ({ teamName, img, goal }) => {
 const GameItem = ({ matchItem }) => {
 
    const dispatch = useDispatch();
+   const theme = useSelector(state => state.theme);
+   const gameColor = THEMES[theme].gameColor;
 
    if (!matchItem) {
       return (
-         <View style={[styles.container, { width: '65%' }]}>
+         <View style={[styles.container, {
+            width: '65%',
+            backgroundColor: gameColor,
+         }]}>
             <View style={[styles.gameStatus, { flexDirection: 'row' }]}>
                <View style={{
                   width: 5,
@@ -41,7 +48,7 @@ const GameItem = ({ matchItem }) => {
                   borderColor: DIVIDE_COLOR,
                   marginRight: 10
                }} />
-               <MText medium style={{ color: MAIN_COLOR }}>{`1'`}</MText>
+               <CustomText medium style={{ color: MAIN_COLOR }}>{`1'`}</CustomText>
             </View>
             <View style={{ flex: 5, }}>
                <ClubItem teamName={'Team A'} goal={0} />
@@ -59,9 +66,11 @@ const GameItem = ({ matchItem }) => {
       )
    } else {
       return (
-         <View style={styles.container}>
+         <View style={[styles.container, {
+            backgroundColor: gameColor,
+         }]}>
             <View style={styles.gameStatus}>
-               <MText small bold style={{ textAlign: 'center' }}>{matchItem.status}</MText>
+               <CustomText small bold style={{ textAlign: 'center' }}>{matchItem.status}</CustomText>
             </View>
             <View style={{ flex: 5, }}>
                <ClubItem
@@ -96,11 +105,12 @@ const GameItem = ({ matchItem }) => {
 
 const styles = StyleSheet.create({
    container: {
-      backgroundColor: GAME_COLOR,
       flexDirection: 'row',
       borderRadius: 10,
       paddingVertical: 5,
-      marginVertical: 5
+      marginVertical: 5,
+      borderWidth: 1,
+      borderColor: GAME_COLOR
    },
    gameStatus: {
       flex: 1.5,
