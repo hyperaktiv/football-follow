@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import DrawerNavigator from './src/Navigators/DrawerContainer';
 
 import SearchScreen from './src/Screen/Search/SearchScreen';
-
+import ClubScreen from './src/Screen/Search/ClubScreen';
 
 // REDUX
 import { Provider as StateProvider } from 'react-redux';
@@ -21,9 +21,12 @@ export default function App() {
     <StateProvider store={store}>
       <NavigationContainer>
         <DrawerNavigator />
-        {/* <HighlightNavigator /> */}
+
+        {/* <ClubScreen /> */}
       </NavigationContainer>
+
+      {/* <SearchScreen /> */}
     </StateProvider>
-    // <SearchScreen />
+
   );
 }
