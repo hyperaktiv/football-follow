@@ -15,7 +15,7 @@ export const THEMES = {
    }
 }
 
-const theme = (state = 'light', action) => {
+const theme = (state = 'dark', action) => {
    if (action.type === TOGGLE_THEME) {
       if (state === 'light') {
          return 'dark'

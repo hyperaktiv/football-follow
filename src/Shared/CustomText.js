@@ -4,10 +4,9 @@ import { useSelector } from 'react-redux';
 import { THEMES } from '../Redux/Reducers/theme';
 
 const CustomText = (props) => {
-   const { color, size, bold, center, underline, children } = props;
 
    const theme = useSelector(state => state.theme);
-   const textColor = THEMES[theme].txtColor;
+   let textColor = THEMES[theme].txtColor;
 
    // let textColor = '#aaaaaa';
    let fontSize = 14;
@@ -17,21 +16,18 @@ const CustomText = (props) => {
    let txtDecorationStyle = "";
    let txtDecorationColor = "";
 
-   if (color == 'color') textColor = '#FFA000'; // main theme color
-   if (color == 'black') textColor = 'black';
-   if (color == 'title' || color == 'white') textColor = '#fcfcfc';
+   if (props.mainColor) textColor = '#FFA000'; // main theme color
+   if (props.small) fontSize = 12;
+   if (props.medium) fontSize = 16;
+   if (props.large) fontSize = 20;
 
-   if (size == 'small') fontSize = 12;
-   if (size == 'medium') fontSize = 16;
-   if (size == 'large') fontSize = 20;
+   if (props.bold) boldText = 'bold';
+   if (props.center) textAlign = 'center';
 
-   if (bold) boldText = 'bold';
-   if (center) textAlign = 'center';
-
-   if (underline) {
+   if (props.underline) {
       txtDecorationLine = "underline";
       txtDecorationStyle = "solid";
-      txtDecorationColor = "#aaaaaa";
+      txtDecorationColor = "#000";
    }
 
 
@@ -46,7 +42,7 @@ const CustomText = (props) => {
          textDecorationStyle: txtDecorationStyle,
          textDecorationColor: txtDecorationColor,
          ...props.style
-      }}>{children}</Text>
+      }}>{props.children}</Text>
    )
 }
 

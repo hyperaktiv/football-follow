@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { BG_COLOR, GRAY, pgHorizontal } from '../../../Shared/Theme';
+import { GRAY, pgHorizontal } from '../../../Shared/Theme';
 import Header from '../../../Shared/Header';
 import LeagueContainer from '../LeagueContainer';
 import Standings from './StandingsTable/Standings';
