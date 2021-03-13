@@ -10,7 +10,7 @@ import { THEMES } from '../../../../Redux/Reducers/theme';
 
 const standings_data = require('./standings.json');
 
-const Standings = ({ leagueCode, name, country }) => {
+const Standings = () => {
 
    const theme = useSelector(state => state.theme);
    const bg_color = THEMES[theme].bg_color;

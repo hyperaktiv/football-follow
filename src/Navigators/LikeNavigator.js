@@ -1,6 +1,6 @@
 import React from 'react'
 import LikeScreen from '../Screen/Likes/LikeScreen';
-import LeagueDetails from '../Screen/Scores/LeagueDetails/LeagueDetails';
+// import LeagueDetails from '../Screen/Scores/LeagueDetails/LeagueDetails';
 import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 

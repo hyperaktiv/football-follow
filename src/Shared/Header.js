@@ -37,8 +37,6 @@ const Header = ({ title, backAction = false, search = true }) => {
                hidden={false}
                backgroundColor="#ff4081"
                translucent={false}
-            //allowing light, but not detailed shapes
-            // networkActivityIndicatorVisible={true}
             />
          </View>
 
@@ -77,12 +75,18 @@ const Header = ({ title, backAction = false, search = true }) => {
                <CustomText title bold medium underline>{title}</CustomText>
             </View>
 
-            {search === true && (
-               <TouchableOpacity>
+            {search === true ? (
+               <TouchableOpacity
+                  onPress={() => {
+                     navigation.navigate('SearchScreen');
+                  }}
+               >
                   <FontAwesome name="search" size={24} color={txtColor} />
-               </TouchableOpacity>)
+               </TouchableOpacity>
+            ) : (
+               <View />
+            )
             }
-
 
          </View>
       </>
