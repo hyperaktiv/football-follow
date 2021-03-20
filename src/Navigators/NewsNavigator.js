@@ -1,24 +1,24 @@
-import React from 'react';
-import HighlightScreen from '../Screen/Highlight/HighlightScreen';
-import HighlightPage from '../Screen/Highlight/HighlightPage';
+import React from 'react'
+import NewsScreen from '../Screen/News/NewsScreen';
+import NewsDetails from '../Screen/News/NewsDetails';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import Header from '../Shared/Header';
 const Stack = createStackNavigator();
 
-const HighlightNavigator = () => {
+const NewsNavigator = () => {
    return (
       <Stack.Navigator>
          <Stack.Screen
-            name="HighlightScreen"
-            component={HighlightScreen}
+            name="NewsScreen"
+            component={NewsScreen}
             options={{
                // headerShown: false
                header: (props) => (<Header title={props.scene.route.name} />)
             }} />
          <Stack.Screen
-            name="HighlightPage"
-            component={HighlightPage}
+            name="NewsDetails"
+            component={NewsDetails}
             options={{
                header: (props) => (<Header title={props.scene.route.name} backAction={true} />)
             }}
@@ -27,4 +27,4 @@ const HighlightNavigator = () => {
    )
 }
 
-export default HighlightNavigator
+export default NewsNavigator

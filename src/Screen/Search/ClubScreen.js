@@ -37,29 +37,36 @@ const ClubScreen = () => {
    });
    players = players.concat(coachInfo);
 
-   players.push({ headerTitle: 'Goalkeeper', header: true });
+   players.push({ headerTitle: 'Goalkeeper', header: true, name: 'Goalkeeper' });
    let listGoalkeeper = clubData.squad.filter(item => {
       return item.position == "Goalkeeper";
    });
    players = players.concat(listGoalkeeper);
 
-   players.push({ headerTitle: 'Defender', header: true });
+   players.push({ headerTitle: 'Defender', header: true, name: 'Defender' });
    let listDefender = clubData.squad.filter(item => {
       return item.position == "Defender";
    });
    players = players.concat(listDefender);
 
-   players.push({ headerTitle: 'Midfielder', header: true });
+   players.push({ headerTitle: 'Midfielder', header: true, name: 'Midfielder' });
    let listMidfielder = clubData.squad.filter(item => {
       return item.position == "Midfielder";
    });
    players = players.concat(listMidfielder);
 
-   players.push({ headerTitle: 'Attacker', header: true });
+   players.push({ headerTitle: 'Attacker', header: true, name: 'Attacker' });
    let listAttacker = clubData.squad.filter(item => {
       return item.position == "Attacker";
    });
    players = players.concat(listAttacker);
+
+   let stickArr = [];
+   players.map((item, index) => {
+      if (item.header)
+         stickArr.push(index);
+   });
+
 
    return (
       <>
@@ -89,7 +96,10 @@ const ClubScreen = () => {
                {() => <Overview clubData={clubData} bgColor={bg_color} />}
             </TopTab.Screen>
             <TopTab.Screen name="Formation">
-               {() => <Formation listInfo={players} bgColor={bg_color} />}
+               {() => <Formation
+                  listInfo={players}
+                  stickArray={stickArr}
+                  bgColor={bg_color} />}
             </TopTab.Screen>
          </TopTab.Navigator>
 

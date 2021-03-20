@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { MText } from '../../Shared/StyledComponents/MText';
-import { MAIN_COLOR, GAME_COLOR, DIVIDE_COLOR, GRAY } from '../../Shared/Theme';
+import { MAIN_COLOR, GAME_COLOR, DIVIDE_COLOR } from '../../Shared/Theme';
 
 import { AntDesign } from '@expo/vector-icons';
 
@@ -9,6 +8,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeFromLike } from '../../Redux/Actions/likeActions';
 import CustomText from '../../Shared/CustomText';
 import { THEMES } from '../../Redux/Reducers/theme';
+
+import Toast from 'react-native-toast-message';
+import { useContext } from 'react';
+import AuthGlobal from '../../Context/store/AuthGlobal';
+import { removeLikeArray } from '../../Context/actions/Auth.actions';
+
 
 const ClubItem = ({ teamName, img, goal }) => {
    return (
@@ -27,6 +32,8 @@ const ClubItem = ({ teamName, img, goal }) => {
 }
 
 const GameItem = ({ matchItem }) => {
+
+   const context = useContext(AuthGlobal);
 
    const dispatch = useDispatch();
    const theme = useSelector(state => state.theme);
@@ -88,12 +95,22 @@ const GameItem = ({ matchItem }) => {
                <ClubItem
                   teamName={matchItem.awayTeam.name.substr(0, matchItem.awayTeam.name.length - 3)}
                   goal={matchItem.score.fullTime.awayTeam}
-                  img={'https://assets.stickpng.com/images/580b57fcd9996e24bc43c4e7.png'}
+                  img={'https://th.bing.com/th/id/R8d7b632bbfd4229c1838bfa79dc9523e?rik=iUWY9lMEYjUGxw&riu=http%3a%2f%2fpngimg.com%2fuploads%2fmanchester_united%2fmanchester_united_PNG22.png&ehk=JYVleEBLednf%2fnX6oX4J2Fz2LOmj0Oj26qu96C9DuDU%3d&risl=&pid=ImgRaw'}
                />
             </View>
             <TouchableOpacity style={styles.likeBtn}
                onPress={() => {
-                  dispatch(removeFromLike(matchItem))
+                  Toast.show({
+                     bottomOffset: 60,
+                     type: "success",
+                     text1: `This game's already removed from Likes`,
+                     text2: `-`,
+                  });
+                  setTimeout(() => {
+                     dispatch(removeFromLike(matchItem));
+                     console.log("remove", matchItem.id);
+                     removeLikeArray(context.stateUser.user.uid, matchItem);
+                  }, 1000);
                }}
             >
                <AntDesign name="star" size={20} color={MAIN_COLOR} />

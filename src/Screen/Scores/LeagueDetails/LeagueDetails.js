@@ -18,39 +18,34 @@ const LeagueDetails = ({ navigation, route }) => {
    const { leagueCode, name, country, flagImg } = route.params;
 
    return (
-      <>
-         <Header title='Scores' navigation={navigation} backAction={true} />
+      <View style={{
+         flex: 1,
+         backgroundColor: bg_color,
+         paddingHorizontal: pgHorizontal
+      }}>
+         <LeagueContainer
+            name={name}
+            country={country}
+            leagueCode={leagueCode}
+            flagImg={flagImg}
+            turnIn={false}
+            navigation={navigation}
+         />
 
-         <View style={{
-            flex: 1,
-            backgroundColor: bg_color,
-            paddingHorizontal: pgHorizontal
-         }}>
-            <LeagueContainer
-               name={name}
-               country={country}
-               leagueCode={leagueCode}
-               flagImg={flagImg}
-               turnIn={false}
-               navigation={navigation}
-            />
+         <TopTab.Navigator
+            tabBarOptions={{
+               labelStyle: { fontSize: 12, color: GRAY },
+               style: { backgroundColor: bg_color },
+            }}>
+            <TopTab.Screen name="Table">
+               {() => <Standings leagueCode={leagueCode} name={name} country={country} />}
+            </TopTab.Screen>
+            <TopTab.Screen name="Scores">
+               {() => <ScoresStanding leagueCode={leagueCode} name={name} country={country} />}
+            </TopTab.Screen>
+         </TopTab.Navigator>
 
-            <TopTab.Navigator
-               tabBarOptions={{
-                  labelStyle: { fontSize: 12, color: GRAY },
-                  style: { backgroundColor: bg_color },
-               }}>
-               <TopTab.Screen name="Table">
-                  {() => <Standings leagueCode={leagueCode} name={name} country={country} />}
-               </TopTab.Screen>
-               <TopTab.Screen name="Scores">
-                  {() => <ScoresStanding leagueCode={leagueCode} name={name} country={country} />}
-               </TopTab.Screen>
-            </TopTab.Navigator>
-
-         </View>
-      </>
-
+      </View>
    )
 }
 

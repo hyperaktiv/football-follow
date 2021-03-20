@@ -2,7 +2,6 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 import { DIVIDE_COLOR } from '../../Shared/Theme';
 
-import Header from '../../Shared/Header';
 import HighlightItem from './HighlightItem';
 import { useSelector } from 'react-redux';
 import { THEMES } from '../../Redux/Reducers/theme';
@@ -16,7 +15,6 @@ const HighlightScreen = ({ navigation }) => {
 
    return (
       <>
-         <Header title='Highlights' navigation={navigation} />
          <View style={{
             flex: 1,
             backgroundColor: bg_color,

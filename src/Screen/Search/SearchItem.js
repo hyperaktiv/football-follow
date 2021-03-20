@@ -3,6 +3,7 @@ import {
    View,
    Image,
    TouchableOpacity,
+   Platform
 } from 'react-native';
 import { pgHorizontal, DIVIDE_COLOR } from '../../Shared/Theme';
 import CustomText from '../../Shared/CustomText';
@@ -11,12 +12,21 @@ import { useSelector } from 'react-redux';
 import { THEMES } from '../../Redux/Reducers/theme';
 
 import { useNavigation } from '@react-navigation/native';
+import { SvgUri } from 'react-native-svg';
+
 
 const SearchItem = ({ img, name }) => {
    const navigation = useNavigation();
 
    const theme = useSelector(state => state.theme);
    const iconColor = THEMES[theme].iconColor;
+
+   let flag = '';
+   if (Platform.OS === 'ios' || Platform.OS === 'android') {
+      flag = <SvgUri width={50} height={50} uri={img} />
+   } else {
+      flag = <Image style={{ height: 50, width: 50 }} source={{ uri: img, }} />
+   }
 
    return (
       <TouchableOpacity style={{
@@ -37,13 +47,9 @@ const SearchItem = ({ img, name }) => {
             justifyContent: 'center',
             alignItems: 'center'
          }}>
-            <Image style={{
-               width: 50,
-               height: 50,
-            }}
-               source={{
-                  uri: img,
-               }} />
+            {/**FLAGE RENDER */}
+            {flag}
+
          </View>
          <View style={{
             flex: 3,

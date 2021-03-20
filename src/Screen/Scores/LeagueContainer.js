@@ -20,7 +20,7 @@ const LeagueContainer = ({
 
    let flag = '';
    if (Platform.OS === 'ios' || Platform.OS === 'android') {
-      flag = <SvgUri width={'100%'} height={'80%'} uri={flagImg} />
+      flag = <SvgUri width={55} height={40} uri={flagImg} />
    } else {
       flag = <Image style={{ width: '100%', height: '80%', }} source={{ uri: flagImg, }} />
    }
@@ -49,10 +49,6 @@ const LeagueContainer = ({
             </View>
             {turnIn && (
                <View style={styles.flagContainer}>
-                  {/* <Image
-                     style={{ width: 10, height: 10, }}
-                     source={require('./right-arrow-white.png')}
-                  /> */}
                   <AntDesign name="right" size={24} color={txtColor} />
                </View>
             )}

@@ -2,18 +2,14 @@ import React from 'react';
 import {
    View,
    TouchableOpacity,
-   Text,
    ImageBackground
 } from 'react-native';
-
-// navigation
-import { useNavigation } from '@react-navigation/native';
-
-import { GAME_COLOR, WHITE, DIVIDE_COLOR, GRAY } from '../../Shared/Theme';
-import { MText } from '../../Shared/StyledComponents/MText';
-
 import { Entypo } from '@expo/vector-icons';
 import CustomText from '../../Shared/CustomText';
+import { GAME_COLOR, WHITE, DIVIDE_COLOR } from '../../Shared/Theme';
+// navigation
+import { useNavigation } from '@react-navigation/native';
+// redux
 import { useSelector } from 'react-redux';
 import { THEMES } from '../../Redux/Reducers/theme';
 

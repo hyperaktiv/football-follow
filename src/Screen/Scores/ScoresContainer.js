@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, ScrollView } from 'react-native';
-import Header from '../../Shared/Header';
-
-import { WHITE, pgHorizontal, DIVIDE_COLOR, MAIN_COLOR, GRAY } from '../../Shared/Theme';
+import React, { useState, useEffect, useCallback } from 'react'
+import { View, StyleSheet, ScrollView, RefreshControl } from 'react-native';
+import { pgHorizontal, DIVIDE_COLOR, MAIN_COLOR, GRAY } from '../../Shared/Theme';
 import CalendarStrip from 'react-native-calendar-strip';
 
 import LeagueContainer from './LeagueContainer';
@@ -10,6 +8,8 @@ import GameContainer from './GameContainer';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { THEMES } from '../../Redux/Reducers/theme';
+
+import moment from 'moment';
 
 const data = [
    {
@@ -130,6 +130,11 @@ const data = [
    // },
 ];
 
+const wait = timeout => {
+   return new Promise(resolve => {
+      setTimeout(resolve, timeout);
+   });
+};
 
 const ScoresContainer = ({ navigation }) => {
 
@@ -137,24 +142,22 @@ const ScoresContainer = ({ navigation }) => {
    const bg_color = THEMES[theme].bg_color;
    const txtColor = THEMES[theme].txtColor;
 
-   const [selectedDate, setSelectedDate] = useState(new Date());
-   const [minDate, setMinDate] = useState();
-   const [maxDate, setMaxDate] = useState();
+   const [selectedDate, setSelectedDate] = useState(moment().format('YYYY-MM-DD'));
+   const [minDate, setMinDate] = useState(moment().subtract(4, 'days'));
+   const [maxDate, setMaxDate] = useState(moment().add(4, 'days'));
+
+   const [refreshing, setRefreshing] = React.useState(false);
+   const onRefresh = React.useCallback(() => {
+      setRefreshing(true);
+      wait(2000).then(() => setRefreshing(false));
+   }, []);
+
 
    const [pl, setPremier] = useState([]);
    const [sa, setSeriaA] = useState([]);
    const [bl1, setBunlesliga] = useState([]);
 
-   var currDate = new Date();
-
    useEffect(() => {
-      let minDate1 = new Date();
-      let maxDate1 = new Date();
-      minDate1.setDate(currDate.getDate() - 3);
-      maxDate1.setDate(currDate.getDate() + 3);
-      setMinDate(minDate1.toDateString());
-      setMaxDate(maxDate1.toDateString());
-
       // let _pl = axios.get(`https://api.football-data.org/v2/competitions/PL/matches?dateFrom=${selectedDate.toISOString().substr(0, 10)}&dateTo=${selectedDate.toISOString().substr(0, 10)}`, {
       //    headers: {
       //       'X-Auth-Token': 'dd5520b8f53f46b583801947683773f0',
@@ -198,82 +201,78 @@ const ScoresContainer = ({ navigation }) => {
    }, [selectedDate]);
 
    return (
-      <>
-         <Header title='Scores' navigation={navigation} />
+      <View style={[styles.container, {
+         backgroundColor: bg_color,
+      }]} >
 
-         <View style={[styles.container, {
-            backgroundColor: bg_color,
-         }]} >
+         <View style={styles.timeContainer}>
 
-            <View style={styles.timeContainer}>
-
-               <CalendarStrip
-                  scrollable
-                  style={{
-                     height: 80,
-                     marginTop: 10,
-                  }}
-                  selectedDate={selectedDate}
-                  onDateSelected={(date) => {
-                     setSelectedDate(date);
-                  }}
-                  minDate={minDate}
-                  maxDate={maxDate}
-                  calendarColor={bg_color}
-                  calendarHeaderStyle={{ color: txtColor }}
-                  dateNumberStyle={{ color: txtColor }}
-                  dateNameStyle={{ color: txtColor }}
-                  calendarAnimation={{ type: 'sequence', duration: 30 }}
-                  daySelectionAnimation={{
-                     type: 'border',  // background
-                     borderWidth: 1,
-                     borderHighlightColor: '#E0E0E0',
-                     duration: 200,
-                     highlightColor: '#E0E0E0',   //'#E0E0E0'
-                  }}
-                  highlightDateNumberStyle={{ color: MAIN_COLOR }}
-                  highlightDateNameStyle={{ color: MAIN_COLOR }}
-                  highlightDateContainerStyle={{}}
-                  iconContainer={{ flex: 0.1 }}
-                  iconRight={require('./right-arrow-white.png')}
-                  iconLeft={require('./left-arrow-white.png')}
-               />
-            </View>
-
-            <ScrollView>
-
-               {data && data.map(record => (
-                  <View
-                     key={record.name}
-                  >
-                     <LeagueContainer
-                        name={record.name}
-                        country={record.area.name}
-                        leagueCode={record.code}
-                        flagImg={record.area.ensignUrl}
-                        navigation={navigation}
-                     />
-
-
-                     {record.code === 'PL' && (
-                        <GameContainer listMatch={pl} />
-                     )}
-
-                     {record.code === 'SA' && (
-                        <GameContainer listMatch={sa} />
-                     )}
-
-                     {record.code === 'BL1' && (
-                        <GameContainer listMatch={bl1} />
-                     )}
-
-                  </View>
-               ))}
-
-
-            </ScrollView>
+            <CalendarStrip
+               scrollable
+               style={{
+                  height: 80,
+                  marginTop: 10,
+               }}
+               selectedDate={selectedDate}
+               onDateSelected={(date) => {
+                  setSelectedDate(date);
+               }}
+               minDate={minDate}
+               maxDate={maxDate}
+               calendarColor={bg_color}
+               calendarHeaderStyle={{ color: txtColor }}
+               dateNumberStyle={{ color: txtColor }}
+               dateNameStyle={{ color: txtColor }}
+               calendarAnimation={{ type: 'sequence', duration: 30 }}
+               daySelectionAnimation={{
+                  type: 'border',  // background
+                  borderWidth: 1,
+                  borderHighlightColor: '#E0E0E0',
+                  duration: 200,
+                  highlightColor: '#E0E0E0',   //'#E0E0E0'
+               }}
+               highlightDateNumberStyle={{ color: MAIN_COLOR }}
+               highlightDateNameStyle={{ color: MAIN_COLOR }}
+               iconContainer={{ flex: 0.1 }}
+               iconRight={require('./right-arrow-white.png')}
+               iconLeft={require('./left-arrow-white.png')}
+            />
          </View>
-      </>
+
+         <ScrollView
+            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+         >
+
+            {data && data.map(record => (
+               <View
+                  key={record.name}
+               >
+                  <LeagueContainer
+                     name={record.name}
+                     country={record.area.name}
+                     leagueCode={record.code}
+                     flagImg={record.area.ensignUrl}
+                     navigation={navigation}
+                  />
+
+                  {record.code === 'PL' && (
+                     <GameContainer listMatch={pl} />
+                  )}
+
+                  {record.code === 'SA' && (
+                     <GameContainer listMatch={sa} />
+                  )}
+
+                  {record.code === 'BL1' && (
+                     <GameContainer listMatch={bl1} />
+                  )}
+
+               </View>
+            ))}
+
+
+         </ScrollView>
+      </View>
    )
 }
 const styles = StyleSheet.create({
