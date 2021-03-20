@@ -1,16 +1,19 @@
 import React from 'react';
 import { LogBox } from 'react-native';
 
+// message
+import Toast from 'react-native-toast-message';
+
 // Navigation
 import { NavigationContainer } from '@react-navigation/native';
 import DrawerNavigator from './src/Navigators/DrawerContainer';
 
-import SearchScreen from './src/Screen/Search/SearchScreen';
-import ClubScreen from './src/Screen/Search/ClubScreen';
-
 // REDUX
 import { Provider as StateProvider } from 'react-redux';
 import store from './src/Redux/store';
+
+// Context
+import Auth from './src/Context/store/Auth';
 
 
 // LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
@@ -18,15 +21,14 @@ import store from './src/Redux/store';
 
 export default function App() {
   return (
-    <StateProvider store={store}>
-      <NavigationContainer>
-        <DrawerNavigator />
-
-        {/* <ClubScreen /> */}
-      </NavigationContainer>
-
-      {/* <SearchScreen /> */}
-    </StateProvider>
+    <Auth>
+      <StateProvider store={store}>
+        <NavigationContainer>
+          <DrawerNavigator />
+          <Toast ref={(ref) => Toast.setRef(ref)} />
+        </NavigationContainer>
+      </StateProvider>
+    </Auth>
 
   );
 }

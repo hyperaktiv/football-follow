@@ -1,12 +1,9 @@
 import React from 'react';
-
 import CustomDrawerContent from '../Screen/DrawerNav/CustomDrawerContent';
 import Main from './Main';
 
-import {
-   createDrawerNavigator,
-} from '@react-navigation/drawer';
-
+import { createDrawerNavigator, } from '@react-navigation/drawer';
+// redux
 import { useSelector } from 'react-redux';
 import { THEMES } from '../Redux/Reducers/theme';
 

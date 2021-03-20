@@ -1,9 +1,15 @@
 import React from 'react';
-import { View, Text, Image, Dimensions } from 'react-native';
+import {
+   View,
+   Text,
+   Image,
+   Dimensions,
+   Platform
+} from 'react-native';
 import CustomText from '../../../../Shared/CustomText';
-import { MText } from '../../../../Shared/StyledComponents/MText';
 import { DIVIDE_COLOR } from '../../../../Shared/Theme';
 
+import { SvgUri } from 'react-native-svg';
 
 var { width, height } = Dimensions.get('window');
 
@@ -46,6 +52,14 @@ const TableRow = ({ leagueCode, teamID, position, image, teamName, p, w, d, l, p
       if (position == 18) positionColor = Relegation_PO_COLOR;
       if (position >= 19) positionColor = Relegation_COLOR;
    }
+
+   let flag = '';
+   if (Platform.OS === 'ios' || Platform.OS === 'android') {
+      flag = <SvgUri width={20} height={20} uri={image} />
+   } else {
+      flag = <Image style={{ height: 20, width: 20 }} source={{ uri: image, }} />
+   }
+
    return (
       <View style={{
          flexDirection: 'row',
@@ -68,15 +82,13 @@ const TableRow = ({ leagueCode, teamID, position, image, teamName, p, w, d, l, p
          <View style={{
             flex: 5,
             flexDirection: 'row',
-            alignItems: 'center'
+            alignItems: 'center',
+            marginLeft: 0.015 * width
          }}>
-            <Image
-               style={{
-                  height: 20, width: 20,
-                  marginLeft: 0.015 * width
-               }}
-               source={{ uri: image }}
-            />
+
+            {/** FLAGE RENDER */}
+            {flag}
+
             <CustomText small style={{ marginLeft: 0.015 * width, }}>{teamName.substr(0, teamName.length - 3)}</CustomText>
          </View>
 

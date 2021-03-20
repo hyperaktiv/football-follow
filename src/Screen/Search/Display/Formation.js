@@ -1,25 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { View, FlatList } from 'react-native';
 import CustomText from '../../../Shared/CustomText';
-import { pgHorizontal, DIVIDE_COLOR, GRAY } from '../../../Shared/Theme';
+import { pgHorizontal, DIVIDE_COLOR } from '../../../Shared/Theme';
 
-const Formation = ({ listInfo, bgColor }) => {
-
-   const [stickyArray, setStickyArray] = useState([]);
-
-
-   useEffect(() => {
-      let stickyHeader = [];
-      listInfo.map((item, index) => {
-         if (item.header)
-            stickyHeader.push(index);
-      });
-      setStickyArray(stickyHeader);
-      return () => {
-         setStickyArray([]);
-      }
-   }, []);
-
+const Formation = ({ listInfo, stickArray, bgColor }) => {
 
    const renderItem = ({ item }) => {
       if (item.header) {
@@ -61,7 +45,7 @@ const Formation = ({ listInfo, bgColor }) => {
             data={listInfo}
             renderItem={renderItem}
             keyExtractor={(item, index) => index.toString()}
-            stickyHeaderIndices={stickyArray}
+            stickyHeaderIndices={stickArray}
          />
       </View>
    )

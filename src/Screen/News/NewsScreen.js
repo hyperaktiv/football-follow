@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { View, FlatList } from 'react-native';
-import Header from '../../Shared/Header';
 
 import NewsItem from './NewsItem';
 import { BG_COLOR, DIVIDE_COLOR } from '../../Shared/Theme';
@@ -47,27 +46,24 @@ const NewsScreen = ({ navigation }) => {
 
 
    return (
-      <>
-         <Header title='News' navigation={navigation} />
-         <View style={{
-            flex: 1,
-            backgroundColor: bg_color,
-            paddingHorizontal: 5,
-            borderTopWidth: 1,
-            borderTopColor: DIVIDE_COLOR,
-         }}>
+      <View style={{
+         flex: 1,
+         backgroundColor: bg_color,
+         paddingHorizontal: 5,
+         borderTopWidth: 1,
+         borderTopColor: DIVIDE_COLOR,
+      }}>
 
-            <FlatList
-               data={newsData.rss.channel[0].item}
-               renderItem={({ item }) => <NewsItem
-                  description={item.description[0]}
-                  item={item}
-               />}
-               keyExtractor={item => item.guid[0]}
-            />
+         <FlatList
+            data={newsData.rss.channel[0].item}
+            renderItem={({ item }) => <NewsItem
+               description={item.description[0]}
+               item={item}
+            />}
+            keyExtractor={item => item.guid[0]}
+         />
 
-         </View>
-      </>
+      </View>
    )
 }
 
