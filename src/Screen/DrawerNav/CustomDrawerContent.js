@@ -16,9 +16,11 @@ import {
 import CustomText from '../../Shared/CustomText';
 import { useSelector } from 'react-redux';
 import { THEMES } from '../../Redux/Reducers/theme';
+import ShareAction from './ShareAction';
 
 
 const CustomDrawerContent = (props) => {
+
 
    const theme = useSelector(state => state.theme);
    const txtColor = THEMES[theme].txtColor;
@@ -39,7 +41,7 @@ const CustomDrawerContent = (props) => {
          }} />
 
          {/**USER/LOGIN section */}
-         <DrawerUser />
+         <DrawerUser navigation={props.navigation} />
 
          <View style={{
             height: 5,
@@ -110,9 +112,10 @@ const CustomDrawerContent = (props) => {
             <MaterialCommunityIcons name="cookie" size={24} color={iconColor} />
          </DrawerSectionItem>
 
-         <DrawerSectionItem title={'Tell a Friend'}>
+         {/**Share action */}
+         <ShareAction title={'Tell a Friend'}>
             <MaterialIcons name="supervised-user-circle" size={24} color={iconColor} />
-         </DrawerSectionItem>
+         </ShareAction>
 
          <DrawerSectionItem title={'Contact Us'}>
             <MaterialIcons name="contact-mail" size={24} color={iconColor} />

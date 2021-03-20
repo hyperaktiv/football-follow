@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import CustomText from '../../../../Shared/CustomText';
-import { MText } from '../../../../Shared/StyledComponents/MText';
 import { DIVIDE_COLOR } from '../../../../Shared/Theme';
 
 var { width, height } = Dimensions.get('window');
@@ -15,11 +14,6 @@ const TableRow = ({ leagueCode, playerID, position, playerName, teamName, nation
             flex: 1,
             textAlign: 'center',
          }}>{position}</CustomText>
-         {/* <View style={{
-            flex: 3,
-            flexDirection: 'row',
-            alignItems: 'center'
-         }}> */}
          <CustomText small style={{
             flex: 3,
             marginLeft: 0.015 * width,
@@ -47,7 +41,6 @@ const styles = StyleSheet.create({
       borderBottomWidth: 1,
       borderColor: DIVIDE_COLOR,
    },
-   centerText: {}
 })
 
 export default TableRow

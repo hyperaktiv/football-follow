@@ -8,13 +8,12 @@ const CustomText = (props) => {
    const theme = useSelector(state => state.theme);
    let textColor = THEMES[theme].txtColor;
 
-   // let textColor = '#aaaaaa';
    let fontSize = 14;
-   let textAlign = '';
-   let boldText = '';
-   let txtDecorationLine = "";
-   let txtDecorationStyle = "";
-   let txtDecorationColor = "";
+   let textAlign = 'left';
+   let boldText = '500';
+   let txtDecorationLine = "none";
+   let txtDecorationStyle = "solid";
+   let txtDecorationColor = '#FFA000';
 
    if (props.mainColor) textColor = '#FFA000'; // main theme color
    if (props.small) fontSize = 12;
@@ -24,10 +23,14 @@ const CustomText = (props) => {
    if (props.bold) boldText = 'bold';
    if (props.center) textAlign = 'center';
 
+   if (props.title) {
+      textColor = theme == 'dark' ? 'white' : 'black';
+      fontSize = 18;
+   }
+
    if (props.underline) {
       txtDecorationLine = "underline";
       txtDecorationStyle = "solid";
-      txtDecorationColor = "#000";
    }
 
 

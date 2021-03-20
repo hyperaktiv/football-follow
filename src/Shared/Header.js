@@ -7,10 +7,8 @@ import {
    Platform
 } from 'react-native';
 import Constants from 'expo-constants';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { pgHorizontal, DIVIDE_COLOR } from './Theme';
-
-import { Ionicons } from '@expo/vector-icons';
 
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
@@ -29,13 +27,11 @@ const Header = ({ title, backAction = false, search = true }) => {
          <View style={{
             backgroundColor: bg_color,
             height: Platform.OS === 'ios' ? Constants.statusBarHeight : StatusBar.currentHeight,
-            // borderBottomWidth: 1,
-            // borderColor: DIVIDE_COLOR
          }}>
             <StatusBar
-               barStyle="light-content"
+               barStyle={theme == 'dark' ? "light-content" : "dark-content"}
                hidden={false}
-               backgroundColor="#ff4081"
+               backgroundColor={"#ff4081"}
                translucent={false}
             />
          </View>

@@ -1,10 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, ScrollView } from 'react-native';
-
-import Header from '../../Shared/Header';
-import { BG_COLOR, pgHorizontal, DIVIDE_COLOR } from '../../Shared/Theme';
+import { pgHorizontal, DIVIDE_COLOR } from '../../Shared/Theme';
 import GameItem from './GameItem';
-import { MText } from '../../Shared/StyledComponents/MText';
 
 // REDUX
 import { useSelector } from 'react-redux';
@@ -17,10 +14,10 @@ const LikeScreen = () => {
    const theme = useSelector(state => state.theme);
    const bg_color = THEMES[theme].bg_color;
    const likeItems = useSelector(state => state.likeItems);
+
+
    return (
       <>
-         <Header title='Favourites' />
-
          {/**there is no favourite ==> default===true */}
          {likeItems.length === 0 ? (
             <View

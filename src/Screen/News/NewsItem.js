@@ -1,14 +1,16 @@
 import React from 'react'
 import { View, TouchableOpacity, Image } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
-import { GAME_COLOR, WHITE, DIVIDE_COLOR } from '../../Shared/Theme';
+import { GAME_COLOR } from '../../Shared/Theme';
 
-import * as WebBrowser from 'expo-web-browser';
 import CustomText from '../../Shared/CustomText';
 import { useSelector } from 'react-redux';
 import { THEMES } from '../../Redux/Reducers/theme';
+import { useNavigation } from '@react-navigation/core';
 
 const NewsItem = ({ description, item }) => {
+
+   const navigation = useNavigation();
 
    const theme = useSelector(state => state.theme);
    const txtColor = THEMES[theme].txtColor;
@@ -27,9 +29,10 @@ const NewsItem = ({ description, item }) => {
             borderBottomWidth: 1,
             borderColor: GAME_COLOR
          }}
-
-         onPress={async () => {
-            await WebBrowser.openBrowserAsync(item.link[0])
+         onPress={() => {
+            navigation.navigate('NewsDetails', {
+               link: item.link[0]
+            });
          }}
       >
 

@@ -1,11 +1,11 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import CustomText from '../../../Shared/CustomText';
 import { pgHorizontal, DIVIDE_COLOR } from '../../../Shared/Theme';
 
 const Overview = ({ clubData, bgColor }) => {
    return (
-      <View style={{
+      <ScrollView style={{
          flex: 1,
          paddingHorizontal: pgHorizontal,
          backgroundColor: bgColor
@@ -38,7 +38,7 @@ const Overview = ({ clubData, bgColor }) => {
             <CustomText underline>Website:</CustomText>
             <CustomText bold>{clubData.website}</CustomText>
          </View>
-      </View>
+      </ScrollView>
    )
 }
 const styles = StyleSheet.create({
