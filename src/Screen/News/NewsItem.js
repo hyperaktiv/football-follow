@@ -1,12 +1,13 @@
 import React from 'react'
 import { View, TouchableOpacity, Image } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
-import { GAME_COLOR } from '../../Shared/Theme';
 
 import CustomText from '../../Shared/CustomText';
 import { useSelector } from 'react-redux';
 import { THEMES } from '../../Redux/Reducers/theme';
 import { useNavigation } from '@react-navigation/core';
+
+import moment from 'moment';
 
 const NewsItem = ({ description, item }) => {
 
@@ -15,6 +16,8 @@ const NewsItem = ({ description, item }) => {
    const theme = useSelector(state => state.theme);
    const txtColor = THEMES[theme].txtColor;
    const gameColor = THEMES[theme].gameColor;
+   const divide_color = THEMES[theme].divide_color;
+
 
    let newsImg = description.match(/https?:\/\/[^/\s]+\/\S+\.(jpg|png|gif)/g)[0];
 
@@ -25,9 +28,18 @@ const NewsItem = ({ description, item }) => {
             flexDirection: 'row',
             backgroundColor: gameColor,
             paddingHorizontal: 5,
-            paddingVertical: 10,
-            borderBottomWidth: 1,
-            borderColor: GAME_COLOR
+            borderWidth: 1,
+            borderColor: divide_color,
+
+
+            shadowColor: "#000",
+            shadowOffset: {
+               width: 1,
+               height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+            elevation: 5,
          }}
          onPress={() => {
             navigation.navigate('NewsDetails', {
@@ -58,11 +70,12 @@ const NewsItem = ({ description, item }) => {
             flex: 2,
             justifyContent: 'space-between',
             paddingHorizontal: 10,
+            paddingVertical: 10
          }}>
             <CustomText white bold>{item.title}</CustomText>
-            <View style={{ flexDirection: 'row' }}>
+            <View style={{ flexDirection: 'row', }}>
                <Entypo name="clock" size={14} color={txtColor} style={{ marginRight: 10 }} />
-               <CustomText small>{item.pubDate}</CustomText>
+               <CustomText small>{moment(item.pubDate[0]).format('LLLL')}</CustomText>
             </View>
          </View>
 

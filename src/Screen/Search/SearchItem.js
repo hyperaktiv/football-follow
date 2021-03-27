@@ -5,7 +5,7 @@ import {
    TouchableOpacity,
    Platform
 } from 'react-native';
-import { pgHorizontal, DIVIDE_COLOR } from '../../Shared/Theme';
+import { pgHorizontal } from '../../Shared/Theme';
 import CustomText from '../../Shared/CustomText';
 import { AntDesign } from '@expo/vector-icons';
 import { useSelector } from 'react-redux';
@@ -20,10 +20,11 @@ const SearchItem = ({ img, name }) => {
 
    const theme = useSelector(state => state.theme);
    const iconColor = THEMES[theme].iconColor;
+   const divide_color = THEMES[theme].divide_color;
 
    let flag = '';
    if (Platform.OS === 'ios' || Platform.OS === 'android') {
-      flag = <SvgUri width={50} height={50} uri={img} />
+      flag = <SvgUri width={50} height={50} uri={img} source={{ uri: img, }} />
    } else {
       flag = <Image style={{ height: 50, width: 50 }} source={{ uri: img, }} />
    }
@@ -34,7 +35,7 @@ const SearchItem = ({ img, name }) => {
          height: 60,
          alignItems: 'center',
          borderWidth: 1,
-         borderColor: DIVIDE_COLOR,
+         borderColor: divide_color,
          marginHorizontal: pgHorizontal
       }}
          onPress={() => {
@@ -45,12 +46,18 @@ const SearchItem = ({ img, name }) => {
             flex: 1,
             marginHorizontal: 10,
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            maxHeight: 55,
+            maxWidth: 55,
+            backgroundColor: '#F5F6F9',
+            padding: 2,
+            borderRadius: 5
          }}>
             {/**FLAGE RENDER */}
             {flag}
 
          </View>
+
          <View style={{
             flex: 3,
             flexDirection: 'row',

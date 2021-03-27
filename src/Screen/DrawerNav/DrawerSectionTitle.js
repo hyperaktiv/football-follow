@@ -14,9 +14,9 @@ const DrawerSectionTitle = ({ title }) => {
             paddingVertical: 10,
             borderBottomColor: DIVIDE_COLOR,
             borderBottomWidth: 1,
-            marginTop: 15
+            marginTop: 10
          }}>
-         <CustomText bold small>{title.toUpperCase()}</CustomText>
+         <CustomText bold style={{ fontSize: 12 }}>{title.toUpperCase()}</CustomText>
       </View>
    );
 }

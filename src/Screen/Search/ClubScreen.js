@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Image, Platform } from 'react-native';
 import CustomText from '../../Shared/CustomText';
 import Header from '../../Shared/Header';
-import { DIVIDE_COLOR, GRAY, MAIN_COLOR } from '../../Shared/Theme';
+import { MAIN_COLOR } from '../../Shared/Theme';
 import Overview from './Display/Overview';
 import Formation from './Display/Formation';
 // navigation
@@ -21,7 +21,7 @@ const clubData = require('./searchResult.json');
 const ClubScreen = () => {
    const theme = useSelector(state => state.theme);
    const bg_color = THEMES[theme].bg_color;
-   const iconColor = THEMES[theme].iconColor;
+   const divide_color = THEMES[theme].divide_color;
 
    let flag = '';
    if (Platform.OS === 'ios' || Platform.OS === 'android') {
@@ -67,6 +67,18 @@ const ClubScreen = () => {
          stickArr.push(index);
    });
 
+   useEffect(() => {
+      return () => {
+         players = [];
+         coachInfo = [];
+         listGoalkeeper = [];
+         listDefender = [];
+         listMidfielder = [];
+         listAttacker = [];
+         stickArr = [];
+      }
+   }, [])
+
 
    return (
       <>
@@ -77,8 +89,8 @@ const ClubScreen = () => {
             height: 100,
             justifyContent: 'center',
             alignItems: 'center',
-            borderWidth: 1,
-            borderColor: DIVIDE_COLOR
+            borderBottomWidth: 1,
+            borderColor: divide_color
          }}>
             {/* flag image here */}
             {flag}

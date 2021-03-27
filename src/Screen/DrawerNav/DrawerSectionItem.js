@@ -1,20 +1,23 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../../Redux/Reducers/theme';
 import CustomText from '../../Shared/CustomText';
-import { DIVIDE_COLOR } from '../../Shared/Theme';
 
 
 const DrawerSectionItem = ({ title, children }) => {
+   const theme = useSelector(state => state.theme);
+   const divide_color = THEMES[theme].divide_color;
+
    return (
       <TouchableOpacity
          style={{
             flexDirection: 'row',
             alignItems: 'center',
             borderBottomWidth: 1,
-            borderColor: DIVIDE_COLOR,
+            borderColor: divide_color,
             paddingHorizontal: 20,
             paddingVertical: 5,
-            marginTop: 5,
          }}>
          <View style={{ width: 30, justifyContent: 'center', alignItems: 'center' }}>
             {children}

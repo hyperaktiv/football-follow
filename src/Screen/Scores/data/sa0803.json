@@ -1,0 +1,97 @@
+{
+   "count": 1,
+   "filters": {},
+   "competition": {
+       "id": 2019,
+       "area": {
+           "id": 2114,
+           "name": "Italy"
+       },
+       "name": "Serie A",
+       "code": "SA",
+       "plan": "TIER_ONE",
+       "lastUpdated": "2021-03-22T02:15:08Z"
+   },
+   "matches": [
+       {
+           "id": 309841,
+           "season": {
+               "id": 638,
+               "startDate": "2020-09-20",
+               "endDate": "2021-05-23",
+               "currentMatchday": 29
+           },
+           "utcDate": "2021-03-08T19:45:00Z",
+           "status": "FINISHED",
+           "matchday": 26,
+           "stage": "REGULAR_SEASON",
+           "group": "Regular Season",
+           "lastUpdated": "2021-03-09T03:10:01Z",
+           "odds": {
+               "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+           },
+           "score": {
+               "winner": "HOME_TEAM",
+               "duration": "REGULAR",
+               "fullTime": {
+                   "homeTeam": 1,
+                   "awayTeam": 0
+               },
+               "halfTime": {
+                   "homeTeam": 0,
+                   "awayTeam": 0
+               },
+               "extraTime": {
+                   "homeTeam": null,
+                   "awayTeam": null
+               },
+               "penalties": {
+                   "homeTeam": null,
+                   "awayTeam": null
+               }
+           },
+           "homeTeam": {
+            "id": 108,
+            "name": "FC Internazionale Milano",
+            "crestUrl": "https://crests.football-data.org/108.svg"
+           },
+           "awayTeam": {
+            "id": 102,
+            "name": "Atalanta BC",
+            "crestUrl": "https://crests.football-data.org/102.svg"
+           },
+           "referees": [
+               {
+                   "id": 11043,
+                   "name": "Maurizio Mariani",
+                   "role": "MAIN_REFEREE",
+                   "nationality": "Italy"
+               },
+               {
+                   "id": 11017,
+                   "name": "Daniele Bindoni",
+                   "role": "ASSISTANT_N1",
+                   "nationality": "Italy"
+               },
+               {
+                   "id": 57247,
+                   "name": "Davide Imperiale",
+                   "role": "ASSISTANT_N2",
+                   "nationality": "Italy"
+               },
+               {
+                   "id": 11112,
+                   "name": "Juan Sacchi",
+                   "role": "FOURTH_OFFICIAL",
+                   "nationality": "Italy"
+               },
+               {
+                   "id": 11075,
+                   "name": "Paolo Valeri",
+                   "role": "VIDEO_ASSISTANT_REFEREE",
+                   "nationality": "Italy"
+               }
+           ]
+       }
+   ]
+}

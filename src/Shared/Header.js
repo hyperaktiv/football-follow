@@ -8,9 +8,9 @@ import {
 } from 'react-native';
 import Constants from 'expo-constants';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import { pgHorizontal, DIVIDE_COLOR } from './Theme';
+import { pgHorizontal } from './Theme';
 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { THEMES } from '../Redux/Reducers/theme';
 import CustomText from './CustomText';
@@ -20,7 +20,8 @@ const Header = ({ title, backAction = false, search = true }) => {
 
    const theme = useSelector(state => state.theme);
    const bg_color = THEMES[theme].bg_color;
-   const txtColor = THEMES[theme].txtColor;
+   const iconColor = THEMES[theme].iconColor;
+   const divide_color = THEMES[theme].divide_color;
 
    return (
       <>
@@ -41,18 +42,19 @@ const Header = ({ title, backAction = false, search = true }) => {
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
-            padding: pgHorizontal,
+            paddingHorizontal: pgHorizontal,
+            paddingVertical: 10,
             backgroundColor: bg_color,
-            borderWidth: 1,
-            borderColor: DIVIDE_COLOR
+            borderTopWidth: 1,
+            borderColor: divide_color
          }}>
             {backAction === false ? (
                <TouchableOpacity
                   onPress={() => {
-                     navigation.openDrawer();
+                     navigation.dispatch(DrawerActions.openDrawer());
                   }}
                >
-                  <FontAwesome name="cog" size={24} color={txtColor} />
+                  <FontAwesome name="cog" size={26} color={iconColor} />
                </TouchableOpacity>
             ) : (
                <TouchableOpacity
@@ -60,7 +62,7 @@ const Header = ({ title, backAction = false, search = true }) => {
                      navigation.goBack();
                   }}
                >
-                  <Ionicons name="chevron-back" size={24} color={txtColor} />
+                  <Ionicons name="chevron-back" size={26} color={iconColor} />
                </TouchableOpacity>
             )}
 
@@ -77,7 +79,7 @@ const Header = ({ title, backAction = false, search = true }) => {
                      navigation.navigate('SearchScreen');
                   }}
                >
-                  <FontAwesome name="search" size={24} color={txtColor} />
+                  <FontAwesome name="search" size={26} color={iconColor} />
                </TouchableOpacity>
             ) : (
                <View />

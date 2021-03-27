@@ -1,0 +1,177 @@
+{
+   "count": 2,
+   "filters": {},
+   "competition": {
+       "id": 2002,
+       "area": {
+           "id": 2088,
+           "name": "Germany"
+       },
+       "name": "Bundesliga",
+       "code": "BL1",
+       "plan": "TIER_ONE",
+       "lastUpdated": "2021-03-22T01:20:06Z"
+   },
+   "matches": [
+       {
+           "id": 303209,
+           "season": {
+               "id": 599,
+               "startDate": "2020-09-18",
+               "endDate": "2021-05-15",
+               "currentMatchday": 27
+           },
+           "utcDate": "2021-03-07T14:30:00Z",
+           "status": "FINISHED",
+           "matchday": 24,
+           "stage": "REGULAR_SEASON",
+           "group": "Regular Season",
+           "lastUpdated": "2021-03-08T00:00:08Z",
+           "odds": {
+               "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+           },
+           "score": {
+               "winner": "DRAW",
+               "duration": "REGULAR",
+               "fullTime": {
+                   "homeTeam": 1,
+                   "awayTeam": 1
+               },
+               "halfTime": {
+                   "homeTeam": 0,
+                   "awayTeam": 0
+               },
+               "extraTime": {
+                   "homeTeam": null,
+                   "awayTeam": null
+               },
+               "penalties": {
+                   "homeTeam": null,
+                   "awayTeam": null
+               }
+           },
+           "homeTeam": {
+            "id": 1,
+            "name": "1. FC Köln",
+            "crestUrl": "https://crests.football-data.org/1.svg"
+           },
+           "awayTeam": {
+            "id": 12,
+            "name": "SV Werder Bremen",
+            "crestUrl": "https://crests.football-data.org/12.svg"
+           },
+           "referees": [
+               {
+                   "id": 56230,
+                   "name": "Matthias Jöllenbeck",
+                   "role": "MAIN_REFEREE",
+                   "nationality": "Germany"
+               },
+               {
+                   "id": 43880,
+                   "name": "Rafael Foltyn",
+                   "role": "ASSISTANT_N1",
+                   "nationality": "Germany"
+               },
+               {
+                   "id": 43953,
+                   "name": "Markus Häcker",
+                   "role": "ASSISTANT_N2",
+                   "nationality": "Germany"
+               },
+               {
+                   "id": 57528,
+                   "name": "Martin Thomsen",
+                   "role": "FOURTH_OFFICIAL",
+                   "nationality": "Germany"
+               },
+               {
+                   "id": 15746,
+                   "name": "Bastian Dankert",
+                   "role": "VIDEO_ASSISTANT_REFEREE",
+                   "nationality": "Germany"
+               }
+           ]
+       },
+       {
+           "id": 303215,
+           "season": {
+               "id": 599,
+               "startDate": "2020-09-18",
+               "endDate": "2021-05-15",
+               "currentMatchday": 27
+           },
+           "utcDate": "2021-03-07T17:00:00Z",
+           "status": "FINISHED",
+           "matchday": 24,
+           "stage": "REGULAR_SEASON",
+           "group": "Regular Season",
+           "lastUpdated": "2021-03-08T01:00:06Z",
+           "odds": {
+               "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+           },
+           "score": {
+               "winner": "DRAW",
+               "duration": "REGULAR",
+               "fullTime": {
+                   "homeTeam": 0,
+                   "awayTeam": 0
+               },
+               "halfTime": {
+                   "homeTeam": 0,
+                   "awayTeam": 0
+               },
+               "extraTime": {
+                   "homeTeam": null,
+                   "awayTeam": null
+               },
+               "penalties": {
+                   "homeTeam": null,
+                   "awayTeam": null
+               }
+           },
+           "homeTeam": {
+            "id": 38,
+            "name": "Arminia Bielefeld",
+            "crestUrl": "https://crests.football-data.org/38.svg"
+           },
+           "awayTeam": {
+            "id": 28,
+            "name": "1. FC Union Berlin",
+            "crestUrl": "https://crests.football-data.org/28.svg"
+           },
+           "referees": [
+               {
+                   "id": 253,
+                   "name": "Harm Osmers",
+                   "role": "MAIN_REFEREE",
+                   "nationality": "Germany"
+               },
+               {
+                   "id": 57509,
+                   "name": "Robert Kempter",
+                   "role": "ASSISTANT_N1",
+                   "nationality": "Germany"
+               },
+               {
+                   "id": 254,
+                   "name": "Thomas Gorniak",
+                   "role": "ASSISTANT_N2",
+                   "nationality": "Germany"
+               },
+               {
+                   "id": 57523,
+                   "name": "Sven Waschitzki",
+                   "role": "FOURTH_OFFICIAL",
+                   "nationality": "Germany"
+               },
+               {
+                   "id": 43922,
+                   "name": "Benjamin Brand",
+                   "role": "VIDEO_ASSISTANT_REFEREE",
+                   "nationality": "Germany"
+               }
+           ]
+       }
+   ]
+}

@@ -2,22 +2,21 @@ import React from 'react';
 import {
    View,
    TouchableOpacity,
-   ImageBackground
+   ImageBackground,
 } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import CustomText from '../../Shared/CustomText';
-import { GAME_COLOR, WHITE, DIVIDE_COLOR } from '../../Shared/Theme';
-// navigation
-import { useNavigation } from '@react-navigation/native';
+import moment from 'moment';
+
 // redux
 import { useSelector } from 'react-redux';
 import { THEMES } from '../../Redux/Reducers/theme';
 
-const HighlightItem = ({ item }) => {
-   const navigation = useNavigation();
+const HighlightItem = ({ item, openModal }) => {
    const theme = useSelector(state => state.theme);
    const gameColor = THEMES[theme].gameColor;
    const txtColor = THEMES[theme].txtColor;
+   const divide_color = THEMES[theme].divide_color;
 
    return (
       <TouchableOpacity
@@ -26,12 +25,22 @@ const HighlightItem = ({ item }) => {
             flexDirection: 'row',
             backgroundColor: gameColor,
             paddingHorizontal: 5,
-            paddingVertical: 10,
-            borderBottomWidth: 1,
-            borderColor: DIVIDE_COLOR
+            borderWidth: 1,
+            borderColor: divide_color,
+            marginHorizontal: 5,
+
+            shadowColor: "#000",
+            shadowOffset: {
+               width: 0,
+               height: 3,
+            },
+            shadowOpacity: 0.29,
+            shadowRadius: 4.65,
+
+            elevation: 7,
          }}
          onPress={() => {
-            navigation.navigate('HighlightPage', { item: item })
+            openModal(item.videos[0].embed);
          }}
       >
 
@@ -50,7 +59,7 @@ const HighlightItem = ({ item }) => {
                }}
                   source={{ uri: item.thumbnail, }}
                >
-                  <Entypo name="controller-play" size={35} color={txtColor} />
+                  <Entypo name="controller-play" size={40} color={'white'} />
                </ImageBackground>
             ) : (
                <CustomText style={{ textAlign: 'center' }}>No Video</CustomText>
@@ -60,7 +69,7 @@ const HighlightItem = ({ item }) => {
          <View style={{
             flex: 3,
             justifyContent: 'space-between',
-            paddingHorizontal: 10,
+            paddingVertical: 10,
          }}>
             <View style={{ height: '50%', justifyContent: 'space-between' }}>
                <CustomText white bold>{item.title}</CustomText>
@@ -69,7 +78,7 @@ const HighlightItem = ({ item }) => {
 
             <View style={{ flexDirection: 'row' }}>
                <Entypo name="clock" size={14} color={txtColor} style={{ marginRight: 10 }} />
-               <CustomText small>{new Date(item.date).toDateString()}</CustomText>
+               <CustomText small>{moment(item.date).format('LLLL')}</CustomText>
             </View>
          </View>
 

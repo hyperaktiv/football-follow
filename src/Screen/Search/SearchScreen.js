@@ -68,21 +68,21 @@ const SearchScreen = () => {
             backgroundColor: bg_color,
          }}>
             <View style={{
-               height: 50,
-               backgroundColor: '#fff',
-               paddingHorizontal: 10,
+               height: 40,
+               backgroundColor: '#F5F6F9',
+               paddingHorizontal: 3,
                paddingVertical: 5,
                marginVertical: 15,
                marginHorizontal: 15,
                borderRadius: 5,
                borderWidth: 1,
-               borderColor: MAIN_COLOR
+               borderColor: DIVIDE_COLOR
             }}>
                <TextInput
                   autoCapitalize="none"
                   autoCorrect={false}
                   clearButtonMode="always"
-                  autoFocus={true}
+                  // autoFocus={true}
                   value={query}
                   onChangeText={queryText => setQuery(queryText)}
                   placeholder="Search for Football Teams"
@@ -94,7 +94,6 @@ const SearchScreen = () => {
                   }}
                />
             </View>
-
 
             <FlatList
                ItemSeparatorComponent={FlatListItemSeparator}

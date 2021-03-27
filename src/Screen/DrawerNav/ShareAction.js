@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Share } from 'react-native';
 import CustomText from '../../Shared/CustomText';
 import { DIVIDE_COLOR } from '../../Shared/Theme';
 
-const ShareAction = ({ title, children }) => {
+const ShareAction = ({ title, divide_color, children }) => {
 
    const onShare = async () => {
       try {
@@ -30,7 +30,7 @@ const ShareAction = ({ title, children }) => {
             flexDirection: 'row',
             alignItems: 'center',
             borderBottomWidth: 1,
-            borderColor: DIVIDE_COLOR,
+            borderColor: divide_color,
             paddingHorizontal: 20,
             paddingVertical: 5,
             marginTop: 5,

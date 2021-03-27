@@ -13,7 +13,6 @@ const NewsNavigator = () => {
             name="NewsScreen"
             component={NewsScreen}
             options={{
-               // headerShown: false
                header: (props) => (<Header title={props.scene.route.name} />)
             }} />
          <Stack.Screen

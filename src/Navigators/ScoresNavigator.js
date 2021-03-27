@@ -2,13 +2,9 @@ import React from 'react'
 import ScoresContainer from '../Screen/Scores/ScoresContainer';
 import LeagueDetails from '../Screen/Scores/LeagueDetails/LeagueDetails';
 
-import SearchScreen from '../Screen/Search/SearchScreen';
-import ClubScreen from '../Screen/Search/ClubScreen';
-
 import { createStackNavigator } from '@react-navigation/stack';
 import Header from '../Shared/Header';
-import LoginScreen from '../Auth/Email/LoginScreen';
-import RegisterScreen from '../Auth/Email/RegisterScreen';
+import GameDetails from '../Screen/Scores/GameDetails';
 
 
 const Stack = createStackNavigator();
@@ -32,33 +28,10 @@ const ScoresNavigator = () => {
          />
 
          <Stack.Screen
-            name="SearchScreen"
-            component={SearchScreen}
+            name="GameDetails"
+            component={GameDetails}
             options={{
                header: (props) => (<Header title={props.scene.route.name} backAction={true} />)
-            }}
-         />
-         <Stack.Screen
-            name="ClubScreen"
-            component={ClubScreen}
-            options={{
-               header: (props) => (<Header title={props.scene.route.name} backAction={true} />)
-            }}
-         />
-
-         <Stack.Screen
-            name="EmailLogin"
-            component={LoginScreen}
-            options={{
-               // headerShown: false
-            }}
-         />
-
-         <Stack.Screen
-            name="EmailRegister"
-            component={RegisterScreen}
-            options={{
-               // headerShown: false
             }}
          />
 

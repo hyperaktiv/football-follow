@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import {
    View,
-   Text,
    Switch,
 } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { DIVIDE_COLOR } from '../../Shared/Theme';
 import { toggleTheme } from '../../Redux/Actions/themeActions';
 import { useDispatch, useSelector } from 'react-redux';
 import CusomText from '../../Shared/CustomText';
@@ -17,6 +15,7 @@ const ThemeSetting = () => {
    const dispatch = useDispatch();
    const theme = useSelector(state => state.theme);
    const iconColor = THEMES[theme].iconColor;
+   const divide_color = THEMES[theme].divide_color;
 
    const [isEnabled, setIsEnabled] = useState(false);
 
@@ -31,10 +30,10 @@ const ThemeSetting = () => {
             flexDirection: 'row',
             alignItems: 'center',
             borderBottomWidth: 1,
-            borderColor: DIVIDE_COLOR,
+            borderColor: divide_color,
             paddingHorizontal: 20,
             paddingVertical: 5,
-            marginTop: 5,
+            // marginTop: 5,
          }}>
          <View style={{ width: 30, justifyContent: 'center', alignItems: 'center' }}>
             <MaterialCommunityIcons name="theme-light-dark" size={24} color={iconColor} />

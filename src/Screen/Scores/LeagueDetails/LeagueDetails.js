@@ -1,14 +1,15 @@
 import React from 'react';
 import { View } from 'react-native';
-import { GRAY, pgHorizontal } from '../../../Shared/Theme';
-import Header from '../../../Shared/Header';
+import { pgHorizontal, MAIN_COLOR } from '../../../Shared/Theme';
 import LeagueContainer from '../LeagueContainer';
 import Standings from './StandingsTable/Standings';
 import ScoresStanding from './ScoresTable/ScoresStandings';
 
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+// redux
 import { useSelector } from 'react-redux';
 import { THEMES } from '../../../Redux/Reducers/theme';
+
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 const TopTab = createMaterialTopTabNavigator();
 
 const LeagueDetails = ({ navigation, route }) => {
@@ -32,18 +33,24 @@ const LeagueDetails = ({ navigation, route }) => {
             navigation={navigation}
          />
 
-         <TopTab.Navigator
-            tabBarOptions={{
-               labelStyle: { fontSize: 12, color: GRAY },
-               style: { backgroundColor: bg_color },
-            }}>
-            <TopTab.Screen name="Table">
-               {() => <Standings leagueCode={leagueCode} name={name} country={country} />}
-            </TopTab.Screen>
-            <TopTab.Screen name="Scores">
-               {() => <ScoresStanding leagueCode={leagueCode} name={name} country={country} />}
-            </TopTab.Screen>
-         </TopTab.Navigator>
+         <>
+            <TopTab.Navigator
+               lazy={true}
+               tabBarOptions={{
+                  labelStyle: { fontSize: 12, color: MAIN_COLOR },
+                  style: { backgroundColor: bg_color },
+                  indicatorStyle: {
+                     backgroundColor: MAIN_COLOR
+                  }
+               }}>
+               <TopTab.Screen name="Standings">
+                  {() => <Standings leagueCode={leagueCode} name={name} country={country} />}
+               </TopTab.Screen>
+               <TopTab.Screen name="PlayerStanding">
+                  {() => <ScoresStanding leagueCode={leagueCode} name={name} country={country} />}
+               </TopTab.Screen>
+            </TopTab.Navigator>
+         </>
 
       </View>
    )

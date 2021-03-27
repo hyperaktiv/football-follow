@@ -1,15 +1,18 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import CustomText from '../../../../Shared/CustomText';
-import { DIVIDE_COLOR } from '../../../../Shared/Theme';
 
-var { width, height } = Dimensions.get('window');
+var { width } = Dimensions.get('window');
 
 
-const TableRow = ({ leagueCode, playerID, position, playerName, teamName, nationality, goals }) => {
+const TableRow = ({ leagueCode, playerID, position, playerName, teamName, nationality, goals, divide_color, gameColor }) => {
 
    return (
-      <View style={styles.rowContainer}>
+      <View style={[styles.rowContainer, {
+         borderBottomWidth: 1,
+         borderColor: divide_color,
+         backgroundColor: gameColor
+      }]}>
          <CustomText center style={{
             flex: 1,
             textAlign: 'center',
@@ -37,9 +40,8 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
+      marginTop: 5,
       paddingVertical: 15,
-      borderBottomWidth: 1,
-      borderColor: DIVIDE_COLOR,
    },
 })
 

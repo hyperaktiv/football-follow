@@ -10,6 +10,7 @@ npm-debug.*
 web-build/
 
 API_key.js
+firebase.js
 
 # macOS
 .DS_Store

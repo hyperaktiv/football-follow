@@ -13,6 +13,8 @@ const LikeScreen = () => {
    // redux get state
    const theme = useSelector(state => state.theme);
    const bg_color = THEMES[theme].bg_color;
+   const divide_color = THEMES[theme].divide_color;
+
    const likeItems = useSelector(state => state.likeItems);
 
 
@@ -22,6 +24,10 @@ const LikeScreen = () => {
          {likeItems.length === 0 ? (
             <View
                style={[styles.container, {
+                  paddingHorizontal: pgHorizontal,
+                  borderTopWidth: 1,
+                  borderTopColor: divide_color,
+                  padding: 5,
                   flex: 1,
                   backgroundColor: bg_color,
                   justifyContent: 'center',
@@ -30,7 +36,7 @@ const LikeScreen = () => {
                <CustomText medium bold white>Tap 'LIKE' to add a Match to Favourites</CustomText>
                <View style={{
                   height: 1,
-                  backgroundColor: DIVIDE_COLOR,
+                  backgroundColor: divide_color,
                   marginVertical: 10
                }} />
                <GameItem />
@@ -38,6 +44,8 @@ const LikeScreen = () => {
          ) : (
             <ScrollView style={[styles.container, {
                backgroundColor: bg_color,
+               borderTopWidth: 1,
+               borderTopColor: divide_color,
             }]}>
                {
                   likeItems.map(item => (
@@ -60,8 +68,6 @@ const styles = StyleSheet.create({
    container: {
       // flex: 1,
       paddingHorizontal: pgHorizontal,
-      borderTopWidth: 1,
-      borderTopColor: DIVIDE_COLOR,
       padding: 5
    },
 });

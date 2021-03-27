@@ -12,13 +12,13 @@
        "name": "Premier League",
        "code": "PL",
        "plan": "TIER_ONE",
-       "lastUpdated": "2021-03-01T01:25:08Z"
+       "lastUpdated": "2021-03-22T02:10:05Z"
    },
    "season": {
        "id": 619,
        "startDate": "2020-09-12",
        "endDate": "2021-05-23",
-       "currentMatchday": 26,
+       "currentMatchday": 33,
        "winner": null
    },
    "scorers": [
@@ -43,25 +43,6 @@
        },
        {
            "player": {
-               "id": 3257,
-               "name": "Bruno Fernandes",
-               "firstName": "Bruno Miguel",
-               "lastName": null,
-               "dateOfBirth": "1994-09-08",
-               "countryOfBirth": "Portugal",
-               "nationality": "Portugal",
-               "position": "Midfielder",
-               "shirtNumber": null,
-               "lastUpdated": "2020-09-07T21:02:46Z"
-           },
-           "team": {
-               "id": 66,
-               "name": "Manchester United FC"
-           },
-           "numberOfGoals": 15
-       },
-       {
-           "player": {
                "id": 8004,
                "name": "Harry Kane",
                "firstName": "Harry",
@@ -77,7 +58,26 @@
                "id": 73,
                "name": "Tottenham Hotspur FC"
            },
-           "numberOfGoals": 14
+           "numberOfGoals": 17
+       },
+       {
+           "player": {
+               "id": 3257,
+               "name": "Bruno Fernandes",
+               "firstName": "Bruno Miguel",
+               "lastName": null,
+               "dateOfBirth": "1994-09-08",
+               "countryOfBirth": "Portugal",
+               "nationality": "Portugal",
+               "position": "Midfielder",
+               "shirtNumber": null,
+               "lastUpdated": "2020-09-07T21:02:46Z"
+           },
+           "team": {
+               "id": 66,
+               "name": "Manchester United FC"
+           },
+           "numberOfGoals": 16
        },
        {
            "player": {
@@ -96,7 +96,7 @@
                "id": 341,
                "name": "Leeds United FC"
            },
-           "numberOfGoals": 13
+           "numberOfGoals": 14
        },
        {
            "player": {
@@ -115,7 +115,7 @@
                "id": 62,
                "name": "Everton FC"
            },
-           "numberOfGoals": 13
+           "numberOfGoals": 14
        },
        {
            "player": {
@@ -172,6 +172,25 @@
                "id": 65,
                "name": "Manchester City FC"
            },
+           "numberOfGoals": 12
+       },
+       {
+           "player": {
+               "id": 7797,
+               "name": "Alexandre Lacazette",
+               "firstName": "Alexandre",
+               "lastName": null,
+               "dateOfBirth": "1991-05-28",
+               "countryOfBirth": "France",
+               "nationality": "France",
+               "position": "Attacker",
+               "shirtNumber": null,
+               "lastUpdated": "2020-09-07T20:49:31Z"
+           },
+           "team": {
+               "id": 57,
+               "name": "Arsenal FC"
+           },
            "numberOfGoals": 11
        },
        {
@@ -190,25 +209,6 @@
            "team": {
                "id": 67,
                "name": "Newcastle United FC"
-           },
-           "numberOfGoals": 10
-       },
-       {
-           "player": {
-               "id": 4444,
-               "name": "Ollie Watkins",
-               "firstName": "Ollie",
-               "lastName": null,
-               "dateOfBirth": "1995-12-30",
-               "countryOfBirth": "England",
-               "nationality": "England",
-               "position": "Attacker",
-               "shirtNumber": null,
-               "lastUpdated": "2020-08-25T05:10:20Z"
-           },
-           "team": {
-               "id": 58,
-               "name": "Aston Villa FC"
            },
            "numberOfGoals": 10
        }

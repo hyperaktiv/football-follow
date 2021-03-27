@@ -4,6 +4,6 @@ import theme from './theme';
 
 const reducers = combineReducers({
    likeItems: likeItems,
-   theme: theme
+   theme: theme,
 });
 export default reducers;

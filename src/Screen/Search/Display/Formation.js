@@ -1,9 +1,13 @@
 import React from 'react'
 import { View, FlatList } from 'react-native';
+import { useSelector } from 'react-redux';
+import { THEMES } from '../../../Redux/Reducers/theme';
 import CustomText from '../../../Shared/CustomText';
-import { pgHorizontal, DIVIDE_COLOR } from '../../../Shared/Theme';
+import { pgHorizontal } from '../../../Shared/Theme';
 
 const Formation = ({ listInfo, stickArray, bgColor }) => {
+   const theme = useSelector(state => state.theme);
+   const divide_color = THEMES[theme].divide_color;
 
    const renderItem = ({ item }) => {
       if (item.header) {
@@ -14,7 +18,7 @@ const Formation = ({ listInfo, stickArray, bgColor }) => {
                justifyContent: 'space-between',
                paddingVertical: 10,
                borderBottomWidth: 1,
-               borderColor: DIVIDE_COLOR,
+               borderColor: divide_color,
                marginBottom: 10
             }}>
                <CustomText bold medium underline>{item.headerTitle}</CustomText>
@@ -30,7 +34,7 @@ const Formation = ({ listInfo, stickArray, bgColor }) => {
                paddingHorizontal: pgHorizontal,
                marginLeft: 20,
                borderBottomWidth: 1,
-               borderColor: DIVIDE_COLOR
+               borderColor: divide_color
             }}>
                <CustomText style={{ flex: 1.5 }}>{item.name}</CustomText>
                <CustomText style={{ flex: 1, marginLeft: 20 }}>{item.nationality}</CustomText>

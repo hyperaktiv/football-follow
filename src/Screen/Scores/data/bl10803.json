@@ -1,0 +1,16 @@
+{
+   "count": 0,
+   "filters": {},
+   "competition": {
+       "id": 2002,
+       "area": {
+           "id": 2088,
+           "name": "Germany"
+       },
+       "name": "Bundesliga",
+       "code": "BL1",
+       "plan": "TIER_ONE",
+       "lastUpdated": "2021-03-22T01:20:06Z"
+   },
+   "matches": []
+}

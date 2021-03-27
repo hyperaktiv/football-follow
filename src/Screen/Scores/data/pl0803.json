@@ -1,0 +1,177 @@
+{
+   "count": 2,
+   "filters": {},
+   "competition": {
+       "id": 2021,
+       "area": {
+           "id": 2072,
+           "name": "England"
+       },
+       "name": "Premier League",
+       "code": "PL",
+       "plan": "TIER_ONE",
+       "lastUpdated": "2021-03-22T02:10:05Z"
+   },
+   "matches": [
+       {
+           "id": 304020,
+           "season": {
+               "id": 619,
+               "startDate": "2020-09-12",
+               "endDate": "2021-05-23",
+               "currentMatchday": 33
+           },
+           "utcDate": "2021-03-08T18:00:00Z",
+           "status": "FINISHED",
+           "matchday": 27,
+           "stage": "REGULAR_SEASON",
+           "group": "Regular Season",
+           "lastUpdated": "2021-03-09T02:55:01Z",
+           "odds": {
+               "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+           },
+           "score": {
+               "winner": "HOME_TEAM",
+               "duration": "REGULAR",
+               "fullTime": {
+                   "homeTeam": 2,
+                   "awayTeam": 0
+               },
+               "halfTime": {
+                   "homeTeam": 1,
+                   "awayTeam": 0
+               },
+               "extraTime": {
+                   "homeTeam": null,
+                   "awayTeam": null
+               },
+               "penalties": {
+                   "homeTeam": null,
+                   "awayTeam": null
+               }
+           },
+           "homeTeam": {
+                "id": 61,
+                "name": "Chelsea FC",
+                "crestUrl": "https://crests.football-data.org/61.svg"
+           },
+           "awayTeam": {
+                "id": 62,
+                "name": "Everton FC",
+                "crestUrl": "https://crests.football-data.org/62.svg"
+           },
+           "referees": [
+               {
+                   "id": 11556,
+                   "name": "David Coote",
+                   "role": "MAIN_REFEREE",
+                   "nationality": "England"
+               },
+               {
+                   "id": 11438,
+                   "name": "Dan Cook",
+                   "role": "ASSISTANT_N1",
+                   "nationality": "England"
+               },
+               {
+                   "id": 11404,
+                   "name": "James Mainwaring",
+                   "role": "ASSISTANT_N2",
+                   "nationality": "England"
+               },
+               {
+                   "id": 11430,
+                   "name": "Simon Hooper",
+                   "role": "FOURTH_OFFICIAL",
+                   "nationality": "England"
+               },
+               {
+                   "id": 11605,
+                   "name": "Michael Oliver",
+                   "role": "VIDEO_ASSISTANT_REFEREE",
+                   "nationality": "England"
+               }
+           ]
+       },
+       {
+           "id": 304025,
+           "season": {
+               "id": 619,
+               "startDate": "2020-09-12",
+               "endDate": "2021-05-23",
+               "currentMatchday": 33
+           },
+           "utcDate": "2021-03-08T20:00:00Z",
+           "status": "FINISHED",
+           "matchday": 27,
+           "stage": "REGULAR_SEASON",
+           "group": "Regular Season",
+           "lastUpdated": "2021-03-09T03:10:01Z",
+           "odds": {
+               "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+           },
+           "score": {
+               "winner": "HOME_TEAM",
+               "duration": "REGULAR",
+               "fullTime": {
+                   "homeTeam": 2,
+                   "awayTeam": 0
+               },
+               "halfTime": {
+                   "homeTeam": 2,
+                   "awayTeam": 0
+               },
+               "extraTime": {
+                   "homeTeam": null,
+                   "awayTeam": null
+               },
+               "penalties": {
+                   "homeTeam": null,
+                   "awayTeam": null
+               }
+           },
+           "homeTeam": {
+                "id": 563,
+                "name": "West Ham United FC",
+                "crestUrl": "https://crests.football-data.org/563.svg"
+           },
+           "awayTeam": {
+                "id": 341,
+                "name": "Leeds United FC",
+                "crestUrl": "https://crests.football-data.org/341.svg"
+           },
+           "referees": [
+               {
+                   "id": 11575,
+                   "name": "Mike Dean",
+                   "role": "MAIN_REFEREE",
+                   "nationality": "England"
+               },
+               {
+                   "id": 11576,
+                   "name": "Darren Cann",
+                   "role": "ASSISTANT_N1",
+                   "nationality": "England"
+               },
+               {
+                   "id": 11505,
+                   "name": "Derek Eaton",
+                   "role": "ASSISTANT_N2",
+                   "nationality": "England"
+               },
+               {
+                   "id": 11503,
+                   "name": "Graham Scott",
+                   "role": "FOURTH_OFFICIAL",
+                   "nationality": "England"
+               },
+               {
+                   "id": 11610,
+                   "name": "Andre Marriner",
+                   "role": "VIDEO_ASSISTANT_REFEREE",
+                   "nationality": "England"
+               }
+           ]
+       }
+   ]
+}

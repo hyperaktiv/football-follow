@@ -23,29 +23,31 @@ const CustomDrawerContent = (props) => {
 
 
    const theme = useSelector(state => state.theme);
+   const bg_color = THEMES[theme].bg_color;
    const txtColor = THEMES[theme].txtColor;
    const iconColor = THEMES[theme].iconColor;
+   const divide_color = THEMES[theme].divide_color;
+
 
    return (
       <DrawerContentScrollView {...props}>
          <CustomText style={{
             paddingLeft: 20,
             paddingVertical: 15,
-            fontSize: 26,
+            fontSize: 22,
             color: txtColor
          }}>Football_Follow</CustomText>
 
-         <View style={{
+         {/* <View style={{
             height: 5,
-            backgroundColor: 'black',
-         }} />
-
+            backgroundColor: bg_color,
+         }} /> */}
          {/**USER/LOGIN section */}
-         <DrawerUser navigation={props.navigation} />
+         {/* <DrawerUser navigation={props.navigation} /> */}
 
          <View style={{
             height: 5,
-            backgroundColor: 'black',
+            backgroundColor: bg_color,
          }} />
 
          {/**SETTINGS section */}
@@ -55,11 +57,15 @@ const CustomDrawerContent = (props) => {
          <ThemeSetting />
 
          <DrawerSectionItem title={'Automatic Refresh'}>
-            <Ionicons name="refresh-circle-outline" size={24} color={iconColor} />
+            <Ionicons name="refresh-circle-outline" size={25} color={iconColor} />
          </DrawerSectionItem>
 
          <DrawerSectionItem title={'Clear Cache'}>
-            <Foundation name="prohibited" size={24} color={iconColor} />
+            <Foundation name="prohibited" size={25} color={iconColor} />
+         </DrawerSectionItem>
+
+         <DrawerSectionItem title={'Notifications'}>
+            <Ionicons name="ios-notifications-circle-outline" size={25} color={iconColor} />
          </DrawerSectionItem>
 
          <View
@@ -67,13 +73,12 @@ const CustomDrawerContent = (props) => {
                flexDirection: 'row',
                alignItems: 'center',
                borderBottomWidth: 1,
-               borderColor: DIVIDE_COLOR,
+               borderColor: divide_color,
                paddingHorizontal: 20,
                paddingVertical: 5,
-               marginTop: 5,
             }}>
             <View style={{ width: 30, justifyContent: 'center', alignItems: 'center' }}>
-               <Ionicons name="football-outline" size={24} color={iconColor} />
+               <Ionicons name="football-outline" size={25} color={iconColor} />
             </View>
             <View style={{
                flex: 1,
@@ -84,45 +89,41 @@ const CustomDrawerContent = (props) => {
                paddingLeft: 10,
             }}>
                <CustomText bold>Sport Display</CustomText>
-               <CustomText bold>Football</CustomText>
+               <CustomText bold medium>Football</CustomText>
             </View>
          </View>
 
-         <DrawerSectionItem title={'Notifications'}>
-            <Ionicons name="ios-notifications-circle-outline" size={24} color={iconColor} />
-         </DrawerSectionItem>
-
          <View style={{
             height: 5,
-            backgroundColor: 'black',
+            backgroundColor: bg_color,
          }} />
 
          {/**INFOR section */}
          <DrawerSectionTitle title={'info'} />
 
          <DrawerSectionItem title={'Asked Questions'}>
-            <MaterialCommunityIcons name="frequently-asked-questions" size={24} color={iconColor} />
+            <MaterialCommunityIcons name="frequently-asked-questions" size={25} color={iconColor} />
          </DrawerSectionItem>
 
          <DrawerSectionItem title={'Privacy And Cookies'}>
-            <MaterialIcons name="privacy-tip" size={24} color={iconColor} />
+            <MaterialIcons name="privacy-tip" size={25} color={iconColor} />
          </DrawerSectionItem>
 
          <DrawerSectionItem title={'Consent Preferences'}>
-            <MaterialCommunityIcons name="cookie" size={24} color={iconColor} />
+            <MaterialCommunityIcons name="cookie" size={25} color={iconColor} />
          </DrawerSectionItem>
 
          {/**Share action */}
-         <ShareAction title={'Tell a Friend'}>
-            <MaterialIcons name="supervised-user-circle" size={24} color={iconColor} />
+         <ShareAction title={'Tell a Friend'} divide_color={divide_color}>
+            <MaterialIcons name="supervised-user-circle" size={25} color={iconColor} />
          </ShareAction>
 
          <DrawerSectionItem title={'Contact Us'}>
-            <MaterialIcons name="contact-mail" size={24} color={iconColor} />
+            <MaterialIcons name="contact-mail" size={25} color={iconColor} />
          </DrawerSectionItem>
 
          <DrawerSectionItem title={'About Us'}>
-            <Entypo name="info-with-circle" size={24} color={iconColor} />
+            <Entypo name="info-with-circle" size={25} color={iconColor} />
          </DrawerSectionItem>
 
       </DrawerContentScrollView>

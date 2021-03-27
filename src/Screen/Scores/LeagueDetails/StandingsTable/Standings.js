@@ -1,6 +1,5 @@
-import React from 'react';
-import { View, ScrollView } from 'react-native';
-import { BG_COLOR } from '../../../../Shared/Theme';
+import React, { useEffect, useState } from 'react';
+import { View, FlatList } from 'react-native';
 
 import TableHeader from './TableHeader';
 import TableRow from './TableRow';
@@ -8,35 +7,48 @@ import TableFooter from './TableFooter';
 import { useSelector } from 'react-redux';
 import { THEMES } from '../../../../Redux/Reducers/theme';
 
-const standings_data = require('./standings.json');
 
-const Standings = () => {
+const Standings = ({ leagueCode, name, country }) => {
 
    const theme = useSelector(state => state.theme);
    const bg_color = THEMES[theme].bg_color;
+   const divide_color = THEMES[theme].divide_color;
+   const gameColor = THEMES[theme].gameColor;
 
-   const tables = standings_data.standings[0].table;
+   const [standingData, setStandingData] = useState([]);
+   useEffect(() => {
+      let tempData;
+      if (leagueCode == 'PL') tempData = require('../../data/plStanding.json');
+      if (leagueCode == 'SA') tempData = require('../../data/saStanding.json');
+      if (leagueCode == 'BL1') tempData = require('../../data/bl1Standing.json');
+      setStandingData(tempData.standings[0].table);
+      return () => {
+         setStandingData([]);
+      }
+   }, []);
+
    return (
       <View style={{
          flex: 1,
          backgroundColor: bg_color
       }}>
          <TableHeader />
-
-         <ScrollView>
-            {tables.map(item => {
-               return (<TableRow
-                  leagueCode={standings_data.competition.code}
-                  key={item.team.id}
+         <FlatList
+            data={standingData}
+            renderItem={({ item }) => (
+               <TableRow
+                  gameColor={gameColor}
+                  divide_color={divide_color}
+                  leagueCode={leagueCode}
                   position={item.position}
                   teamName={item.team.name}
                   image={item.team.crestUrl}
                   p={item.playedGames} w={item.won} d={item.draw} l={item.lost} pts={item.points}
                   form={item.form} />)
-            })}
-
-            <TableFooter />
-         </ScrollView>
+            }
+            keyExtractor={item => item.team.name}
+            ListFooterComponent={<TableFooter />}
+         />
 
       </View>
    )

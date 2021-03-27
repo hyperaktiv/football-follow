@@ -6,14 +6,12 @@ import Toast from 'react-native-toast-message';
 
 // Navigation
 import { NavigationContainer } from '@react-navigation/native';
-import DrawerNavigator from './src/Navigators/DrawerContainer';
+import RootStack from './src/Navigators/RootStack';
+import DrawerContainer from './src/Navigators/DrawerContainer';
 
 // REDUX
 import { Provider as StateProvider } from 'react-redux';
 import store from './src/Redux/store';
-
-// Context
-import Auth from './src/Context/store/Auth';
 
 
 // LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
@@ -21,14 +19,12 @@ import Auth from './src/Context/store/Auth';
 
 export default function App() {
   return (
-    <Auth>
-      <StateProvider store={store}>
-        <NavigationContainer>
-          <DrawerNavigator />
-          <Toast ref={(ref) => Toast.setRef(ref)} />
-        </NavigationContainer>
-      </StateProvider>
-    </Auth>
-
+    <StateProvider store={store}>
+      <NavigationContainer>
+        <DrawerContainer />
+        {/* <RootStack /> */}
+        <Toast ref={(ref) => Toast.setRef(ref)} />
+      </NavigationContainer>
+    </StateProvider>
   );
 }
