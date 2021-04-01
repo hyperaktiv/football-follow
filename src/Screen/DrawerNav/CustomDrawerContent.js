@@ -1,8 +1,7 @@
 import React from 'react'
-import { View, } from 'react-native';
+import { View, Image } from 'react-native';
 import { Ionicons, Foundation, MaterialCommunityIcons, MaterialIcons, Entypo } from '@expo/vector-icons';
 
-import { DIVIDE_COLOR } from '../../Shared/Theme';
 
 import DrawerUser from './DrawerUser';
 import ThemeSetting from './ThemeSetting';
@@ -31,12 +30,23 @@ const CustomDrawerContent = (props) => {
 
    return (
       <DrawerContentScrollView {...props}>
-         <CustomText style={{
+
+         <View style={{
+            flexDirection: 'row',
+            paddingTop: 20,
             paddingLeft: 20,
-            paddingVertical: 15,
-            fontSize: 22,
-            color: txtColor
-         }}>Football_Follow</CustomText>
+            alignItems: 'center'
+         }}
+
+         >
+            <Image
+               style={{ height: 80, width: 80, resizeMode: 'contain' }}
+               source={require('../../../assets/FootballFollow/android/ic_launcher-web.png')}
+            />
+            <CustomText style={{ fontSize: 22, marginLeft: 10 }}>Football Follow</CustomText>
+         </View>
+
+
 
          {/* <View style={{
             height: 5,
@@ -45,10 +55,10 @@ const CustomDrawerContent = (props) => {
          {/**USER/LOGIN section */}
          {/* <DrawerUser navigation={props.navigation} /> */}
 
-         <View style={{
+         {/* <View style={{
             height: 5,
             backgroundColor: bg_color,
-         }} />
+         }} /> */}
 
          {/**SETTINGS section */}
          <DrawerSectionTitle title={'settings'} />

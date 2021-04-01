@@ -33,7 +33,7 @@ const ClubItem = ({ teamName, img, goal, theme }) => {
          {flag}
          <View style={styles.details}>
             <CustomText style={{ color: theme == 'dark' ? '#aaa' : 'black' }} >{teamName}</CustomText>
-            <CustomText title bold medium>{goal}</CustomText>
+            <CustomText medium bold>{goal}</CustomText>
          </View>
       </View>
    )
@@ -82,7 +82,6 @@ const GameItem = ({ matchItem, liked = false, inDetail = false }) => {
                />
 
             </View>
-
 
             { liked == false ? (
                <TouchableOpacity style={styles.likeBtn}
@@ -136,7 +135,7 @@ const GameItem = ({ matchItem, liked = false, inDetail = false }) => {
 
                <View style={styles.clubDetails}>
                   {Platform.OS === 'ios' || Platform.OS === 'android' ? (
-                     <SvgUri width={25} height={25} uri={img} source={{ uri: matchItem.homeTeam.crestUrl, }} />
+                     <SvgUri width={25} height={25} uri={matchItem.homeTeam.crestUrl} source={{ uri: matchItem.homeTeam.crestUrl, }} />
                   ) : (
                      <Image style={{ height: 25, width: 25 }} source={{ uri: matchItem.homeTeam.crestUrl, }} />
                   )}
@@ -154,7 +153,7 @@ const GameItem = ({ matchItem, liked = false, inDetail = false }) => {
 
                <View style={styles.clubDetails}>
                   {Platform.OS === 'ios' || Platform.OS === 'android' ? (
-                     <SvgUri width={25} height={25} uri={img} source={{ uri: matchItem.awayTeam.crestUrl, }} />
+                     <SvgUri width={25} height={25} uri={matchItem.awayTeam.crestUrl} source={{ uri: matchItem.awayTeam.crestUrl, }} />
                   ) : (
                      <Image style={{ height: 25, width: 25 }} source={{ uri: matchItem.awayTeam.crestUrl, }} />
                   )}

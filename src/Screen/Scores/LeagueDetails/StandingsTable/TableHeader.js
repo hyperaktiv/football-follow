@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { DIVIDE_COLOR } from '../../../../Shared/Theme';
-import { MText } from '../../../../Shared/StyledComponents/MText';
 import CustomText from '../../../../Shared/CustomText';
 
 const TableHeader = () => {

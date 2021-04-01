@@ -22,7 +22,7 @@ const ClubItem = ({ teamName, img, goal, theme }) => {
          )}
          <View style={styles.details}>
             <CustomText style={{ color: theme == 'dark' ? '#aaa' : 'black' }} >{teamName}</CustomText>
-            <CustomText title bold medium>{goal}</CustomText>
+            <CustomText medium bold>{goal}</CustomText>
          </View>
       </View>
    )

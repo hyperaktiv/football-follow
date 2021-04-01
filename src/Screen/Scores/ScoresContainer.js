@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, ScrollView, RefreshControl } from 'react-native';
+import { View, StyleSheet, ScrollView, RefreshControl, Dimensions } from 'react-native';
 import { pgHorizontal, DIVIDE_COLOR, MAIN_COLOR } from '../../Shared/Theme';
 import CalendarStrip from 'react-native-calendar-strip';
 
@@ -177,6 +177,7 @@ const ScoresContainer = ({ navigation }) => {
                style={{
                   height: 70,
                }}
+               innerStyle={[]}
                selectedDate={selectedDate.format('YYYY-MM-DD')}
                onDateSelected={(date) => {
                   setSelectedDate(date);
@@ -184,7 +185,10 @@ const ScoresContainer = ({ navigation }) => {
                minDate={minDate}
                maxDate={maxDate}
                calendarColor={bg_color}
-               calendarHeaderStyle={{ color: txtColor, marginBottom: -5, marginTop: 5 }}
+               calendarHeaderStyle={{
+                  color: txtColor,
+                  marginBottom: 10,
+               }}
                dateNumberStyle={{ color: txtColor }}
                dateNameStyle={{ color: txtColor }}
                calendarAnimation={{ type: 'sequence', duration: 30 }}

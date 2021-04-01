@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, ScrollView } from 'react-native'
 import {
    MaterialCommunityIcons,
    Ionicons
@@ -9,7 +9,7 @@ import CustomText from '../../Shared/CustomText';
 
 import { useSelector } from 'react-redux';
 import { THEMES } from '../../Redux/Reducers/theme';
-import { pgHorizontal } from '../../Shared/Theme';
+import { MAIN_COLOR, pgHorizontal } from '../../Shared/Theme';
 
 import moment from 'moment';
 
@@ -24,12 +24,12 @@ const GameDetails = ({ route }) => {
    const { matchItem } = route.params;
 
    return (
-      <View style={{ flex: 1, backgroundColor: bg_color, paddingHorizontal: pgHorizontal }}>
+      <ScrollView style={{ flex: 1, backgroundColor: bg_color, paddingHorizontal: pgHorizontal }}>
 
          <GameItem matchItem={matchItem} inDetail={true} />
 
          <View style={[styles.rowTitle, { borderBottomWidth: 1, borderColor: divide_color, marginTop: 5 }]}>
-            <CustomText>Match Info</CustomText>
+            <CustomText bold style={{ color: MAIN_COLOR }} >Match Info</CustomText>
          </View>
 
          <View style={[styles.row, { borderBottomWidth: 1, borderColor: divide_color }]}>
@@ -98,9 +98,7 @@ const GameDetails = ({ route }) => {
             <View
                style={{
                   flex: 4,
-                  borderBottomWidth: 1,
                   paddingLeft: 10,
-                  borderColor: divide_color,
                   paddingVertical: 5
                }}>
                <CustomText>{gameDetails.match.venue}</CustomText>
@@ -110,7 +108,7 @@ const GameDetails = ({ route }) => {
 
 
          <View style={[styles.rowTitle, { borderBottomWidth: 1, borderColor: divide_color, marginTop: 5 }]}>
-            <CustomText>Referees</CustomText>
+            <CustomText bold style={{ color: MAIN_COLOR }}>Referees</CustomText>
          </View>
          {gameDetails.match.referees.map(item => {
             return (
@@ -126,6 +124,7 @@ const GameDetails = ({ route }) => {
                      style={{
                         flex: 4,
                         paddingLeft: 10,
+                        justifyContent: 'center'
                      }}>
                      <CustomText>{item.name}</CustomText>
                      <CustomText style={{ fontSize: 12 }}>{item.nationality}</CustomText>
@@ -133,7 +132,7 @@ const GameDetails = ({ route }) => {
                </View>
             )
          })}
-      </View>
+      </ScrollView>
    );
 }
 const styles = StyleSheet.create({

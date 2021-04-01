@@ -101,6 +101,7 @@ const HighlightScreen = () => {
             paddingTop: 10,
             backgroundColor: bg_color,
             paddingTop: 5,
+            paddingVertical: 15
          }}>
             <FlatList
                data={highlights}

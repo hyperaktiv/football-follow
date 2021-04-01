@@ -6,30 +6,33 @@ import { THEMES } from '../../../../Redux/Reducers/theme';
 import TableHeader from './TableHeader';
 import TableRow from './TableRow';
 
-const ScoresStandings = ({ leagueCode, name, country }) => {
+
+const ScoresStandings = ({ leagueCode, name, country, scoresData }) => {
 
    const theme = useSelector(state => state.theme);
    const bg_color = THEMES[theme].bg_color;
    const divide_color = THEMES[theme].divide_color;
-   const gameColor = THEMES[theme].gameColor
+   const gameColor = THEMES[theme].gameColor;
 
-   const [scoresData, setScoresData] = useState([]);
-   useEffect(() => {
-      let tempData;
-      if (leagueCode == 'PL') tempData = require('../../data/plScores.json');
-      if (leagueCode == 'SA') tempData = require('../../data/saScores.json');
-      if (leagueCode == 'BL1') tempData = require('../../data/bl1Scores.json');
-      setScoresData(tempData.scorers);
+   // const [scoresData, setScoresData] = useState([]);
+   // useEffect(() => {
+   //    let tempData;
+   //    if (leagueCode == 'PL') tempData = require('../../data/plScores.json');
+   //    if (leagueCode == 'SA') tempData = require('../../data/saScores.json');
+   //    if (leagueCode == 'BL1') tempData = require('../../data/bl1Scores.json');
+   //    setScoresData(tempData.scorers);
 
-      return () => {
-         setScoresData([]);
-      }
-   }, []);
+   //    return () => {
+   //       setScoresData([]);
+   //    }
+   // }, []);
+
 
    return (
       <View style={{
          flex: 1,
-         backgroundColor: bg_color
+         backgroundColor: bg_color,
+         paddingHorizontal: 5
       }}>
 
          <TableHeader />

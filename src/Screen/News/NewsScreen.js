@@ -61,7 +61,8 @@ const NewsScreen = () => {
          flex: 1,
          backgroundColor: bg_color,
          paddingHorizontal: 5,
-         paddingTop: 5
+         paddingTop: 5,
+         paddingVertical: 15
       }}>
 
          <FlatList

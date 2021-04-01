@@ -22,7 +22,7 @@ function IconWithBadge({ routeName, badgeCount, color, size }) {
                   right: -6,
                   top: -7,
                   backgroundColor: 'red',
-                  borderRadius: '50%',
+                  borderRadius: 10,
                   width: 17,
                   height: 17,
                   justifyContent: 'center',

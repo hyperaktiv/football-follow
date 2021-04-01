@@ -7,30 +7,30 @@ import TableFooter from './TableFooter';
 import { useSelector } from 'react-redux';
 import { THEMES } from '../../../../Redux/Reducers/theme';
 
-
-const Standings = ({ leagueCode, name, country }) => {
+const Standings = ({ leagueCode, name, country, standingData }) => {
 
    const theme = useSelector(state => state.theme);
    const bg_color = THEMES[theme].bg_color;
    const divide_color = THEMES[theme].divide_color;
    const gameColor = THEMES[theme].gameColor;
 
-   const [standingData, setStandingData] = useState([]);
-   useEffect(() => {
-      let tempData;
-      if (leagueCode == 'PL') tempData = require('../../data/plStanding.json');
-      if (leagueCode == 'SA') tempData = require('../../data/saStanding.json');
-      if (leagueCode == 'BL1') tempData = require('../../data/bl1Standing.json');
-      setStandingData(tempData.standings[0].table);
-      return () => {
-         setStandingData([]);
-      }
-   }, []);
+   // const [standingData, setStandingData] = useState([]);
+   // useEffect(() => {
+   //    let tempData;
+   //    if (leagueCode == 'PL') tempData = require('../../data/plStanding.json');
+   //    if (leagueCode == 'SA') tempData = require('../../data/saStanding.json');
+   //    if (leagueCode == 'BL1') tempData = require('../../data/bl1Standing.json');
+   //    setStandingData(tempData.standings[0].table);
+   //    return () => {
+   //       setStandingData([]);
+   //    }
+   // }, []);
 
    return (
       <View style={{
          flex: 1,
-         backgroundColor: bg_color
+         backgroundColor: bg_color,
+         paddingHorizontal: 5
       }}>
          <TableHeader />
          <FlatList

@@ -27,7 +27,7 @@ const Header = ({ title, backAction = false, search = true }) => {
       <>
          <View style={{
             backgroundColor: bg_color,
-            height: Platform.OS === 'ios' ? Constants.statusBarHeight : StatusBar.currentHeight,
+            height: Platform.OS === 'ios' ? Constants.statusBarHeight : 0,
          }}>
             <StatusBar
                barStyle={theme == 'dark' ? "light-content" : "dark-content"}
